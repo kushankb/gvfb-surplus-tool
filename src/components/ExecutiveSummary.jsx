@@ -92,26 +92,6 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
 
   return (
     <div>
-      {/* Narrative banner */}
-      <div style={{
-        background: 'linear-gradient(135deg, #e8f3fb, #d1fae5)',
-        borderRadius: 'var(--radius-lg)', padding: '18px 24px', marginBottom: 20,
-        border: '1px solid #bee3f8',
-      }}>
-        <div style={{ fontSize: 15, fontWeight: 600, color: '#0f4c81', marginBottom: 4 }}>
-          📊 BC Produce Surplus — {year}
-        </div>
-        <div style={{ fontSize: 13, color: '#374151', lineHeight: 1.7 }}>
-          In <strong>{year}</strong>, British Columbia had an estimated <strong>{fmt(yearSummary.total_t)}</strong> of
-          recoverable produce surplus. Based on Canada's Food Guide recommendation of{' '}
-          <strong>560 g/person/day</strong> (7 servings × 80 g), this could cover the annual produce
-          requirements of <strong style={{ color: '#059669' }}>{fmtPeople(yearSummary.total_t)}</strong>.{' '}
-          Farm-gate surplus — produce rejected before entering the supply chain — accounts
-          for <strong>{fmt(yearSummary.farmgate_t)}</strong>, the primary target for GVFB farm procurement.
-          {yoyPct && <> Total surplus changed by <strong style={{ color: yoyTrend === 'up' ? 'var(--accent2)' : 'var(--danger)' }}>{yoyPct > 0 ? '+' : ''}{yoyPct}%</strong> year-over-year.</>}
-        </div>
-      </div>
-
       {/* KPI row — 4 cards, person-days removed */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 14, marginBottom: 18 }}>
         <KPICard
@@ -212,12 +192,14 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
           <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>Top Surplus Items — {year}</div>
           <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 16 }}>Total recoverable by produce (tonnes)</div>
           <ResponsiveContainer width="100%" height={200}>
-            <BarChart data={topItems} layout="vertical" margin={{ top: 0, right: 16, left: 80, bottom: 0 }}>
+            <BarChart data={topItems} layout="vertical" margin={{ top: 0, right: 64, left: 80, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" horizontal={false} />
               <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={v => `${(v/1000).toFixed(0)}k`} />
               <YAxis type="category" dataKey="item" tick={{ fontSize: 11 }} width={78} />
               <Tooltip formatter={(v) => [`${Math.round(v).toLocaleString()} t`, 'Surplus']} />
-              <Bar dataKey="total_t" name="Total Surplus" radius={[0,3,3,0]}>
+              <Bar dataKey="total_t" name="Total Surplus" radius={[0,3,3,0]}
+                label={{ position: 'right', fontSize: 10, fill: '#6b7280',
+                  formatter: v => v >= 1000 ? `${(v/1000).toFixed(1)}k t` : `${Math.round(v)} t` }}>
                 {topItems.map((entry, i) => (
                   <Cell key={i} fill={entry.category === 'Fruits' ? '#f59e0b' : '#059669'} opacity={0.85} />
                 ))}

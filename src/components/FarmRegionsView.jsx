@@ -183,8 +183,8 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
         </p>
       </div>
 
-      {/* Top row: Map + Seasonal */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 16, marginBottom: 16 }}>
+      {/* Two-column: Map left | Seasonality + Rankings right */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 16 }}>
 
         {/* ── MAP ── */}
         <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '18px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)' }}>
@@ -253,34 +253,50 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
                 )
               })}
 
-              {/* Colour scale legend */}
-              <g transform={`translate(${W / 2 - 65}, ${H - 20})`}>
-                <text x={-6} y={9} textAnchor="end" fontSize={8} fill="#475569">Less</text>
-                {[0.05, 0.20, 0.38, 0.56, 0.74, 0.92].map((v, i) => (
-                  <rect key={i} x={i * 18} y={0} width={17} height={10} rx={1}
-                    fill="#2166ac" fillOpacity={0.30 + v * 0.65} />
-                ))}
-                <text x={6 * 18 + 4} y={9} fontSize={8} fill="#475569">More</text>
-              </g>
+              {/* Legend: one swatch per region, matching actual map colors */}
+              {(() => {
+                const items = Object.entries(CAR_COLORS)
+                const cols  = 2
+                const rows  = Math.ceil(items.length / cols)
+                const cellW = W / cols
+                const startY = H - rows * 13 - 4
+                return items.map(([uid, color], i) => {
+                  const col = i % cols
+                  const row = Math.floor(i / cols)
+                  const x   = col * cellW + 10
+                  const y   = startY + row * 13
+                  return (
+                    <g key={`leg-${uid}`} style={{ pointerEvents: 'none' }}>
+                      <rect x={x} y={y} width={10} height={10} rx={2}
+                        fill={color} fillOpacity={0.80} />
+                      <text x={x + 13} y={y + 8} fontSize={7.5} fill="#374151">
+                        {CAR_SHORT[uid]}
+                      </text>
+                    </g>
+                  )
+                })
+              })()}
             </svg>
           )}
 
           <RegionTooltip uid={hovered} info={hovInfo} totalFG={totalFG} />
         </div>
 
-        {/* ── SEASONAL BARS ── */}
-        <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '18px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)', display: 'flex', flexDirection: 'column' }}>
-          <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 2 }}>Monthly Seasonality — {year}</div>
-          <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 16 }}>
-            Farm-gate surplus by month · peak month in green
-          </div>
-          <div style={{ flex: 1 }}>
-            <ResponsiveContainer width="100%" height={260}>
-              <BarChart data={monthAgg} margin={{ top: 4, right: 8, left: -8, bottom: 0 }}>
+        {/* ── RIGHT COLUMN: Seasonality + Rankings stacked ── */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+
+          {/* Monthly seasonality — compact */}
+          <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '16px 18px 12px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)' }}>
+            <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 2 }}>Monthly Seasonality — {year}</div>
+            <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 10 }}>
+              Farm-gate surplus by month · peak month in green
+            </div>
+            <ResponsiveContainer width="100%" height={160}>
+              <BarChart data={monthAgg} margin={{ top: 2, right: 4, left: -12, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" />
-                <XAxis dataKey="label" tick={{ fontSize: 10 }} />
+                <XAxis dataKey="label" tick={{ fontSize: 9 }} />
                 <YAxis
-                  tick={{ fontSize: 10 }}
+                  tick={{ fontSize: 9 }}
                   tickFormatter={v => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}
                   domain={[0, dataMax => Math.ceil(dataMax * 1.15 / 500) * 500]}
                 />
@@ -293,45 +309,43 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
               </BarChart>
             </ResponsiveContainer>
           </div>
-          <div style={{ marginTop: 10, fontSize: 12, color: 'var(--text-muted)', background: 'var(--surface2)', borderRadius: 6, padding: '8px 12px' }}>
-            Seasonal distribution based on GVFB Farm-to-Community donation data and BC Ministry of Agriculture harvest calendars.
-          </div>
-        </div>
-      </div>
 
-      {/* ── REGIONAL RANKINGS ── */}
-      <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '18px 20px 14px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)' }}>
-        <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>Ranked by Region — {year}</div>
-        <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 14 }}>
-          Farm-gate surplus by Census Agricultural Region · hover bar to highlight on map
-        </div>
-        <ResponsiveContainer width="100%" height={200}>
-          <BarChart data={carTotals} layout="vertical" margin={{ top: 0, right: 50, left: 8, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" horizontal={false} />
-            <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={v => `${Math.round(v / 1000)}k`} />
-            <YAxis type="category" dataKey="car_name" tick={{ fontSize: 11 }} width={165}
-              tickFormatter={n => n.replace('Lower Mainland – ', 'LM – ').replace('Vancouver Island – ', 'VI – ').replace('Thompson – ', 'T – ')} />
-            <Tooltip
-              formatter={v => [`${Math.round(v).toLocaleString()} t`, 'Farm-gate surplus']}
-              labelFormatter={n => n}
-            />
-            <Bar dataKey="farmgate_t" radius={[0, 4, 4, 0]} isAnimationActive={false}
-              onMouseEnter={d => setHovered(d.uid)}
-              onMouseLeave={() => setHovered(null)}>
-              {carTotals.map((d, i) => (
-                <Cell key={i}
-                  fill={CAR_COLORS[d.uid] || '#94a3b8'}
-                  fillOpacity={hovered == null || hovered === d.uid ? 0.85 : 0.3}
+          {/* Regional rankings */}
+          <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '16px 18px 12px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)', flex: 1 }}>
+            <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 2 }}>Ranked by Region — {year}</div>
+            <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 10 }}>
+              Farm-gate surplus · hover to highlight on map
+            </div>
+            <ResponsiveContainer width="100%" height={200}>
+              <BarChart data={carTotals} layout="vertical" margin={{ top: 0, right: 10, left: 4, bottom: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" horizontal={false} />
+                <XAxis type="number" tick={{ fontSize: 9 }} tickFormatter={v => `${Math.round(v / 1000)}k`} />
+                <YAxis type="category" dataKey="car_name" tick={{ fontSize: 9 }} width={130}
+                  tickFormatter={n => n.replace('Lower Mainland – ', 'LM – ').replace('Vancouver Island – ', 'VI – ').replace('Thompson – ', 'T – ')} />
+                <Tooltip
+                  formatter={v => [`${Math.round(v).toLocaleString()} t`, 'Farm-gate surplus']}
+                  labelFormatter={n => n}
                 />
-              ))}
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
+                <Bar dataKey="farmgate_t" radius={[0, 4, 4, 0]} isAnimationActive={false}
+                  onMouseEnter={d => setHovered(d.uid)}
+                  onMouseLeave={() => setHovered(null)}>
+                  {carTotals.map((d, i) => (
+                    <Cell key={i}
+                      fill={CAR_COLORS[d.uid] || '#94a3b8'}
+                      fillOpacity={hovered == null || hovered === d.uid ? 0.85 : 0.3}
+                    />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+
+        </div>
       </div>
 
       {/* Source note */}
-      <div style={{ marginTop: 12, background: 'var(--surface2)', borderRadius: 8, padding: '10px 16px', border: '1px solid var(--border)', fontSize: 12, color: 'var(--text-secondary)' }}>
-        <strong>Farm-gate only.</strong> Regional shares derived from Statistics Canada Census of Agriculture area data (2011/2016/2021, linearly interpolated). Second Harvest (2024) marketability loss rates applied to StatsCan production by crop.
+      <div style={{ marginTop: 12, background: 'var(--surface2)', borderRadius: 8, padding: '9px 14px', border: '1px solid var(--border)', fontSize: 11, color: 'var(--text-muted)' }}>
+        <strong>Farm-gate only.</strong> Regional shares from Statistics Canada Census of Agriculture (2011/2016/2021). Loss rates from Second Harvest (2024). Seasonal patterns from GVFB Farm-to-Community data and BC Ministry of Agriculture harvest calendars.
       </div>
     </div>
   )
