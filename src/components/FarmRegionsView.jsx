@@ -3,6 +3,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
 
+// Distinct colors used only in the ranked bar chart (not the choropleth map)
 const CAR_COLORS = {
   '5901': '#2166ac',
   '5902': '#4393c3',
@@ -12,6 +13,16 @@ const CAR_COLORS = {
   '5906': '#f4a582',
   '5907': '#d6604d',
   '5908': '#b2182b',
+}
+
+// Choropleth: single green hue, intensity driven by surplus value
+// Returns an rgb string interpolated from light (#d1fae5) → dark (#065f46)
+function choroColor(intensity) {
+  // light endpoint: 209,250,229  dark endpoint: 6,95,70
+  const r = Math.round(209 + (6   - 209) * intensity)
+  const g = Math.round(250 + (95  - 250) * intensity)
+  const b = Math.round(229 + (70  - 229) * intensity)
+  return `rgb(${r},${g},${b})`
 }
 
 const CAR_NAMES = {
@@ -202,16 +213,24 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
             </div>
           ) : (
             <svg viewBox={`0 0 ${W} ${H}`} style={{ width: '100%', height: 'auto', display: 'block' }}>
-              {/* Background */}
-              <rect width={W} height={H} fill="#dbeafe" rx={6} />
+              <defs>
+                {/* Continuous gradient for the legend bar */}
+                <linearGradient id="choroGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%"   stopColor={choroColor(0)} />
+                  <stop offset="100%" stopColor={choroColor(1)} />
+                </linearGradient>
+              </defs>
 
-              {/* Region polygons */}
+              {/* Ocean background */}
+              <rect width={W} height={H} fill="#e0f2fe" rx={6} />
+
+              {/* Region polygons — single green choropleth */}
               {geojson.features.map(f => {
-                const uid  = f.properties.CARUID
-                const info = carTotals.find(d => d.uid === uid)
-                const val  = info?.farmgate_t || 0
+                const uid       = f.properties.CARUID
+                const info      = carTotals.find(d => d.uid === uid)
+                const val       = info?.farmgate_t || 0
                 const intensity = val / maxVal
-                const isHov = hovered === uid
+                const isHov     = hovered === uid
 
                 return (
                   <g key={uid}
@@ -220,11 +239,10 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
                     style={{ cursor: 'pointer' }}>
                     <path
                       d={paths[uid] || ''}
-                      fill={CAR_COLORS[uid] || '#94a3b8'}
-                      fillOpacity={0.30 + intensity * 0.65}
+                      fill={choroColor(intensity)}
                       stroke={isHov ? '#0f172a' : '#fff'}
                       strokeWidth={isHov ? 2 : 0.8}
-                      style={{ transition: 'fill-opacity .2s, stroke-width .15s' }}
+                      style={{ transition: 'fill .2s, stroke-width .15s' }}
                     />
                   </g>
                 )
@@ -232,12 +250,12 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
 
               {/* Region labels */}
               {geojson.features.map(f => {
-                const uid = f.properties.CARUID
-                const [cx, cy] = centroids[uid] || [0, 0]
-                const info = carTotals.find(d => d.uid === uid)
-                const val  = info?.farmgate_t || 0
+                const uid       = f.properties.CARUID
+                const [cx, cy]  = centroids[uid] || [0, 0]
+                const info      = carTotals.find(d => d.uid === uid)
+                const val       = info?.farmgate_t || 0
                 const intensity = val / maxVal
-                const dark = intensity > 0.55
+                const dark      = intensity > 0.5   // switch to white text on darker fills
 
                 return (
                   <g key={`lbl-${uid}`} style={{ pointerEvents: 'none', userSelect: 'none' }}>
@@ -246,35 +264,35 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
                       {CAR_SHORT[uid] || uid}
                     </text>
                     <text x={cx} y={cy + 7} textAnchor="middle" fontSize={8}
-                      fill={dark ? 'rgba(255,255,255,0.85)' : '#475569'} fontWeight="500">
+                      fill={dark ? 'rgba(255,255,255,0.85)' : '#374151'} fontWeight="500">
                       {val >= 1000 ? `${(val / 1000).toFixed(1)}k t` : `${Math.round(val)} t`}
                     </text>
                   </g>
                 )
               })}
 
-              {/* Legend: one swatch per region, matching actual map colors */}
+              {/* Continuous gradient legend */}
               {(() => {
-                const items = Object.entries(CAR_COLORS)
-                const cols  = 2
-                const rows  = Math.ceil(items.length / cols)
-                const cellW = W / cols
-                const startY = H - rows * 13 - 4
-                return items.map(([uid, color], i) => {
-                  const col = i % cols
-                  const row = Math.floor(i / cols)
-                  const x   = col * cellW + 10
-                  const y   = startY + row * 13
-                  return (
-                    <g key={`leg-${uid}`} style={{ pointerEvents: 'none' }}>
-                      <rect x={x} y={y} width={10} height={10} rx={2}
-                        fill={color} fillOpacity={0.80} />
-                      <text x={x + 13} y={y + 8} fontSize={7.5} fill="#374151">
-                        {CAR_SHORT[uid]}
-                      </text>
-                    </g>
-                  )
-                })
+                const legW = 160, legH = 10
+                const legX = (W - legW) / 2
+                const legY = H - 22
+                const minLabel = '0 t'
+                const maxLabel = fmt(maxVal)
+                return (
+                  <g>
+                    <rect x={legX} y={legY} width={legW} height={legH} rx={3}
+                      fill="url(#choroGrad)" />
+                    <text x={legX} y={legY + legH + 9} fontSize={8} fill="#475569" textAnchor="start">
+                      {minLabel}
+                    </text>
+                    <text x={legX + legW / 2} y={legY - 3} fontSize={8} fill="#475569" textAnchor="middle">
+                      Farm-gate surplus
+                    </text>
+                    <text x={legX + legW} y={legY + legH + 9} fontSize={8} fill="#475569" textAnchor="end">
+                      {maxLabel}
+                    </text>
+                  </g>
+                )
               })()}
             </svg>
           )}
