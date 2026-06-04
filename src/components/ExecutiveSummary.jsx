@@ -192,13 +192,13 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
           <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>Top Surplus Items — {year}</div>
           <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 16 }}>Total recoverable by produce (tonnes)</div>
           <ResponsiveContainer width="100%" height={200}>
-            <BarChart data={topItems} layout="vertical" margin={{ top: 0, right: 64, left: 80, bottom: 0 }}>
+            <BarChart data={topItems} layout="vertical" margin={{ top: 0, right: 80, left: 80, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" horizontal={false} />
               <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={v => `${(v/1000).toFixed(0)}k`} />
               <YAxis type="category" dataKey="item" tick={{ fontSize: 11 }} width={78} />
               <Tooltip formatter={(v) => [`${Math.round(v).toLocaleString()} t`, 'Surplus']} />
               <Bar dataKey="total_t" name="Total Surplus" radius={[0,3,3,0]}
-                label={{ position: 'right', fontSize: 10, fill: '#6b7280',
+                label={{ position: 'right', fontSize: 9, fill: '#9ca3af',
                   formatter: v => v >= 1000 ? `${(v/1000).toFixed(1)}k t` : `${Math.round(v)} t` }}>
                 {topItems.map((entry, i) => (
                   <Cell key={i} fill={entry.category === 'Fruits' ? '#f59e0b' : '#059669'} opacity={0.85} />
