@@ -157,8 +157,8 @@ export default function ProduceExplorer({ items, allItems, year, allYears, surpl
               <YAxis type="category" dataKey="item" tick={{ fontSize:11 }} width={125} />
               <Tooltip formatter={(v, n) => [`${Math.round(v||0).toLocaleString()} t`, n]} />
               <Legend wrapperStyle={{ fontSize:11 }} />
-              <Bar dataKey="farmgate_t" name="Farm-Gate" stackId="a" fill="#059669" opacity={0.85} radius={[0,0,0,0]} />
-              <Bar dataKey="retail_t" name="Retail" stackId="a" fill="#f59e0b" opacity={0.85} radius={[0,3,3,0]} />
+              <Bar dataKey="farmgate_t" name="Farm-Gate" stackId="a" fill="#1d6fa4" opacity={0.85} radius={[0,0,0,0]} />
+              <Bar dataKey="retail_t" name="Retail" stackId="a" fill="#7c3aed" opacity={0.85} radius={[0,3,3,0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
