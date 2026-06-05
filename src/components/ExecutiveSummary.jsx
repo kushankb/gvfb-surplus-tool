@@ -207,7 +207,7 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
                       y={y + height / 2}
                       textAnchor="end"
                       dominantBaseline="middle"
-                      fontSize={8}
+                      fontSize={7}
                       fill="rgba(255,255,255,0.92)"
                     >{label}</text>
                   )
