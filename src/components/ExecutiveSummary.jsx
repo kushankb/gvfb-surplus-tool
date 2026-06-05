@@ -199,17 +199,16 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
               <Tooltip formatter={(v) => [`${Math.round(v).toLocaleString()} t`, 'Surplus']} />
               <Bar dataKey="total_t" name="Total Surplus" radius={[0,3,3,0]}
                 label={({ x, y, width, height, value }) => {
-                  if (!value) return null
+                  if (!value || width < 45) return null   // skip label if bar too narrow
                   const label = value >= 1000 ? `${(value/1000).toFixed(1)}k t` : `${Math.round(value)} t`
-                  const inside = width > 55
                   return (
                     <text
-                      x={inside ? x + width - 5 : x + width + 5}
+                      x={x + width - 5}
                       y={y + height / 2}
-                      textAnchor={inside ? 'end' : 'start'}
+                      textAnchor="end"
                       dominantBaseline="middle"
                       fontSize={8}
-                      fill={inside ? 'rgba(255,255,255,0.9)' : '#9ca3af'}
+                      fill="rgba(255,255,255,0.92)"
                     >{label}</text>
                   )
                 }}>
