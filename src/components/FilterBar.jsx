@@ -4,6 +4,7 @@ const TABS = [
   { id: 'executive', label: 'Overview' },
   { id: 'regions',   label: 'Regions & Seasons' },
   { id: 'produce',   label: 'By Produce' },
+  { id: 'ftc',       label: 'FTC Procurement' },
 ]
 
 const SURPLUS_TYPES = [

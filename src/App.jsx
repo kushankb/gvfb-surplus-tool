@@ -4,22 +4,23 @@ import FilterBar from './components/FilterBar'
 import ExecutiveSummary from './components/ExecutiveSummary'
 import FarmRegionsView from './components/FarmRegionsView'
 import ProduceExplorer from './components/ProduceExplorer'
+import FTCView from './components/FTCView'
 import AboutModal from './components/AboutModal'
 import summaryData from './data/summary.json'
 import byItemData from './data/byItem.json'
 import monthlyData from './data/monthly.json'
-import byCARData from './data/byCAR.json'
 import byCARItemData from './data/byCARItem.json'
+import gvfbProcured from './data/gvfbProcured.json'
 
 const ITEMS = [...new Set(byItemData.map(d => d.item))].sort()
 const YEARS = [...new Set(summaryData.map(d => d.year))].sort()
 
 export default function App() {
-  const [year, setYear]           = useState(2022)
-  const [item, setItem]           = useState('All')
+  const [year, setYear]               = useState(2022)
+  const [item, setItem]               = useState('All')
   const [surplusType, setSurplusType] = useState('total')
-  const [activeTab, setActiveTab] = useState('executive')
-  const [showAbout, setShowAbout] = useState(false)
+  const [activeTab, setActiveTab]     = useState('executive')
+  const [showAbout, setShowAbout]     = useState(false)
 
   const yearSummary = useMemo(() =>
     summaryData.find(d => d.year === year) || summaryData[summaryData.length - 1], [year])
@@ -32,6 +33,13 @@ export default function App() {
 
   const filteredCAR = useMemo(() =>
     byCARItemData.filter(d => d.year === year && (item === 'All' || d.item === item)), [year, item])
+
+  // GVFB FTC totals for Overview callout
+  const ftcTotals = useMemo(() => {
+    const t = {}
+    gvfbProcured.forEach(d => { t[d.year] = (t[d.year] || 0) + d.procured_t })
+    return t
+  }, [])
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
@@ -48,6 +56,7 @@ export default function App() {
           <ExecutiveSummary
             yearSummary={yearSummary} allYears={summaryData}
             year={year} filteredItems={filteredItems}
+            ftcTotals={ftcTotals}
           />
         )}
         {activeTab === 'regions' && (
@@ -61,6 +70,13 @@ export default function App() {
           <ProduceExplorer
             items={filteredItems} allItems={byItemData}
             year={year} allYears={YEARS} surplusType={surplusType}
+          />
+        )}
+        {activeTab === 'ftc' && (
+          <FTCView
+            procured={gvfbProcured}
+            byItem={byItemData}
+            years={YEARS}
           />
         )}
       </main>

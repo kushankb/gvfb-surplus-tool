@@ -67,7 +67,7 @@ const CustomTooltip = ({ active, payload, label }) => {
   )
 }
 
-export default function ExecutiveSummary({ yearSummary, allYears, year, filteredItems }) {
+export default function ExecutiveSummary({ yearSummary, allYears, year, filteredItems, ftcTotals = {} }) {
   if (!yearSummary) return null
 
   const prevYear = allYears.find(d => d.year === year - 1)
@@ -216,6 +216,31 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
           </div>
         </div>
       </div>
+
+      {/* GVFB FTC callout */}
+      {(ftcTotals[2024] || ftcTotals[2025]) && (
+        <div style={{
+          background: 'linear-gradient(135deg, #e8f3fb, #f0fdf4)',
+          border: '1px solid #bee3f8', borderRadius: 10, padding: '14px 20px', marginBottom: 12,
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12,
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <span style={{ fontSize: 22 }}>🚜</span>
+            <div>
+              <div style={{ fontSize: 13, fontWeight: 700, color: '#0f4c81' }}>GVFB Farm-to-Community Collections</div>
+              <div style={{ fontSize: 12, color: '#374151', marginTop: 2 }}>
+                {ftcTotals[2024] && <span><strong>{Math.round(ftcTotals[2024]).toLocaleString()} t</strong> collected in 2024</span>}
+                {ftcTotals[2024] && ftcTotals[2025] && <span style={{ color: '#9ca3af' }}> · </span>}
+                {ftcTotals[2025] && <span><strong>{Math.round(ftcTotals[2025]).toLocaleString()} t</strong> in 2025</span>}
+                {' '}through the FTC farm procurement program.
+              </div>
+            </div>
+          </div>
+          <div style={{ fontSize: 11, color: '#1d6fa4', fontWeight: 500, whiteSpace: 'nowrap' }}>
+            See <em>FTC Procurement</em> tab for details →
+          </div>
+        </div>
+      )}
 
       <div style={{ background: 'var(--surface2)', borderRadius: 8, padding: '9px 14px', border: '1px solid var(--border)', fontSize: 11, color: 'var(--text-muted)' }}>
         Farm-gate: Second Harvest (2024) loss rates × StatsCan production · Retail: provincial mass balance (CIMT + FAOSTAT) · Shaded area = extrapolated / preliminary · ±30% uncertainty · Click <em>About this tool</em> for full methodology.
