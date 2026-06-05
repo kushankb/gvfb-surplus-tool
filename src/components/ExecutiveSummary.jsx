@@ -192,10 +192,10 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
           <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>Top Surplus Items — {year}</div>
           <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 16 }}>Total recoverable by produce (tonnes)</div>
           <ResponsiveContainer width="100%" height={280}>
-            <BarChart data={topItems} layout="vertical" margin={{ top: 4, right: 16, left: 80, bottom: 0 }}>
+            <BarChart data={topItems} layout="vertical" margin={{ top: 4, right: 16, left: 0, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" horizontal={false} />
-              <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={v => `${(v/1000).toFixed(0)}k`} />
-              <YAxis type="category" dataKey="item" tick={{ fontSize: 11 }} width={78} interval={0} />
+              <XAxis type="number" tick={{ fontSize: 10 }} tickFormatter={v => `${(v/1000).toFixed(0)}k`} />
+              <YAxis type="category" dataKey="item" tick={{ fontSize: 10 }} width={110} interval={0} />
               <Tooltip formatter={(v) => [`${Math.round(v).toLocaleString()} t`, 'Surplus']} />
               <Bar dataKey="total_t" name="Total Surplus" radius={[0,3,3,0]}
                 label={({ x, y, width, height, value }) => {
