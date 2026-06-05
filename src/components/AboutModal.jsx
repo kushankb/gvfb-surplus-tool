@@ -117,6 +117,20 @@ export default function AboutModal({ onClose }) {
           losses involved in actual food recovery.
         </Section>
 
+        <Section icon="🚜" title="What is the Farm Gate Procured tab?">
+          The <strong>Farm Gate Procured</strong> tab shows what GVFB has actually collected from BC farms
+          through its <em>Farm-to-Community (FTC)</em> program, and compares it to the estimated
+          available surplus for each crop.
+          <br /><br />
+          This data comes from <strong>GVFB's internal farm procurement database</strong> — every
+          inbound donation or purchase from a BC farm is logged by product, date, and weight (in pounds,
+          converted here to metric tonnes). It covers <strong>February 2024 to March 2026</strong>.
+          <br /><br />
+          The <em>capture rate</em> — GVFB collected ÷ estimated surplus — shows how much of the
+          potential surplus is currently being reached. A low rate doesn't mean GVFB is underperforming;
+          much of the surplus is geographically dispersed or logistically difficult to access.
+        </Section>
+
         <Section icon="📦" title="Where does the data come from?">
           <ul style={{ paddingLeft: 16, margin: 0, lineHeight: 2 }}>
             <li><strong>Production:</strong> Statistics Canada (fruits, vegetables, greenhouse, potatoes)</li>
@@ -125,6 +139,7 @@ export default function AboutModal({ onClose }) {
             <li><strong>Loss rates:</strong> Second Harvest, "The Avoidable Crisis of Food Waste Update" (2024)</li>
             <li><strong>Regional boundaries:</strong> Statistics Canada Census Agricultural Region file (2021)</li>
             <li><strong>Seasonal patterns:</strong> GVFB Farm-to-Community donation data; BC Ministry of Agriculture harvest calendars</li>
+            <li><strong>Farm Gate Procured:</strong> GVFB internal FTC inbound database (Feb 2024 – Mar 2026) — product names harmonised to Statistics Canada categories</li>
           </ul>
         </Section>
 
