@@ -125,18 +125,18 @@ export default function FTCView({ procured, byItem, years }) {
     <div>
       {/* Header */}
       <div style={{ marginBottom: 20 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 4 }}>GVFB Farm-to-Community (FTC) Procurement</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 4 }}>GVFB Farm Gate Procurement</h2>
         <p style={{ fontSize: 13, color: 'var(--text-secondary)' }}>
-          What GVFB has actually collected from BC farms through the FTC program vs the estimated available surplus.
+          What GVFB has actually collected from BC farms through the farm gate procurement program vs the estimated available surplus.
           Data covers Feb 2024 – Mar 2026.
         </p>
       </div>
 
       {/* KPI row */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: 14, marginBottom: 20 }}>
-        <KPI label="FTC Collected — 2024" value={fmt(t2024)} color="#1d6fa4"
+        <KPI label="Farm Gate Collected — 2024" value={fmt(t2024)} color="#1d6fa4"
           sub={`covers ${fmtPeople(t2024)} annual produce needs`} />
-        <KPI label="FTC Collected — 2025" value={fmt(t2025)} color="#1d6fa4"
+        <KPI label="Farm Gate Collected — 2025" value={fmt(t2025)} color="#1d6fa4"
           sub={yoy ? `${yoy > 0 ? '+' : ''}${yoy}% vs 2024` : 'full-year total'} />
         <KPI label="Total 2024 + 2025" value={fmt(totalAll)} color="#059669"
           sub={`covers ${fmtPeople(totalAll)} annual produce needs`} />
@@ -150,7 +150,7 @@ export default function FTCView({ procured, byItem, years }) {
         padding: '12px 18px', marginBottom: 20, fontSize: 13, color: '#166534', lineHeight: 1.7,
       }}>
         <strong>How to read this:</strong> The grey bars show the estimated total BC farm-gate surplus for each crop
-        (produce rejected before reaching stores). The blue bars show what GVFB's FTC program actually collected.
+        (produce rejected before reaching stores). The blue bars show what GVFB farm gate program actually collected.
         The gap represents surplus that was not recovered — either unavailable to GVFB, discarded, or used elsewhere.
       </div>
 
@@ -190,7 +190,7 @@ export default function FTCView({ procured, byItem, years }) {
 
       {/* Monthly timeline */}
       <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '20px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)', marginBottom: 12 }}>
-        <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>Monthly FTC Collections — Feb 2024 to Mar 2026</div>
+        <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>Monthly Farm Gate Collections — Feb 2024 to Mar 2026</div>
         <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 16 }}>Metric tonnes collected per month across all produce types</div>
         <ResponsiveContainer width="100%" height={200}>
           <LineChart data={monthlyData} margin={{ top: 4, right: 20, left: -8, bottom: 0 }}>
@@ -204,7 +204,7 @@ export default function FTCView({ procured, byItem, years }) {
       </div>
 
       <div style={{ background: 'var(--surface2)', borderRadius: 8, padding: '9px 14px', border: '1px solid var(--border)', fontSize: 11, color: 'var(--text-muted)' }}>
-        <strong>Data source:</strong> GVFB FTC Inbound Data (Feb 2024 – Mar 2026) · Weights converted from pounds to metric tonnes (1 lb = 0.000454 t) ·
+        <strong>Data source:</strong> GVFB Farm-to-Community Inbound Data (Feb 2024 – Mar 2026) · Weights converted from pounds to metric tonnes (1 lb = 0.000454 t) ·
         Product names harmonised to Statistics Canada F&V categories · Cucumbers, mushrooms, and corn have no corresponding surplus estimate.
       </div>
     </div>

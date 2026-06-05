@@ -198,7 +198,7 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
               <YAxis type="category" dataKey="item" tick={{ fontSize: 11 }} width={78} interval={0} />
               <Tooltip formatter={(v) => [`${Math.round(v).toLocaleString()} t`, 'Surplus']} />
               <Bar dataKey="total_t" name="Total Surplus" radius={[0,3,3,0]}>
-                <LabelList dataKey="total_t" position="right" style={{ fontSize: 9, fill: '#9ca3af' }}
+                <LabelList dataKey="total_t" position="right" style={{ fontSize: 8, fill: '#9ca3af' }}
                   formatter={v => v >= 1000 ? `${(v/1000).toFixed(1)}k t` : `${Math.round(v)} t`} />
                 {topItems.map((entry, i) => (
                   <Cell key={i} fill={entry.category === 'Fruits' ? '#f59e0b' : '#059669'} opacity={0.85} />
@@ -232,12 +232,12 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
                 {ftcTotals[2024] && <span><strong>{Math.round(ftcTotals[2024]).toLocaleString()} t</strong> collected in 2024</span>}
                 {ftcTotals[2024] && ftcTotals[2025] && <span style={{ color: '#9ca3af' }}> · </span>}
                 {ftcTotals[2025] && <span><strong>{Math.round(ftcTotals[2025]).toLocaleString()} t</strong> in 2025</span>}
-                {' '}through the FTC farm procurement program.
+                {' '}through the farm gate procurement program.
               </div>
             </div>
           </div>
           <div style={{ fontSize: 11, color: '#1d6fa4', fontWeight: 500, whiteSpace: 'nowrap' }}>
-            See <em>FTC Procurement</em> tab for details →
+            See <em>Farm Gate Procured</em> tab for details →
           </div>
         </div>
       )}
