@@ -1,6 +1,6 @@
 import {
   AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid,
-  Tooltip, ResponsiveContainer, ReferenceLine, ReferenceArea, Cell
+  Tooltip, ResponsiveContainer, ReferenceLine, ReferenceArea, Cell, LabelList
 } from 'recharts'
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react'
 
@@ -191,15 +191,15 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
         <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '20px 20px 12px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)' }}>
           <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>Top Surplus Items — {year}</div>
           <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 16 }}>Total recoverable by produce (tonnes)</div>
-          <ResponsiveContainer width="100%" height={200}>
-            <BarChart data={topItems} layout="vertical" margin={{ top: 0, right: 80, left: 80, bottom: 0 }}>
+          <ResponsiveContainer width="100%" height={280}>
+            <BarChart data={topItems} layout="vertical" margin={{ top: 4, right: 80, left: 80, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" horizontal={false} />
               <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={v => `${(v/1000).toFixed(0)}k`} />
-              <YAxis type="category" dataKey="item" tick={{ fontSize: 11 }} width={78} />
+              <YAxis type="category" dataKey="item" tick={{ fontSize: 11 }} width={78} interval={0} />
               <Tooltip formatter={(v) => [`${Math.round(v).toLocaleString()} t`, 'Surplus']} />
-              <Bar dataKey="total_t" name="Total Surplus" radius={[0,3,3,0]}
-                label={{ position: 'right', fontSize: 9, fill: '#9ca3af',
-                  formatter: v => v >= 1000 ? `${(v/1000).toFixed(1)}k t` : `${Math.round(v)} t` }}>
+              <Bar dataKey="total_t" name="Total Surplus" radius={[0,3,3,0]}>
+                <LabelList dataKey="total_t" position="right" style={{ fontSize: 9, fill: '#9ca3af' }}
+                  formatter={v => v >= 1000 ? `${(v/1000).toFixed(1)}k t` : `${Math.round(v)} t`} />
                 {topItems.map((entry, i) => (
                   <Cell key={i} fill={entry.category === 'Fruits' ? '#f59e0b' : '#059669'} opacity={0.85} />
                 ))}
