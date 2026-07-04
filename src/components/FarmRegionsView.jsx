@@ -47,9 +47,13 @@ const CAR_SHORT = {
   '5908': 'Peace River',
 }
 
+const T_TO_LBS = 2204.62
 function fmt(v) {
   if (!v) return '—'
-  return v >= 1000 ? `${(v / 1000).toFixed(1)}k t` : `${Math.round(v)} t`
+  const lbs = v * T_TO_LBS
+  if (lbs >= 1e6) return `${(lbs/1e6).toFixed(1)}M lbs`
+  if (lbs >= 1000) return `${Math.round(lbs/1000).toLocaleString()}k lbs`
+  return `${Math.round(lbs).toLocaleString()} lbs`
 }
 
 // ── Projected-coordinate → SVG mapping ────────────────────────────────────
@@ -174,7 +178,7 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
     return (
       <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 8, padding: '8px 12px', boxShadow: 'var(--shadow)', fontSize: 12 }}>
         <div style={{ fontWeight: 600, marginBottom: 3 }}>{label}</div>
-        <div style={{ color: '#059669' }}>Farm-gate: <strong>{Math.round(payload[0]?.value || 0).toLocaleString()} t</strong></div>
+        <div style={{ color: '#059669' }}>Farm-gate: <strong>{fmt(payload[0]?.value || 0)}</strong></div>
         {label === peakMonth?.label && <div style={{ fontSize: 11, color: '#d97706', marginTop: 3 }}>🌟 Peak harvest month</div>}
       </div>
     )
@@ -189,8 +193,8 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
         </h2>
         <p style={{ fontSize: 13, color: 'var(--text-secondary)' }}>
           Where and when BC farm-gate surplus is generated.{' '}
-          {item !== 'All' ? <><strong>{item}</strong> selected.</> : 'All 26 produce types.'}
-          {peakMonth && <> Peak harvest: <strong>{peakMonth.label}</strong> ({Math.round(peakMonth.farmgate_t).toLocaleString()} t).</>}
+          {item !== 'All' ? <><strong>{item}</strong> selected.</> : 'All 40 produce types.'}
+          {peakMonth && <> Peak harvest: <strong>{peakMonth.label}</strong> ({fmt(peakMonth.farmgate_t)}).</>}
         </p>
       </div>
 
@@ -265,7 +269,7 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
                     </text>
                     <text x={cx} y={cy + 7} textAnchor="middle" fontSize={8}
                       fill={dark ? 'rgba(255,255,255,0.85)' : '#374151'} fontWeight="500">
-                      {val >= 1000 ? `${(val / 1000).toFixed(1)}k t` : `${Math.round(val)} t`}
+                      {fmt(val)}
                     </text>
                   </g>
                 )
@@ -276,7 +280,7 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
                 const legW = 160, legH = 10
                 const legX = (W - legW) / 2
                 const legY = H - 22
-                const minLabel = '0 t'
+                const minLabel = '0'
                 const maxLabel = fmt(maxVal)
                 return (
                   <g>
@@ -315,7 +319,7 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
                 <XAxis dataKey="label" tick={{ fontSize: 9 }} />
                 <YAxis
                   tick={{ fontSize: 9 }}
-                  tickFormatter={v => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}
+                  tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }}
                   domain={[0, dataMax => Math.ceil(dataMax * 1.15 / 500) * 500]}
                 />
                 <Tooltip content={<MonthTip />} />
@@ -337,11 +341,11 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
             <ResponsiveContainer width="100%" height={200}>
               <BarChart data={carTotals} layout="vertical" margin={{ top: 0, right: 10, left: 4, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" horizontal={false} />
-                <XAxis type="number" tick={{ fontSize: 9 }} tickFormatter={v => `${Math.round(v / 1000)}k`} />
+                <XAxis type="number" tick={{ fontSize: 9 }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} />
                 <YAxis type="category" dataKey="car_name" tick={{ fontSize: 9 }} width={130}
                   tickFormatter={n => n.replace('Lower Mainland – ', 'LM – ').replace('Vancouver Island – ', 'VI – ').replace('Thompson – ', 'T – ')} />
                 <Tooltip
-                  formatter={v => [`${Math.round(v).toLocaleString()} t`, 'Farm-gate surplus']}
+                  formatter={v => [fmt(v), 'Farm-gate surplus']}
                   labelFormatter={n => n}
                 />
                 <Bar dataKey="farmgate_t" radius={[0, 4, 4, 0]} isAnimationActive={false}

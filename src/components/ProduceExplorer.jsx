@@ -8,7 +8,14 @@ const YEAR_COLORS = { 2018:'#6366f1',2019:'#3b82f6',2020:'#06b6d4',2021:'#059669
 const KEY_MAP = { farmgate: 'farmgate_t', retail: 'retail_t', total: 'total_t' }
 const LABEL_MAP = { farmgate: 'Farm-Gate Surplus', retail: 'Retail Surplus', total: 'Total Recoverable' }
 
-function fmt(v) { if (!v) return '—'; return v >= 1000 ? `${(v/1000).toFixed(1)}k t` : `${Math.round(v)} t` }
+const T_TO_LBS = 2204.62
+function fmt(v) {
+  if (!v) return '—'
+  const lbs = v * T_TO_LBS
+  if (lbs >= 1e6) return `${(lbs/1e6).toFixed(1)}M lbs`
+  if (lbs >= 1000) return `${Math.round(lbs/1000).toLocaleString()}k lbs`
+  return `${Math.round(lbs).toLocaleString()} lbs`
+}
 
 export default function ProduceExplorer({ items, allItems, year, allYears, surplusType }) {
   const [sortBy, setSortBy] = useState('total_t')
@@ -101,9 +108,9 @@ export default function ProduceExplorer({ items, allItems, year, allYears, surpl
           <ResponsiveContainer width="100%" height={Math.max(260, ranked.length * 28)}>
             <BarChart data={ranked} layout="vertical" margin={{ top:0, right:60, left:130, bottom:0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" horizontal={false} />
-              <XAxis type="number" tick={{ fontSize:11 }} tickFormatter={v => `${Math.round(v/1000)}k`} />
+              <XAxis type="number" tick={{ fontSize:11 }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} />
               <YAxis type="category" dataKey="item" tick={{ fontSize:11 }} width={125} />
-              <Tooltip formatter={(v) => [`${Math.round(v).toLocaleString()} t`, LABEL_MAP[surplusType]]} />
+              <Tooltip formatter={(v) => [fmt(v), LABEL_MAP[surplusType]]} />
               <Bar dataKey={key} name={LABEL_MAP[surplusType]} radius={[0,3,3,0]}>
                 {ranked.map((entry, i) => (
                   <Cell key={i} fill={entry.category === 'Fruits' ? '#f59e0b' : '#059669'} opacity={0.8} />
@@ -135,8 +142,8 @@ export default function ProduceExplorer({ items, allItems, year, allYears, surpl
             <LineChart data={trendData} margin={{ top:4, right:8, left:-10, bottom:0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" />
               <XAxis dataKey="year" tick={{ fontSize:11 }} />
-              <YAxis tick={{ fontSize:11 }} tickFormatter={v => `${Math.round(v/1000)}k`} />
-              <Tooltip formatter={(v) => v != null ? [`${Math.round(v).toLocaleString()} t`] : ['—']} />
+              <YAxis tick={{ fontSize:11 }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} />
+              <Tooltip formatter={(v) => v != null ? [fmt(v)] : ['—']} />
               <Legend wrapperStyle={{ fontSize:11 }} />
               {selectedForTrend.map((item, i) => (
                 <Line key={item} type="monotone" dataKey={item} strokeWidth={2}
@@ -153,9 +160,9 @@ export default function ProduceExplorer({ items, allItems, year, allYears, surpl
           <ResponsiveContainer width="100%" height={Math.max(260, ranked.length * 28)}>
             <BarChart data={ranked} layout="vertical" margin={{ top:0, right:60, left:130, bottom:0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" horizontal={false} />
-              <XAxis type="number" tick={{ fontSize:11 }} tickFormatter={v => `${Math.round(v/1000)}k`} />
+              <XAxis type="number" tick={{ fontSize:11 }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} />
               <YAxis type="category" dataKey="item" tick={{ fontSize:11 }} width={125} />
-              <Tooltip formatter={(v, n) => [`${Math.round(v||0).toLocaleString()} t`, n]} />
+              <Tooltip formatter={(v, n) => [fmt(v||0), n]} />
               <Legend wrapperStyle={{ fontSize:11 }} />
               <Bar dataKey="farmgate_t" name="Farm-Gate" stackId="a" fill="#1d6fa4" opacity={0.85} radius={[0,0,0,0]} />
               <Bar dataKey="retail_t" name="Retail" stackId="a" fill="#7c3aed" opacity={0.85} radius={[0,3,3,0]} />

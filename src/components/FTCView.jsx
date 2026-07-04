@@ -5,11 +5,15 @@ import {
 } from 'recharts'
 
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
-const CFG_KG_PER_YEAR = 204.4   // kg / person / year (Canada's Food Guide)
+const CFG_KG_PER_YEAR = 204.4
+const T_TO_LBS = 2204.62
 
 function fmt(t) {
   if (!t) return '—'
-  return t >= 1000 ? `${(t / 1000).toFixed(1)}k t` : `${Math.round(t)} t`
+  const lbs = t * T_TO_LBS
+  if (lbs >= 1e6) return `${(lbs/1e6).toFixed(1)}M lbs`
+  if (lbs >= 1000) return `${Math.round(lbs/1000).toLocaleString()}k lbs`
+  return `${Math.round(lbs).toLocaleString()} lbs`
 }
 function fmtPeople(t) {
   const p = (t * 1000) / CFG_KG_PER_YEAR
@@ -159,7 +163,7 @@ export default function FTCView({ procured, byItem, years }) {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
           <div>
             <div style={{ fontSize: 14, fontWeight: 600 }}>GVFB Procurement vs Estimated Farm-Gate Surplus</div>
-            <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 2 }}>Metric tonnes · hover bars for capture rate</div>
+            <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 2 }}>Pounds · hover bars for capture rate</div>
           </div>
           {/* Year toggle */}
           <div style={{ display: 'flex', gap: 6 }}>
@@ -178,7 +182,7 @@ export default function FTCView({ procured, byItem, years }) {
         <ResponsiveContainer width="100%" height={Math.max(320, compareData.length * 32)}>
           <BarChart data={compareData} layout="vertical" margin={{ top: 0, right: 60, left: 175, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" horizontal={false} />
-            <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={v => v >= 1000 ? `${(v/1000).toFixed(0)}k` : v} />
+            <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} />
             <YAxis type="category" dataKey="item" tick={{ fontSize: 11 }} width={170} interval={0} />
             <Tooltip content={<CompareTooltip />} />
             <Legend wrapperStyle={{ fontSize: 11 }} />
@@ -191,20 +195,20 @@ export default function FTCView({ procured, byItem, years }) {
       {/* Monthly timeline */}
       <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '20px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)', marginBottom: 12 }}>
         <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>Monthly Farm Gate Collections — Feb 2024 to Mar 2026</div>
-        <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 16 }}>Metric tonnes collected per month across all produce types</div>
+        <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 16 }}>Pounds collected per month across all produce types</div>
         <ResponsiveContainer width="100%" height={200}>
           <LineChart data={monthlyData} margin={{ top: 4, right: 20, left: -8, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" />
             <XAxis dataKey="label" tick={{ fontSize: 9 }} interval={2} />
-            <YAxis tick={{ fontSize: 10 }} tickFormatter={v => v >= 1000 ? `${(v/1000).toFixed(0)}k` : v} />
-            <Tooltip formatter={v => [`${v} t`, 'Collected']} />
+            <YAxis tick={{ fontSize: 10 }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} />
+            <Tooltip formatter={v => [fmt(v), 'Collected']} />
             <Line type="monotone" dataKey="procured_t" stroke="#1d6fa4" strokeWidth={2} dot={{ r: 3 }} name="Collected (t)" />
           </LineChart>
         </ResponsiveContainer>
       </div>
 
       <div style={{ background: 'var(--surface2)', borderRadius: 8, padding: '9px 14px', border: '1px solid var(--border)', fontSize: 11, color: 'var(--text-muted)' }}>
-        <strong>Data source:</strong> GVFB Farm-to-Community Inbound Data (Feb 2024 – Mar 2026) · Weights converted from pounds to metric tonnes (1 lb = 0.000454 t) ·
+        <strong>Data source:</strong> GVFB Farm-to-Community Inbound Data (Feb 2024 – Mar 2026) · Source weights in pounds, stored as metric tonnes internally, displayed as lbs ·
         Product names harmonised to Statistics Canada F&V categories · Cucumbers, mushrooms, and corn have no corresponding surplus estimate.
       </div>
     </div>

@@ -11,11 +11,14 @@ import { TrendingUp, TrendingDown, Minus } from 'lucide-react'
 // Annual per person: 560 g/day × 365 days = 204.4 kg/person/year
 const CFG_G_PER_DAY   = 560
 const CFG_KG_PER_YEAR = CFG_G_PER_DAY * 365 / 1000   // 204.4 kg/year
+const T_TO_LBS = 2204.62
 
 function fmt(t) {
   if (t == null) return '—'
-  if (t >= 1000) return `${(t/1000).toFixed(1)}k t`
-  return `${Math.round(t).toLocaleString()} t`
+  const lbs = t * T_TO_LBS
+  if (lbs >= 1e6) return `${(lbs/1e6).toFixed(1)}M lbs`
+  if (lbs >= 1000) return `${Math.round(lbs/1000).toLocaleString()}k lbs`
+  return `${Math.round(lbs).toLocaleString()} lbs`
 }
 
 function fmtPeople(t) {
@@ -151,7 +154,7 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
         <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '20px 20px 12px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)' }}>
           <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 2 }}>Surplus Trend 2010–2025</div>
           <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 4 }}>
-            Farm-gate and retail recovery (tonnes) · flags shown in dropdown
+            Farm-gate and retail recovery (lbs) · flags shown in dropdown
           </div>
           {/* Flag legend inline */}
           <div style={{ display: 'flex', gap: 10, fontSize: 10, color: 'var(--text-muted)', marginBottom: 10, flexWrap: 'wrap' }}>
@@ -175,7 +178,7 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" />
               <XAxis dataKey="year" tick={{ fontSize: 11 }} />
-              <YAxis tick={{ fontSize: 11 }} tickFormatter={v => `${(v/1000).toFixed(0)}k`} />
+              <YAxis tick={{ fontSize: 11 }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} />
               <Tooltip content={<CustomTooltip />} />
               {/* Shade extrapolated/preliminary region */}
               <ReferenceArea x1={2023} x2={2025} fill="#f59e0b" fillOpacity={0.06} />
@@ -190,17 +193,18 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
 
         <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '20px 20px 12px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)' }}>
           <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>Top Surplus Items — {year}</div>
-          <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 16 }}>Total recoverable by produce (tonnes)</div>
+          <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 16 }}>Total recoverable by produce (lbs)</div>
           <ResponsiveContainer width="100%" height={280}>
             <BarChart data={topItems} layout="vertical" margin={{ top: 4, right: 16, left: 0, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" horizontal={false} />
-              <XAxis type="number" tick={{ fontSize: 10 }} tickFormatter={v => `${(v/1000).toFixed(0)}k`} />
+              <XAxis type="number" tick={{ fontSize: 10 }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} />
               <YAxis type="category" dataKey="item" tick={{ fontSize: 10 }} width={85} interval={0} />
-              <Tooltip formatter={(v) => [`${Math.round(v).toLocaleString()} t`, 'Surplus']} />
+              <Tooltip formatter={(v) => [fmt(v), 'Surplus']} />
               <Bar dataKey="total_t" name="Total Surplus" radius={[0,3,3,0]}
                 label={({ x, y, width, height, value }) => {
                   if (!value || width < 45) return null   // skip label if bar too narrow
-                  const label = value >= 1000 ? `${(value/1000).toFixed(1)}k t` : `${Math.round(value)} t`
+                  const lbs = value * T_TO_LBS
+                  const label = lbs >= 1e6 ? `${(lbs/1e6).toFixed(1)}M` : `${Math.round(lbs/1000)}k`
                   return (
                     <text
                       x={x + width - 5}

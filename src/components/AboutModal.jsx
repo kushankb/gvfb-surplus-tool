@@ -124,7 +124,7 @@ export default function AboutModal({ onClose }) {
           <br /><br />
           This data comes from <strong>GVFB's internal farm procurement database</strong> — every
           inbound donation or purchase from a BC farm is logged by product, date, and weight (in pounds,
-          converted here to metric tonnes). It covers <strong>February 2024 to March 2026</strong>.
+          displayed here in lbs). It covers <strong>February 2024 to March 2026</strong>.
           <br /><br />
           The <em>capture rate</em> — GVFB collected ÷ estimated surplus — shows how much of the
           potential surplus is currently being reached. A low rate doesn't mean GVFB is underperforming;
