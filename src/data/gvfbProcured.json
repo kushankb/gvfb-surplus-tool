@@ -1,1 +1,1382 @@
-[{"year": 2024, "month": 2, "item": "Pumpkins, squash and gourds", "procured_t": 8.47}, {"year": 2024, "month": 3, "item": "Cabbages", "procured_t": 2.369}, {"year": 2024, "month": 3, "item": "Pumpkins, squash and gourds", "procured_t": 7.434}, {"year": 2024, "month": 4, "item": "Chillies and peppers", "procured_t": 0.248}, {"year": 2024, "month": 4, "item": "Mushrooms", "procured_t": 17.7}, {"year": 2024, "month": 5, "item": "Carrots and turnips", "procured_t": 1.787}, {"year": 2024, "month": 5, "item": "Chillies and peppers", "procured_t": 1.485}, {"year": 2024, "month": 5, "item": "Cucumbers", "procured_t": 4.462}, {"year": 2024, "month": 5, "item": "Lettuce and chicory", "procured_t": 0.476}, {"year": 2024, "month": 5, "item": "Mushrooms", "procured_t": 2.073}, {"year": 2024, "month": 5, "item": "Pumpkins, squash and gourds", "procured_t": 0.307}, {"year": 2024, "month": 5, "item": "Tomatoes", "procured_t": 7.143}, {"year": 2024, "month": 6, "item": "Cabbages", "procured_t": 0.907}, {"year": 2024, "month": 6, "item": "Carrots and turnips", "procured_t": 25.067}, {"year": 2024, "month": 6, "item": "Chillies and peppers", "procured_t": 1.95}, {"year": 2024, "month": 6, "item": "Cucumbers", "procured_t": 11.228}, {"year": 2024, "month": 6, "item": "Lettuce and chicory", "procured_t": 0.008}, {"year": 2024, "month": 6, "item": "Mushrooms", "procured_t": 1.588}, {"year": 2024, "month": 6, "item": "Onions", "procured_t": 0.907}, {"year": 2024, "month": 6, "item": "Peas, green", "procured_t": 4.329}, {"year": 2024, "month": 6, "item": "Potatoes", "procured_t": 4.99}, {"year": 2024, "month": 6, "item": "Pumpkins, squash and gourds", "procured_t": 9.271}, {"year": 2024, "month": 6, "item": "Tomatoes", "procured_t": 4.837}, {"year": 2024, "month": 7, "item": "Blueberries and cranberries", "procured_t": 0.624}, {"year": 2024, "month": 7, "item": "Carrots and turnips", "procured_t": 38.874}, {"year": 2024, "month": 7, "item": "Chillies and peppers", "procured_t": 0.188}, {"year": 2024, "month": 7, "item": "Cucumbers", "procured_t": 45.034}, {"year": 2024, "month": 7, "item": "Mushrooms", "procured_t": 1.864}, {"year": 2024, "month": 7, "item": "Onions", "procured_t": 5.915}, {"year": 2024, "month": 7, "item": "Peas, green", "procured_t": 13.894}, {"year": 2024, "month": 7, "item": "Potatoes", "procured_t": 1.202}, {"year": 2024, "month": 7, "item": "Pumpkins, squash and gourds", "procured_t": 145.912}, {"year": 2024, "month": 7, "item": "Tomatoes", "procured_t": 0.381}, {"year": 2024, "month": 8, "item": "Blueberries and cranberries", "procured_t": 0.218}, {"year": 2024, "month": 8, "item": "Carrots and turnips", "procured_t": 43.306}, {"year": 2024, "month": 8, "item": "Cauliflowers and broccoli", "procured_t": 2.685}, {"year": 2024, "month": 8, "item": "Chillies and peppers", "procured_t": 1.316}, {"year": 2024, "month": 8, "item": "Corn", "procured_t": 6.441}, {"year": 2024, "month": 8, "item": "Cucumbers", "procured_t": 32.979}, {"year": 2024, "month": 8, "item": "Eggplants (aubergines)", "procured_t": 0.023}, {"year": 2024, "month": 8, "item": "Lettuce and chicory", "procured_t": 1.097}, {"year": 2024, "month": 8, "item": "Mushrooms", "procured_t": 3.289}, {"year": 2024, "month": 8, "item": "Plums and sloes", "procured_t": 0.059}, {"year": 2024, "month": 8, "item": "Potatoes", "procured_t": 51.562}, {"year": 2024, "month": 8, "item": "Pumpkins, squash and gourds", "procured_t": 70.914}, {"year": 2024, "month": 8, "item": "Tomatoes", "procured_t": 1.857}, {"year": 2024, "month": 9, "item": "Cabbages", "procured_t": 2.798}, {"year": 2024, "month": 9, "item": "Carrots and turnips", "procured_t": 21.39}, {"year": 2024, "month": 9, "item": "Chillies and peppers", "procured_t": 2.015}, {"year": 2024, "month": 9, "item": "Corn", "procured_t": 9.314}, {"year": 2024, "month": 9, "item": "Cucumbers", "procured_t": 4.125}, {"year": 2024, "month": 9, "item": "Plums and sloes", "procured_t": 0.237}, {"year": 2024, "month": 9, "item": "Potatoes", "procured_t": 27.152}, {"year": 2024, "month": 9, "item": "Pumpkins, squash and gourds", "procured_t": 37.248}, {"year": 2024, "month": 10, "item": "Apples", "procured_t": 5.443}, {"year": 2024, "month": 10, "item": "Cabbages", "procured_t": 5.004}, {"year": 2024, "month": 10, "item": "Carrots and turnips", "procured_t": 47.79}, {"year": 2024, "month": 10, "item": "Cauliflowers and broccoli", "procured_t": 21.732}, {"year": 2024, "month": 10, "item": "Chillies and peppers", "procured_t": 12.857}, {"year": 2024, "month": 10, "item": "Corn", "procured_t": 2.758}, {"year": 2024, "month": 10, "item": "Cucumbers", "procured_t": 0.941}, {"year": 2024, "month": 10, "item": "Green garlic", "procured_t": 0.054}, {"year": 2024, "month": 10, "item": "Lettuce and chicory", "procured_t": 1.908}, {"year": 2024, "month": 10, "item": "Potatoes", "procured_t": 98.415}, {"year": 2024, "month": 10, "item": "Pumpkins, squash and gourds", "procured_t": 100.054}, {"year": 2024, "month": 10, "item": "Tomatoes", "procured_t": 2.388}, {"year": 2024, "month": 11, "item": "Apples", "procured_t": 15.726}, {"year": 2024, "month": 11, "item": "Cabbages", "procured_t": 4.565}, {"year": 2024, "month": 11, "item": "Carrots and turnips", "procured_t": 15.723}, {"year": 2024, "month": 11, "item": "Cauliflowers and broccoli", "procured_t": 9.957}, {"year": 2024, "month": 11, "item": "Chillies and peppers", "procured_t": 6.837}, {"year": 2024, "month": 11, "item": "Cucumbers", "procured_t": 0.198}, {"year": 2024, "month": 11, "item": "Lettuce and chicory", "procured_t": 0.185}, {"year": 2024, "month": 11, "item": "Onions", "procured_t": 0.075}, {"year": 2024, "month": 11, "item": "Plums and sloes", "procured_t": 0.726}, {"year": 2024, "month": 11, "item": "Potatoes", "procured_t": 20.529}, {"year": 2024, "month": 11, "item": "Pumpkins, squash and gourds", "procured_t": 12.004}, {"year": 2024, "month": 11, "item": "Tomatoes", "procured_t": 5.911}, {"year": 2024, "month": 12, "item": "Cabbages", "procured_t": 5.178}, {"year": 2024, "month": 12, "item": "Carrots and turnips", "procured_t": 1.403}, {"year": 2024, "month": 12, "item": "Chillies and peppers", "procured_t": 1.538}, {"year": 2024, "month": 12, "item": "Lettuce and chicory", "procured_t": 0.276}, {"year": 2024, "month": 12, "item": "Mushrooms", "procured_t": 8.073}, {"year": 2024, "month": 12, "item": "Potatoes", "procured_t": 13.633}, {"year": 2024, "month": 12, "item": "Pumpkins, squash and gourds", "procured_t": 33.43}, {"year": 2025, "month": 1, "item": "Blueberries and cranberries", "procured_t": 0.118}, {"year": 2025, "month": 1, "item": "Cabbages", "procured_t": 0.602}, {"year": 2025, "month": 1, "item": "Carrots and turnips", "procured_t": 1.853}, {"year": 2025, "month": 1, "item": "Chillies and peppers", "procured_t": 1.235}, {"year": 2025, "month": 1, "item": "Lettuce and chicory", "procured_t": 0.123}, {"year": 2025, "month": 1, "item": "Mushrooms", "procured_t": 0.703}, {"year": 2025, "month": 1, "item": "Potatoes", "procured_t": 20.262}, {"year": 2025, "month": 1, "item": "Pumpkins, squash and gourds", "procured_t": 1.483}, {"year": 2025, "month": 1, "item": "Tomatoes", "procured_t": 4.751}, {"year": 2025, "month": 2, "item": "Carrots and turnips", "procured_t": 3.765}, {"year": 2025, "month": 2, "item": "Chillies and peppers", "procured_t": 0.435}, {"year": 2025, "month": 2, "item": "Cucumbers", "procured_t": 2.107}, {"year": 2025, "month": 2, "item": "Lettuce and chicory", "procured_t": 0.072}, {"year": 2025, "month": 2, "item": "Mushrooms", "procured_t": 3.461}, {"year": 2025, "month": 2, "item": "Onions", "procured_t": 7.372}, {"year": 2025, "month": 2, "item": "Potatoes", "procured_t": 9.754}, {"year": 2025, "month": 2, "item": "Tomatoes", "procured_t": 7.058}, {"year": 2025, "month": 3, "item": "Cabbages", "procured_t": 4.572}, {"year": 2025, "month": 3, "item": "Carrots and turnips", "procured_t": 1.329}, {"year": 2025, "month": 3, "item": "Chillies and peppers", "procured_t": 2.09}, {"year": 2025, "month": 3, "item": "Cucumbers", "procured_t": 0.018}, {"year": 2025, "month": 3, "item": "Lettuce and chicory", "procured_t": 0.562}, {"year": 2025, "month": 3, "item": "Mushrooms", "procured_t": 3.461}, {"year": 2025, "month": 3, "item": "Potatoes", "procured_t": 8.475}, {"year": 2025, "month": 3, "item": "Tomatoes", "procured_t": 5.503}, {"year": 2025, "month": 4, "item": "Chillies and peppers", "procured_t": 1.619}, {"year": 2025, "month": 4, "item": "Cucumbers", "procured_t": 0.972}, {"year": 2025, "month": 4, "item": "Lettuce and chicory", "procured_t": 0.278}, {"year": 2025, "month": 4, "item": "Mushrooms", "procured_t": 2.186}, {"year": 2025, "month": 4, "item": "Peas, green", "procured_t": 0.009}, {"year": 2025, "month": 4, "item": "Potatoes", "procured_t": 10.811}, {"year": 2025, "month": 4, "item": "Tomatoes", "procured_t": 24.439}, {"year": 2025, "month": 5, "item": "Carrots and turnips", "procured_t": 2.267}, {"year": 2025, "month": 5, "item": "Chillies and peppers", "procured_t": 8.087}, {"year": 2025, "month": 5, "item": "Cucumbers", "procured_t": 1.895}, {"year": 2025, "month": 5, "item": "Lettuce and chicory", "procured_t": 0.099}, {"year": 2025, "month": 5, "item": "Mushrooms", "procured_t": 2.067}, {"year": 2025, "month": 5, "item": "Peas, green", "procured_t": 0.03}, {"year": 2025, "month": 5, "item": "Pumpkins, squash and gourds", "procured_t": 0.554}, {"year": 2025, "month": 5, "item": "Tomatoes", "procured_t": 8.914}, {"year": 2025, "month": 6, "item": "Carrots and turnips", "procured_t": 14.347}, {"year": 2025, "month": 6, "item": "Chillies and peppers", "procured_t": 3.558}, {"year": 2025, "month": 6, "item": "Cucumbers", "procured_t": 0.664}, {"year": 2025, "month": 6, "item": "Lettuce and chicory", "procured_t": 0.464}, {"year": 2025, "month": 6, "item": "Mushrooms", "procured_t": 12.073}, {"year": 2025, "month": 6, "item": "Peas, green", "procured_t": 0.11}, {"year": 2025, "month": 6, "item": "Pumpkins, squash and gourds", "procured_t": 11.949}, {"year": 2025, "month": 6, "item": "Tomatoes", "procured_t": 30.269}, {"year": 2025, "month": 7, "item": "Blueberries and cranberries", "procured_t": 2.665}, {"year": 2025, "month": 7, "item": "Carrots and turnips", "procured_t": 3.044}, {"year": 2025, "month": 7, "item": "Cherries", "procured_t": 4.787}, {"year": 2025, "month": 7, "item": "Chillies and peppers", "procured_t": 1.953}, {"year": 2025, "month": 7, "item": "Corn", "procured_t": 1.559}, {"year": 2025, "month": 7, "item": "Cucumbers", "procured_t": 3.019}, {"year": 2025, "month": 7, "item": "Lettuce and chicory", "procured_t": 0.234}, {"year": 2025, "month": 7, "item": "Mushrooms", "procured_t": 5.675}, {"year": 2025, "month": 7, "item": "Peas, green", "procured_t": 0.041}, {"year": 2025, "month": 7, "item": "Pumpkins, squash and gourds", "procured_t": 66.914}, {"year": 2025, "month": 7, "item": "Tomatoes", "procured_t": 80.607}, {"year": 2025, "month": 8, "item": "Apples", "procured_t": 0.864}, {"year": 2025, "month": 8, "item": "Cabbages", "procured_t": 6.441}, {"year": 2025, "month": 8, "item": "Carrots and turnips", "procured_t": 66.451}, {"year": 2025, "month": 8, "item": "Cauliflowers and broccoli", "procured_t": 9.789}, {"year": 2025, "month": 8, "item": "Cherries", "procured_t": 0.737}, {"year": 2025, "month": 8, "item": "Chillies and peppers", "procured_t": 0.736}, {"year": 2025, "month": 8, "item": "Corn", "procured_t": 21.585}, {"year": 2025, "month": 8, "item": "Cucumbers", "procured_t": 7.058}, {"year": 2025, "month": 8, "item": "Eggplants (aubergines)", "procured_t": 0.005}, {"year": 2025, "month": 8, "item": "Lettuce and chicory", "procured_t": 0.355}, {"year": 2025, "month": 8, "item": "Mushrooms", "procured_t": 0.288}, {"year": 2025, "month": 8, "item": "Peaches and nectarines", "procured_t": 0.353}, {"year": 2025, "month": 8, "item": "Peas, green", "procured_t": 0.005}, {"year": 2025, "month": 8, "item": "Plums and sloes", "procured_t": 0.257}, {"year": 2025, "month": 8, "item": "Potatoes", "procured_t": 79.755}, {"year": 2025, "month": 8, "item": "Pumpkins, squash and gourds", "procured_t": 76.656}, {"year": 2025, "month": 8, "item": "Tomatoes", "procured_t": 43.177}, {"year": 2025, "month": 9, "item": "Apples", "procured_t": 18.246}, {"year": 2025, "month": 9, "item": "Cabbages", "procured_t": 0.272}, {"year": 2025, "month": 9, "item": "Carrots and turnips", "procured_t": 15.561}, {"year": 2025, "month": 9, "item": "Cauliflowers and broccoli", "procured_t": 6.151}, {"year": 2025, "month": 9, "item": "Chillies and peppers", "procured_t": 7.893}, {"year": 2025, "month": 9, "item": "Corn", "procured_t": 8.024}, {"year": 2025, "month": 9, "item": "Cucumbers", "procured_t": 6.798}, {"year": 2025, "month": 9, "item": "Eggplants (aubergines)", "procured_t": 1.297}, {"year": 2025, "month": 9, "item": "Lettuce and chicory", "procured_t": 0.978}, {"year": 2025, "month": 9, "item": "Mushrooms", "procured_t": 3.412}, {"year": 2025, "month": 9, "item": "Peaches and nectarines", "procured_t": 0.294}, {"year": 2025, "month": 9, "item": "Peas, green", "procured_t": 0.006}, {"year": 2025, "month": 9, "item": "Plums and sloes", "procured_t": 0.114}, {"year": 2025, "month": 9, "item": "Pumpkins, squash and gourds", "procured_t": 79.829}, {"year": 2025, "month": 9, "item": "Spinach", "procured_t": 0.586}, {"year": 2025, "month": 9, "item": "Tomatoes", "procured_t": 10.313}, {"year": 2025, "month": 10, "item": "Apples", "procured_t": 22.221}, {"year": 2025, "month": 10, "item": "Cabbages", "procured_t": 29.791}, {"year": 2025, "month": 10, "item": "Carrots and turnips", "procured_t": 11.282}, {"year": 2025, "month": 10, "item": "Cauliflowers and broccoli", "procured_t": 10.449}, {"year": 2025, "month": 10, "item": "Chillies and peppers", "procured_t": 2.536}, {"year": 2025, "month": 10, "item": "Cucumbers", "procured_t": 0.549}, {"year": 2025, "month": 10, "item": "Lettuce and chicory", "procured_t": 0.17}, {"year": 2025, "month": 10, "item": "Mushrooms", "procured_t": 15.358}, {"year": 2025, "month": 10, "item": "Pears", "procured_t": 0.633}, {"year": 2025, "month": 10, "item": "Peas, green", "procured_t": 0.003}, {"year": 2025, "month": 10, "item": "Pumpkins, squash and gourds", "procured_t": 9.566}, {"year": 2025, "month": 10, "item": "Tomatoes", "procured_t": 5.585}, {"year": 2025, "month": 11, "item": "Cabbages", "procured_t": 3.375}, {"year": 2025, "month": 11, "item": "Carrots and turnips", "procured_t": 9.802}, {"year": 2025, "month": 11, "item": "Chillies and peppers", "procured_t": 4.643}, {"year": 2025, "month": 11, "item": "Cucumbers", "procured_t": 0.512}, {"year": 2025, "month": 11, "item": "Mushrooms", "procured_t": 7.339}, {"year": 2025, "month": 11, "item": "Peas, green", "procured_t": 0.002}, {"year": 2025, "month": 11, "item": "Potatoes", "procured_t": 5.118}, {"year": 2025, "month": 11, "item": "Pumpkins, squash and gourds", "procured_t": 2.461}, {"year": 2025, "month": 11, "item": "Tomatoes", "procured_t": 24.757}, {"year": 2025, "month": 12, "item": "Apples", "procured_t": 5.08}, {"year": 2025, "month": 12, "item": "Cabbages", "procured_t": 2.137}, {"year": 2025, "month": 12, "item": "Carrots and turnips", "procured_t": 4.725}, {"year": 2025, "month": 12, "item": "Cauliflowers and broccoli", "procured_t": 1.862}, {"year": 2025, "month": 12, "item": "Chillies and peppers", "procured_t": 5.532}, {"year": 2025, "month": 12, "item": "Cucumbers", "procured_t": 1.013}, {"year": 2025, "month": 12, "item": "Lettuce and chicory", "procured_t": 1.47}, {"year": 2025, "month": 12, "item": "Mushrooms", "procured_t": 1.687}, {"year": 2025, "month": 12, "item": "Onions", "procured_t": 14.236}, {"year": 2025, "month": 12, "item": "Potatoes", "procured_t": 4.75}, {"year": 2025, "month": 12, "item": "Pumpkins, squash and gourds", "procured_t": 6.125}, {"year": 2025, "month": 12, "item": "Tomatoes", "procured_t": 39.298}, {"year": 2026, "month": 1, "item": "Carrots and turnips", "procured_t": 0.713}, {"year": 2026, "month": 1, "item": "Cauliflowers and broccoli", "procured_t": 0.0}, {"year": 2026, "month": 1, "item": "Chillies and peppers", "procured_t": 0.599}, {"year": 2026, "month": 1, "item": "Cucumbers", "procured_t": 1.311}, {"year": 2026, "month": 1, "item": "Lettuce and chicory", "procured_t": 3.485}, {"year": 2026, "month": 1, "item": "Mushrooms", "procured_t": 0.542}, {"year": 2026, "month": 1, "item": "Peas, green", "procured_t": 0.003}, {"year": 2026, "month": 1, "item": "Tomatoes", "procured_t": 9.886}, {"year": 2026, "month": 2, "item": "Apples", "procured_t": 0.363}, {"year": 2026, "month": 2, "item": "Cabbages", "procured_t": 1.234}, {"year": 2026, "month": 2, "item": "Carrots and turnips", "procured_t": 1.691}, {"year": 2026, "month": 2, "item": "Chillies and peppers", "procured_t": 0.043}, {"year": 2026, "month": 2, "item": "Cucumbers", "procured_t": 0.076}, {"year": 2026, "month": 2, "item": "Lettuce and chicory", "procured_t": 1.422}, {"year": 2026, "month": 2, "item": "Peas, green", "procured_t": 0.003}, {"year": 2026, "month": 2, "item": "Potatoes", "procured_t": 7.258}, {"year": 2026, "month": 2, "item": "Tomatoes", "procured_t": 21.799}, {"year": 2026, "month": 3, "item": "Chillies and peppers", "procured_t": 0.251}, {"year": 2026, "month": 3, "item": "Cucumbers", "procured_t": 0.014}, {"year": 2026, "month": 3, "item": "Tomatoes", "procured_t": 1.157}]
+[
+  {
+    "year": 2024,
+    "month": 2,
+    "item": "Pumpkins, squash and gourds",
+    "procured_t": 8.47
+  },
+  {
+    "year": 2024,
+    "month": 3,
+    "item": "Cabbages",
+    "procured_t": 2.369
+  },
+  {
+    "year": 2024,
+    "month": 3,
+    "item": "Pumpkins, squash and gourds",
+    "procured_t": 7.434
+  },
+  {
+    "year": 2024,
+    "month": 4,
+    "item": "Chillies and peppers",
+    "procured_t": 0.248
+  },
+  {
+    "year": 2024,
+    "month": 4,
+    "item": "Mushrooms and truffles",
+    "procured_t": 17.7
+  },
+  {
+    "year": 2024,
+    "month": 5,
+    "item": "Carrots and turnips",
+    "procured_t": 1.787
+  },
+  {
+    "year": 2024,
+    "month": 5,
+    "item": "Chillies and peppers",
+    "procured_t": 1.485
+  },
+  {
+    "year": 2024,
+    "month": 5,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 4.462
+  },
+  {
+    "year": 2024,
+    "month": 5,
+    "item": "Lettuce and chicory",
+    "procured_t": 0.476
+  },
+  {
+    "year": 2024,
+    "month": 5,
+    "item": "Mushrooms and truffles",
+    "procured_t": 2.073
+  },
+  {
+    "year": 2024,
+    "month": 5,
+    "item": "Pumpkins, squash and gourds",
+    "procured_t": 0.307
+  },
+  {
+    "year": 2024,
+    "month": 5,
+    "item": "Tomatoes",
+    "procured_t": 7.143
+  },
+  {
+    "year": 2024,
+    "month": 6,
+    "item": "Cabbages",
+    "procured_t": 0.907
+  },
+  {
+    "year": 2024,
+    "month": 6,
+    "item": "Carrots and turnips",
+    "procured_t": 25.067
+  },
+  {
+    "year": 2024,
+    "month": 6,
+    "item": "Chillies and peppers",
+    "procured_t": 1.95
+  },
+  {
+    "year": 2024,
+    "month": 6,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 11.228
+  },
+  {
+    "year": 2024,
+    "month": 6,
+    "item": "Lettuce and chicory",
+    "procured_t": 0.008
+  },
+  {
+    "year": 2024,
+    "month": 6,
+    "item": "Mushrooms and truffles",
+    "procured_t": 1.588
+  },
+  {
+    "year": 2024,
+    "month": 6,
+    "item": "Onions",
+    "procured_t": 0.907
+  },
+  {
+    "year": 2024,
+    "month": 6,
+    "item": "Peas, green",
+    "procured_t": 4.329
+  },
+  {
+    "year": 2024,
+    "month": 6,
+    "item": "Potatoes",
+    "procured_t": 4.99
+  },
+  {
+    "year": 2024,
+    "month": 6,
+    "item": "Pumpkins, squash and gourds",
+    "procured_t": 9.271
+  },
+  {
+    "year": 2024,
+    "month": 6,
+    "item": "Tomatoes",
+    "procured_t": 4.837
+  },
+  {
+    "year": 2024,
+    "month": 7,
+    "item": "Blueberries and cranberries",
+    "procured_t": 0.624
+  },
+  {
+    "year": 2024,
+    "month": 7,
+    "item": "Carrots and turnips",
+    "procured_t": 38.874
+  },
+  {
+    "year": 2024,
+    "month": 7,
+    "item": "Chillies and peppers",
+    "procured_t": 0.188
+  },
+  {
+    "year": 2024,
+    "month": 7,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 45.034
+  },
+  {
+    "year": 2024,
+    "month": 7,
+    "item": "Mushrooms and truffles",
+    "procured_t": 1.864
+  },
+  {
+    "year": 2024,
+    "month": 7,
+    "item": "Onions",
+    "procured_t": 5.915
+  },
+  {
+    "year": 2024,
+    "month": 7,
+    "item": "Peas, green",
+    "procured_t": 13.894
+  },
+  {
+    "year": 2024,
+    "month": 7,
+    "item": "Potatoes",
+    "procured_t": 1.202
+  },
+  {
+    "year": 2024,
+    "month": 7,
+    "item": "Pumpkins, squash and gourds",
+    "procured_t": 145.912
+  },
+  {
+    "year": 2024,
+    "month": 7,
+    "item": "Tomatoes",
+    "procured_t": 0.381
+  },
+  {
+    "year": 2024,
+    "month": 8,
+    "item": "Blueberries and cranberries",
+    "procured_t": 0.218
+  },
+  {
+    "year": 2024,
+    "month": 8,
+    "item": "Carrots and turnips",
+    "procured_t": 43.306
+  },
+  {
+    "year": 2024,
+    "month": 8,
+    "item": "Cauliflowers and broccoli",
+    "procured_t": 2.685
+  },
+  {
+    "year": 2024,
+    "month": 8,
+    "item": "Chillies and peppers",
+    "procured_t": 1.316
+  },
+  {
+    "year": 2024,
+    "month": 8,
+    "item": "Sweet corn",
+    "procured_t": 6.441
+  },
+  {
+    "year": 2024,
+    "month": 8,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 32.979
+  },
+  {
+    "year": 2024,
+    "month": 8,
+    "item": "Eggplants (aubergines)",
+    "procured_t": 0.023
+  },
+  {
+    "year": 2024,
+    "month": 8,
+    "item": "Lettuce and chicory",
+    "procured_t": 1.097
+  },
+  {
+    "year": 2024,
+    "month": 8,
+    "item": "Mushrooms and truffles",
+    "procured_t": 3.289
+  },
+  {
+    "year": 2024,
+    "month": 8,
+    "item": "Plums and sloes",
+    "procured_t": 0.059
+  },
+  {
+    "year": 2024,
+    "month": 8,
+    "item": "Potatoes",
+    "procured_t": 51.562
+  },
+  {
+    "year": 2024,
+    "month": 8,
+    "item": "Pumpkins, squash and gourds",
+    "procured_t": 70.914
+  },
+  {
+    "year": 2024,
+    "month": 8,
+    "item": "Tomatoes",
+    "procured_t": 1.857
+  },
+  {
+    "year": 2024,
+    "month": 9,
+    "item": "Cabbages",
+    "procured_t": 2.798
+  },
+  {
+    "year": 2024,
+    "month": 9,
+    "item": "Carrots and turnips",
+    "procured_t": 21.39
+  },
+  {
+    "year": 2024,
+    "month": 9,
+    "item": "Chillies and peppers",
+    "procured_t": 2.015
+  },
+  {
+    "year": 2024,
+    "month": 9,
+    "item": "Sweet corn",
+    "procured_t": 9.314
+  },
+  {
+    "year": 2024,
+    "month": 9,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 4.125
+  },
+  {
+    "year": 2024,
+    "month": 9,
+    "item": "Plums and sloes",
+    "procured_t": 0.237
+  },
+  {
+    "year": 2024,
+    "month": 9,
+    "item": "Potatoes",
+    "procured_t": 27.152
+  },
+  {
+    "year": 2024,
+    "month": 9,
+    "item": "Pumpkins, squash and gourds",
+    "procured_t": 37.248
+  },
+  {
+    "year": 2024,
+    "month": 10,
+    "item": "Apples",
+    "procured_t": 5.443
+  },
+  {
+    "year": 2024,
+    "month": 10,
+    "item": "Cabbages",
+    "procured_t": 5.004
+  },
+  {
+    "year": 2024,
+    "month": 10,
+    "item": "Carrots and turnips",
+    "procured_t": 47.79
+  },
+  {
+    "year": 2024,
+    "month": 10,
+    "item": "Cauliflowers and broccoli",
+    "procured_t": 21.732
+  },
+  {
+    "year": 2024,
+    "month": 10,
+    "item": "Chillies and peppers",
+    "procured_t": 12.857
+  },
+  {
+    "year": 2024,
+    "month": 10,
+    "item": "Sweet corn",
+    "procured_t": 2.758
+  },
+  {
+    "year": 2024,
+    "month": 10,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 0.941
+  },
+  {
+    "year": 2024,
+    "month": 10,
+    "item": "Green garlic",
+    "procured_t": 0.054
+  },
+  {
+    "year": 2024,
+    "month": 10,
+    "item": "Lettuce and chicory",
+    "procured_t": 1.908
+  },
+  {
+    "year": 2024,
+    "month": 10,
+    "item": "Potatoes",
+    "procured_t": 98.415
+  },
+  {
+    "year": 2024,
+    "month": 10,
+    "item": "Pumpkins, squash and gourds",
+    "procured_t": 100.054
+  },
+  {
+    "year": 2024,
+    "month": 10,
+    "item": "Tomatoes",
+    "procured_t": 2.388
+  },
+  {
+    "year": 2024,
+    "month": 11,
+    "item": "Apples",
+    "procured_t": 15.726
+  },
+  {
+    "year": 2024,
+    "month": 11,
+    "item": "Cabbages",
+    "procured_t": 4.565
+  },
+  {
+    "year": 2024,
+    "month": 11,
+    "item": "Carrots and turnips",
+    "procured_t": 15.723
+  },
+  {
+    "year": 2024,
+    "month": 11,
+    "item": "Cauliflowers and broccoli",
+    "procured_t": 9.957
+  },
+  {
+    "year": 2024,
+    "month": 11,
+    "item": "Chillies and peppers",
+    "procured_t": 6.837
+  },
+  {
+    "year": 2024,
+    "month": 11,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 0.198
+  },
+  {
+    "year": 2024,
+    "month": 11,
+    "item": "Lettuce and chicory",
+    "procured_t": 0.185
+  },
+  {
+    "year": 2024,
+    "month": 11,
+    "item": "Onions",
+    "procured_t": 0.075
+  },
+  {
+    "year": 2024,
+    "month": 11,
+    "item": "Plums and sloes",
+    "procured_t": 0.726
+  },
+  {
+    "year": 2024,
+    "month": 11,
+    "item": "Potatoes",
+    "procured_t": 20.529
+  },
+  {
+    "year": 2024,
+    "month": 11,
+    "item": "Pumpkins, squash and gourds",
+    "procured_t": 12.004
+  },
+  {
+    "year": 2024,
+    "month": 11,
+    "item": "Tomatoes",
+    "procured_t": 5.911
+  },
+  {
+    "year": 2024,
+    "month": 12,
+    "item": "Cabbages",
+    "procured_t": 5.178
+  },
+  {
+    "year": 2024,
+    "month": 12,
+    "item": "Carrots and turnips",
+    "procured_t": 1.403
+  },
+  {
+    "year": 2024,
+    "month": 12,
+    "item": "Chillies and peppers",
+    "procured_t": 1.538
+  },
+  {
+    "year": 2024,
+    "month": 12,
+    "item": "Lettuce and chicory",
+    "procured_t": 0.276
+  },
+  {
+    "year": 2024,
+    "month": 12,
+    "item": "Mushrooms and truffles",
+    "procured_t": 8.073
+  },
+  {
+    "year": 2024,
+    "month": 12,
+    "item": "Potatoes",
+    "procured_t": 13.633
+  },
+  {
+    "year": 2024,
+    "month": 12,
+    "item": "Pumpkins, squash and gourds",
+    "procured_t": 33.43
+  },
+  {
+    "year": 2025,
+    "month": 1,
+    "item": "Blueberries and cranberries",
+    "procured_t": 0.118
+  },
+  {
+    "year": 2025,
+    "month": 1,
+    "item": "Cabbages",
+    "procured_t": 0.602
+  },
+  {
+    "year": 2025,
+    "month": 1,
+    "item": "Carrots and turnips",
+    "procured_t": 1.853
+  },
+  {
+    "year": 2025,
+    "month": 1,
+    "item": "Chillies and peppers",
+    "procured_t": 1.235
+  },
+  {
+    "year": 2025,
+    "month": 1,
+    "item": "Lettuce and chicory",
+    "procured_t": 0.123
+  },
+  {
+    "year": 2025,
+    "month": 1,
+    "item": "Mushrooms and truffles",
+    "procured_t": 0.703
+  },
+  {
+    "year": 2025,
+    "month": 1,
+    "item": "Potatoes",
+    "procured_t": 20.262
+  },
+  {
+    "year": 2025,
+    "month": 1,
+    "item": "Pumpkins, squash and gourds",
+    "procured_t": 1.483
+  },
+  {
+    "year": 2025,
+    "month": 1,
+    "item": "Tomatoes",
+    "procured_t": 4.751
+  },
+  {
+    "year": 2025,
+    "month": 2,
+    "item": "Carrots and turnips",
+    "procured_t": 3.765
+  },
+  {
+    "year": 2025,
+    "month": 2,
+    "item": "Chillies and peppers",
+    "procured_t": 0.435
+  },
+  {
+    "year": 2025,
+    "month": 2,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 2.107
+  },
+  {
+    "year": 2025,
+    "month": 2,
+    "item": "Lettuce and chicory",
+    "procured_t": 0.072
+  },
+  {
+    "year": 2025,
+    "month": 2,
+    "item": "Mushrooms and truffles",
+    "procured_t": 3.461
+  },
+  {
+    "year": 2025,
+    "month": 2,
+    "item": "Onions",
+    "procured_t": 7.372
+  },
+  {
+    "year": 2025,
+    "month": 2,
+    "item": "Potatoes",
+    "procured_t": 9.754
+  },
+  {
+    "year": 2025,
+    "month": 2,
+    "item": "Tomatoes",
+    "procured_t": 7.058
+  },
+  {
+    "year": 2025,
+    "month": 3,
+    "item": "Cabbages",
+    "procured_t": 4.572
+  },
+  {
+    "year": 2025,
+    "month": 3,
+    "item": "Carrots and turnips",
+    "procured_t": 1.329
+  },
+  {
+    "year": 2025,
+    "month": 3,
+    "item": "Chillies and peppers",
+    "procured_t": 2.09
+  },
+  {
+    "year": 2025,
+    "month": 3,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 0.018
+  },
+  {
+    "year": 2025,
+    "month": 3,
+    "item": "Lettuce and chicory",
+    "procured_t": 0.562
+  },
+  {
+    "year": 2025,
+    "month": 3,
+    "item": "Mushrooms and truffles",
+    "procured_t": 3.461
+  },
+  {
+    "year": 2025,
+    "month": 3,
+    "item": "Potatoes",
+    "procured_t": 8.475
+  },
+  {
+    "year": 2025,
+    "month": 3,
+    "item": "Tomatoes",
+    "procured_t": 5.503
+  },
+  {
+    "year": 2025,
+    "month": 4,
+    "item": "Chillies and peppers",
+    "procured_t": 1.619
+  },
+  {
+    "year": 2025,
+    "month": 4,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 0.972
+  },
+  {
+    "year": 2025,
+    "month": 4,
+    "item": "Lettuce and chicory",
+    "procured_t": 0.278
+  },
+  {
+    "year": 2025,
+    "month": 4,
+    "item": "Mushrooms and truffles",
+    "procured_t": 2.186
+  },
+  {
+    "year": 2025,
+    "month": 4,
+    "item": "Peas, green",
+    "procured_t": 0.009
+  },
+  {
+    "year": 2025,
+    "month": 4,
+    "item": "Potatoes",
+    "procured_t": 10.811
+  },
+  {
+    "year": 2025,
+    "month": 4,
+    "item": "Tomatoes",
+    "procured_t": 24.439
+  },
+  {
+    "year": 2025,
+    "month": 5,
+    "item": "Carrots and turnips",
+    "procured_t": 2.267
+  },
+  {
+    "year": 2025,
+    "month": 5,
+    "item": "Chillies and peppers",
+    "procured_t": 8.087
+  },
+  {
+    "year": 2025,
+    "month": 5,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 1.895
+  },
+  {
+    "year": 2025,
+    "month": 5,
+    "item": "Lettuce and chicory",
+    "procured_t": 0.099
+  },
+  {
+    "year": 2025,
+    "month": 5,
+    "item": "Mushrooms and truffles",
+    "procured_t": 2.067
+  },
+  {
+    "year": 2025,
+    "month": 5,
+    "item": "Peas, green",
+    "procured_t": 0.03
+  },
+  {
+    "year": 2025,
+    "month": 5,
+    "item": "Pumpkins, squash and gourds",
+    "procured_t": 0.554
+  },
+  {
+    "year": 2025,
+    "month": 5,
+    "item": "Tomatoes",
+    "procured_t": 8.914
+  },
+  {
+    "year": 2025,
+    "month": 6,
+    "item": "Carrots and turnips",
+    "procured_t": 14.347
+  },
+  {
+    "year": 2025,
+    "month": 6,
+    "item": "Chillies and peppers",
+    "procured_t": 3.558
+  },
+  {
+    "year": 2025,
+    "month": 6,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 0.664
+  },
+  {
+    "year": 2025,
+    "month": 6,
+    "item": "Lettuce and chicory",
+    "procured_t": 0.464
+  },
+  {
+    "year": 2025,
+    "month": 6,
+    "item": "Mushrooms and truffles",
+    "procured_t": 12.073
+  },
+  {
+    "year": 2025,
+    "month": 6,
+    "item": "Peas, green",
+    "procured_t": 0.11
+  },
+  {
+    "year": 2025,
+    "month": 6,
+    "item": "Pumpkins, squash and gourds",
+    "procured_t": 11.949
+  },
+  {
+    "year": 2025,
+    "month": 6,
+    "item": "Tomatoes",
+    "procured_t": 30.269
+  },
+  {
+    "year": 2025,
+    "month": 7,
+    "item": "Blueberries and cranberries",
+    "procured_t": 2.665
+  },
+  {
+    "year": 2025,
+    "month": 7,
+    "item": "Carrots and turnips",
+    "procured_t": 3.044
+  },
+  {
+    "year": 2025,
+    "month": 7,
+    "item": "Cherries",
+    "procured_t": 4.787
+  },
+  {
+    "year": 2025,
+    "month": 7,
+    "item": "Chillies and peppers",
+    "procured_t": 1.953
+  },
+  {
+    "year": 2025,
+    "month": 7,
+    "item": "Sweet corn",
+    "procured_t": 1.559
+  },
+  {
+    "year": 2025,
+    "month": 7,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 3.019
+  },
+  {
+    "year": 2025,
+    "month": 7,
+    "item": "Lettuce and chicory",
+    "procured_t": 0.234
+  },
+  {
+    "year": 2025,
+    "month": 7,
+    "item": "Mushrooms and truffles",
+    "procured_t": 5.675
+  },
+  {
+    "year": 2025,
+    "month": 7,
+    "item": "Peas, green",
+    "procured_t": 0.041
+  },
+  {
+    "year": 2025,
+    "month": 7,
+    "item": "Pumpkins, squash and gourds",
+    "procured_t": 66.914
+  },
+  {
+    "year": 2025,
+    "month": 7,
+    "item": "Tomatoes",
+    "procured_t": 80.607
+  },
+  {
+    "year": 2025,
+    "month": 8,
+    "item": "Apples",
+    "procured_t": 0.864
+  },
+  {
+    "year": 2025,
+    "month": 8,
+    "item": "Cabbages",
+    "procured_t": 6.441
+  },
+  {
+    "year": 2025,
+    "month": 8,
+    "item": "Carrots and turnips",
+    "procured_t": 66.451
+  },
+  {
+    "year": 2025,
+    "month": 8,
+    "item": "Cauliflowers and broccoli",
+    "procured_t": 9.789
+  },
+  {
+    "year": 2025,
+    "month": 8,
+    "item": "Cherries",
+    "procured_t": 0.737
+  },
+  {
+    "year": 2025,
+    "month": 8,
+    "item": "Chillies and peppers",
+    "procured_t": 0.736
+  },
+  {
+    "year": 2025,
+    "month": 8,
+    "item": "Sweet corn",
+    "procured_t": 21.585
+  },
+  {
+    "year": 2025,
+    "month": 8,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 7.058
+  },
+  {
+    "year": 2025,
+    "month": 8,
+    "item": "Eggplants (aubergines)",
+    "procured_t": 0.005
+  },
+  {
+    "year": 2025,
+    "month": 8,
+    "item": "Lettuce and chicory",
+    "procured_t": 0.355
+  },
+  {
+    "year": 2025,
+    "month": 8,
+    "item": "Mushrooms and truffles",
+    "procured_t": 0.288
+  },
+  {
+    "year": 2025,
+    "month": 8,
+    "item": "Peaches and nectarines",
+    "procured_t": 0.353
+  },
+  {
+    "year": 2025,
+    "month": 8,
+    "item": "Peas, green",
+    "procured_t": 0.005
+  },
+  {
+    "year": 2025,
+    "month": 8,
+    "item": "Plums and sloes",
+    "procured_t": 0.257
+  },
+  {
+    "year": 2025,
+    "month": 8,
+    "item": "Potatoes",
+    "procured_t": 79.755
+  },
+  {
+    "year": 2025,
+    "month": 8,
+    "item": "Pumpkins, squash and gourds",
+    "procured_t": 76.656
+  },
+  {
+    "year": 2025,
+    "month": 8,
+    "item": "Tomatoes",
+    "procured_t": 43.177
+  },
+  {
+    "year": 2025,
+    "month": 9,
+    "item": "Apples",
+    "procured_t": 18.246
+  },
+  {
+    "year": 2025,
+    "month": 9,
+    "item": "Cabbages",
+    "procured_t": 0.272
+  },
+  {
+    "year": 2025,
+    "month": 9,
+    "item": "Carrots and turnips",
+    "procured_t": 15.561
+  },
+  {
+    "year": 2025,
+    "month": 9,
+    "item": "Cauliflowers and broccoli",
+    "procured_t": 6.151
+  },
+  {
+    "year": 2025,
+    "month": 9,
+    "item": "Chillies and peppers",
+    "procured_t": 7.893
+  },
+  {
+    "year": 2025,
+    "month": 9,
+    "item": "Sweet corn",
+    "procured_t": 8.024
+  },
+  {
+    "year": 2025,
+    "month": 9,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 6.798
+  },
+  {
+    "year": 2025,
+    "month": 9,
+    "item": "Eggplants (aubergines)",
+    "procured_t": 1.297
+  },
+  {
+    "year": 2025,
+    "month": 9,
+    "item": "Lettuce and chicory",
+    "procured_t": 0.978
+  },
+  {
+    "year": 2025,
+    "month": 9,
+    "item": "Mushrooms and truffles",
+    "procured_t": 3.412
+  },
+  {
+    "year": 2025,
+    "month": 9,
+    "item": "Peaches and nectarines",
+    "procured_t": 0.294
+  },
+  {
+    "year": 2025,
+    "month": 9,
+    "item": "Peas, green",
+    "procured_t": 0.006
+  },
+  {
+    "year": 2025,
+    "month": 9,
+    "item": "Plums and sloes",
+    "procured_t": 0.114
+  },
+  {
+    "year": 2025,
+    "month": 9,
+    "item": "Pumpkins, squash and gourds",
+    "procured_t": 79.829
+  },
+  {
+    "year": 2025,
+    "month": 9,
+    "item": "Spinach",
+    "procured_t": 0.586
+  },
+  {
+    "year": 2025,
+    "month": 9,
+    "item": "Tomatoes",
+    "procured_t": 10.313
+  },
+  {
+    "year": 2025,
+    "month": 10,
+    "item": "Apples",
+    "procured_t": 22.221
+  },
+  {
+    "year": 2025,
+    "month": 10,
+    "item": "Cabbages",
+    "procured_t": 29.791
+  },
+  {
+    "year": 2025,
+    "month": 10,
+    "item": "Carrots and turnips",
+    "procured_t": 11.282
+  },
+  {
+    "year": 2025,
+    "month": 10,
+    "item": "Cauliflowers and broccoli",
+    "procured_t": 10.449
+  },
+  {
+    "year": 2025,
+    "month": 10,
+    "item": "Chillies and peppers",
+    "procured_t": 2.536
+  },
+  {
+    "year": 2025,
+    "month": 10,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 0.549
+  },
+  {
+    "year": 2025,
+    "month": 10,
+    "item": "Lettuce and chicory",
+    "procured_t": 0.17
+  },
+  {
+    "year": 2025,
+    "month": 10,
+    "item": "Mushrooms and truffles",
+    "procured_t": 15.358
+  },
+  {
+    "year": 2025,
+    "month": 10,
+    "item": "Pears",
+    "procured_t": 0.633
+  },
+  {
+    "year": 2025,
+    "month": 10,
+    "item": "Peas, green",
+    "procured_t": 0.003
+  },
+  {
+    "year": 2025,
+    "month": 10,
+    "item": "Pumpkins, squash and gourds",
+    "procured_t": 9.566
+  },
+  {
+    "year": 2025,
+    "month": 10,
+    "item": "Tomatoes",
+    "procured_t": 5.585
+  },
+  {
+    "year": 2025,
+    "month": 11,
+    "item": "Cabbages",
+    "procured_t": 3.375
+  },
+  {
+    "year": 2025,
+    "month": 11,
+    "item": "Carrots and turnips",
+    "procured_t": 9.802
+  },
+  {
+    "year": 2025,
+    "month": 11,
+    "item": "Chillies and peppers",
+    "procured_t": 4.643
+  },
+  {
+    "year": 2025,
+    "month": 11,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 0.512
+  },
+  {
+    "year": 2025,
+    "month": 11,
+    "item": "Mushrooms and truffles",
+    "procured_t": 7.339
+  },
+  {
+    "year": 2025,
+    "month": 11,
+    "item": "Peas, green",
+    "procured_t": 0.002
+  },
+  {
+    "year": 2025,
+    "month": 11,
+    "item": "Potatoes",
+    "procured_t": 5.118
+  },
+  {
+    "year": 2025,
+    "month": 11,
+    "item": "Pumpkins, squash and gourds",
+    "procured_t": 2.461
+  },
+  {
+    "year": 2025,
+    "month": 11,
+    "item": "Tomatoes",
+    "procured_t": 24.757
+  },
+  {
+    "year": 2025,
+    "month": 12,
+    "item": "Apples",
+    "procured_t": 5.08
+  },
+  {
+    "year": 2025,
+    "month": 12,
+    "item": "Cabbages",
+    "procured_t": 2.137
+  },
+  {
+    "year": 2025,
+    "month": 12,
+    "item": "Carrots and turnips",
+    "procured_t": 4.725
+  },
+  {
+    "year": 2025,
+    "month": 12,
+    "item": "Cauliflowers and broccoli",
+    "procured_t": 1.862
+  },
+  {
+    "year": 2025,
+    "month": 12,
+    "item": "Chillies and peppers",
+    "procured_t": 5.532
+  },
+  {
+    "year": 2025,
+    "month": 12,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 1.013
+  },
+  {
+    "year": 2025,
+    "month": 12,
+    "item": "Lettuce and chicory",
+    "procured_t": 1.47
+  },
+  {
+    "year": 2025,
+    "month": 12,
+    "item": "Mushrooms and truffles",
+    "procured_t": 1.687
+  },
+  {
+    "year": 2025,
+    "month": 12,
+    "item": "Onions",
+    "procured_t": 14.236
+  },
+  {
+    "year": 2025,
+    "month": 12,
+    "item": "Potatoes",
+    "procured_t": 4.75
+  },
+  {
+    "year": 2025,
+    "month": 12,
+    "item": "Pumpkins, squash and gourds",
+    "procured_t": 6.125
+  },
+  {
+    "year": 2025,
+    "month": 12,
+    "item": "Tomatoes",
+    "procured_t": 39.298
+  },
+  {
+    "year": 2026,
+    "month": 1,
+    "item": "Carrots and turnips",
+    "procured_t": 0.713
+  },
+  {
+    "year": 2026,
+    "month": 1,
+    "item": "Cauliflowers and broccoli",
+    "procured_t": 0.0
+  },
+  {
+    "year": 2026,
+    "month": 1,
+    "item": "Chillies and peppers",
+    "procured_t": 0.599
+  },
+  {
+    "year": 2026,
+    "month": 1,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 1.311
+  },
+  {
+    "year": 2026,
+    "month": 1,
+    "item": "Lettuce and chicory",
+    "procured_t": 3.485
+  },
+  {
+    "year": 2026,
+    "month": 1,
+    "item": "Mushrooms and truffles",
+    "procured_t": 0.542
+  },
+  {
+    "year": 2026,
+    "month": 1,
+    "item": "Peas, green",
+    "procured_t": 0.003
+  },
+  {
+    "year": 2026,
+    "month": 1,
+    "item": "Tomatoes",
+    "procured_t": 9.886
+  },
+  {
+    "year": 2026,
+    "month": 2,
+    "item": "Apples",
+    "procured_t": 0.363
+  },
+  {
+    "year": 2026,
+    "month": 2,
+    "item": "Cabbages",
+    "procured_t": 1.234
+  },
+  {
+    "year": 2026,
+    "month": 2,
+    "item": "Carrots and turnips",
+    "procured_t": 1.691
+  },
+  {
+    "year": 2026,
+    "month": 2,
+    "item": "Chillies and peppers",
+    "procured_t": 0.043
+  },
+  {
+    "year": 2026,
+    "month": 2,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 0.076
+  },
+  {
+    "year": 2026,
+    "month": 2,
+    "item": "Lettuce and chicory",
+    "procured_t": 1.422
+  },
+  {
+    "year": 2026,
+    "month": 2,
+    "item": "Peas, green",
+    "procured_t": 0.003
+  },
+  {
+    "year": 2026,
+    "month": 2,
+    "item": "Potatoes",
+    "procured_t": 7.258
+  },
+  {
+    "year": 2026,
+    "month": 2,
+    "item": "Tomatoes",
+    "procured_t": 21.799
+  },
+  {
+    "year": 2026,
+    "month": 3,
+    "item": "Chillies and peppers",
+    "procured_t": 0.251
+  },
+  {
+    "year": 2026,
+    "month": 3,
+    "item": "Cucumbers and gherkins",
+    "procured_t": 0.014
+  },
+  {
+    "year": 2026,
+    "month": 3,
+    "item": "Tomatoes",
+    "procured_t": 1.157
+  }
+]

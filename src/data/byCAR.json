@@ -1,1 +1,1154 @@
-[{"year": 2010, "car_uid": "5901", "car_code": "CAR590100000", "car_name": "Vancouver Island\u2013Coast", "farmgate_t": 1454.0, "farmgate_low": 1016.4, "farmgate_high": 1891.7}, {"year": 2010, "car_uid": "5902", "car_code": "CAR590200000", "car_name": "Lower Mainland\u2013Southwest", "farmgate_t": 5793.1, "farmgate_low": 4046.2, "farmgate_high": 7540.0}, {"year": 2010, "car_uid": "5903", "car_code": "CAR590300000", "car_name": "Thompson\u2013Okanagan", "farmgate_t": 3752.1, "farmgate_low": 2629.9, "farmgate_high": 4874.4}, {"year": 2010, "car_uid": "5904", "car_code": "CAR590400000", "car_name": "Kootenay", "farmgate_t": 295.6, "farmgate_low": 206.9, "farmgate_high": 384.3}, {"year": 2010, "car_uid": "5905", "car_code": "CAR590500000", "car_name": "Cariboo", "farmgate_t": 136.1, "farmgate_low": 95.2, "farmgate_high": 176.9}, {"year": 2010, "car_uid": "5906", "car_code": "CAR590600000", "car_name": "North Coast", "farmgate_t": 55.0, "farmgate_low": 38.4, "farmgate_high": 71.6}, {"year": 2010, "car_uid": "5907", "car_code": "CAR590700000", "car_name": "Nechako", "farmgate_t": 56.6, "farmgate_low": 39.6, "farmgate_high": 73.7}, {"year": 2010, "car_uid": "5908", "car_code": "CAR590800000", "car_name": "Peace River", "farmgate_t": 59.5, "farmgate_low": 41.7, "farmgate_high": 77.4}, {"year": 2011, "car_uid": "5901", "car_code": "CAR590100000", "car_name": "Vancouver Island\u2013Coast", "farmgate_t": 2457.3, "farmgate_low": 1717.7, "farmgate_high": 3197.0}, {"year": 2011, "car_uid": "5902", "car_code": "CAR590200000", "car_name": "Lower Mainland\u2013Southwest", "farmgate_t": 14465.6, "farmgate_low": 10082.0, "farmgate_high": 18849.1}, {"year": 2011, "car_uid": "5903", "car_code": "CAR590300000", "car_name": "Thompson\u2013Okanagan", "farmgate_t": 12285.3, "farmgate_low": 8607.5, "farmgate_high": 15963.1}, {"year": 2011, "car_uid": "5904", "car_code": "CAR590400000", "car_name": "Kootenay", "farmgate_t": 605.8, "farmgate_low": 423.8, "farmgate_high": 787.8}, {"year": 2011, "car_uid": "5905", "car_code": "CAR590500000", "car_name": "Cariboo", "farmgate_t": 200.4, "farmgate_low": 140.2, "farmgate_high": 260.6}, {"year": 2011, "car_uid": "5906", "car_code": "CAR590600000", "car_name": "North Coast", "farmgate_t": 79.2, "farmgate_low": 55.3, "farmgate_high": 103.0}, {"year": 2011, "car_uid": "5907", "car_code": "CAR590700000", "car_name": "Nechako", "farmgate_t": 84.7, "farmgate_low": 59.2, "farmgate_high": 110.2}, {"year": 2011, "car_uid": "5908", "car_code": "CAR590800000", "car_name": "Peace River", "farmgate_t": 82.2, "farmgate_low": 57.5, "farmgate_high": 106.9}, {"year": 2012, "car_uid": "5901", "car_code": "CAR590100000", "car_name": "Vancouver Island\u2013Coast", "farmgate_t": 2453.0, "farmgate_low": 1714.7, "farmgate_high": 3191.4}, {"year": 2012, "car_uid": "5902", "car_code": "CAR590200000", "car_name": "Lower Mainland\u2013Southwest", "farmgate_t": 15801.8, "farmgate_low": 11010.7, "farmgate_high": 20592.9}, {"year": 2012, "car_uid": "5903", "car_code": "CAR590300000", "car_name": "Thompson\u2013Okanagan", "farmgate_t": 13083.3, "farmgate_low": 9167.7, "farmgate_high": 16998.8}, {"year": 2012, "car_uid": "5904", "car_code": "CAR590400000", "car_name": "Kootenay", "farmgate_t": 664.2, "farmgate_low": 464.7, "farmgate_high": 863.7}, {"year": 2012, "car_uid": "5905", "car_code": "CAR590500000", "car_name": "Cariboo", "farmgate_t": 207.5, "farmgate_low": 145.1, "farmgate_high": 269.8}, {"year": 2012, "car_uid": "5906", "car_code": "CAR590600000", "car_name": "North Coast", "farmgate_t": 79.5, "farmgate_low": 55.6, "farmgate_high": 103.5}, {"year": 2012, "car_uid": "5907", "car_code": "CAR590700000", "car_name": "Nechako", "farmgate_t": 81.1, "farmgate_low": 56.7, "farmgate_high": 105.6}, {"year": 2012, "car_uid": "5908", "car_code": "CAR590800000", "car_name": "Peace River", "farmgate_t": 82.8, "farmgate_low": 58.0, "farmgate_high": 107.7}, {"year": 2013, "car_uid": "5901", "car_code": "CAR590100000", "car_name": "Vancouver Island\u2013Coast", "farmgate_t": 2398.5, "farmgate_low": 1676.9, "farmgate_high": 3120.2}, {"year": 2013, "car_uid": "5902", "car_code": "CAR590200000", "car_name": "Lower Mainland\u2013Southwest", "farmgate_t": 15583.3, "farmgate_low": 10858.8, "farmgate_high": 20307.8}, {"year": 2013, "car_uid": "5903", "car_code": "CAR590300000", "car_name": "Thompson\u2013Okanagan", "farmgate_t": 12000.5, "farmgate_low": 8411.3, "farmgate_high": 15589.6}, {"year": 2013, "car_uid": "5904", "car_code": "CAR590400000", "car_name": "Kootenay", "farmgate_t": 631.4, "farmgate_low": 441.8, "farmgate_high": 820.9}, {"year": 2013, "car_uid": "5905", "car_code": "CAR590500000", "car_name": "Cariboo", "farmgate_t": 225.5, "farmgate_low": 157.8, "farmgate_high": 293.2}, {"year": 2013, "car_uid": "5906", "car_code": "CAR590600000", "car_name": "North Coast", "farmgate_t": 79.7, "farmgate_low": 55.7, "farmgate_high": 103.7}, {"year": 2013, "car_uid": "5907", "car_code": "CAR590700000", "car_name": "Nechako", "farmgate_t": 77.1, "farmgate_low": 53.9, "farmgate_high": 100.4}, {"year": 2013, "car_uid": "5908", "car_code": "CAR590800000", "car_name": "Peace River", "farmgate_t": 82.6, "farmgate_low": 57.9, "farmgate_high": 107.4}, {"year": 2014, "car_uid": "5901", "car_code": "CAR590100000", "car_name": "Vancouver Island\u2013Coast", "farmgate_t": 2409.9, "farmgate_low": 1684.6, "farmgate_high": 3135.3}, {"year": 2014, "car_uid": "5902", "car_code": "CAR590200000", "car_name": "Lower Mainland\u2013Southwest", "farmgate_t": 16402.6, "farmgate_low": 11425.2, "farmgate_high": 21380.0}, {"year": 2014, "car_uid": "5903", "car_code": "CAR590300000", "car_name": "Thompson\u2013Okanagan", "farmgate_t": 13224.6, "farmgate_low": 9267.7, "farmgate_high": 17181.5}, {"year": 2014, "car_uid": "5904", "car_code": "CAR590400000", "car_name": "Kootenay", "farmgate_t": 672.3, "farmgate_low": 470.4, "farmgate_high": 874.3}, {"year": 2014, "car_uid": "5905", "car_code": "CAR590500000", "car_name": "Cariboo", "farmgate_t": 223.4, "farmgate_low": 156.3, "farmgate_high": 290.5}, {"year": 2014, "car_uid": "5906", "car_code": "CAR590600000", "car_name": "North Coast", "farmgate_t": 75.9, "farmgate_low": 53.0, "farmgate_high": 98.8}, {"year": 2014, "car_uid": "5907", "car_code": "CAR590700000", "car_name": "Nechako", "farmgate_t": 69.7, "farmgate_low": 48.7, "farmgate_high": 90.7}, {"year": 2014, "car_uid": "5908", "car_code": "CAR590800000", "car_name": "Peace River", "farmgate_t": 76.1, "farmgate_low": 53.3, "farmgate_high": 99.0}, {"year": 2015, "car_uid": "5901", "car_code": "CAR590100000", "car_name": "Vancouver Island\u2013Coast", "farmgate_t": 2251.7, "farmgate_low": 1574.2, "farmgate_high": 2929.2}, {"year": 2015, "car_uid": "5902", "car_code": "CAR590200000", "car_name": "Lower Mainland\u2013Southwest", "farmgate_t": 17155.1, "farmgate_low": 11948.7, "farmgate_high": 22361.6}, {"year": 2015, "car_uid": "5903", "car_code": "CAR590300000", "car_name": "Thompson\u2013Okanagan", "farmgate_t": 12831.4, "farmgate_low": 8993.0, "farmgate_high": 16669.8}, {"year": 2015, "car_uid": "5904", "car_code": "CAR590400000", "car_name": "Kootenay", "farmgate_t": 674.4, "farmgate_low": 471.9, "farmgate_high": 876.9}, {"year": 2015, "car_uid": "5905", "car_code": "CAR590500000", "car_name": "Cariboo", "farmgate_t": 225.3, "farmgate_low": 157.7, "farmgate_high": 293.0}, {"year": 2015, "car_uid": "5906", "car_code": "CAR590600000", "car_name": "North Coast", "farmgate_t": 75.3, "farmgate_low": 52.6, "farmgate_high": 98.0}, {"year": 2015, "car_uid": "5907", "car_code": "CAR590700000", "car_name": "Nechako", "farmgate_t": 66.0, "farmgate_low": 46.2, "farmgate_high": 85.9}, {"year": 2015, "car_uid": "5908", "car_code": "CAR590800000", "car_name": "Peace River", "farmgate_t": 73.5, "farmgate_low": 51.5, "farmgate_high": 95.6}, {"year": 2016, "car_uid": "5901", "car_code": "CAR590100000", "car_name": "Vancouver Island\u2013Coast", "farmgate_t": 2392.4, "farmgate_low": 1672.4, "farmgate_high": 3112.4}, {"year": 2016, "car_uid": "5902", "car_code": "CAR590200000", "car_name": "Lower Mainland\u2013Southwest", "farmgate_t": 18909.4, "farmgate_low": 13173.3, "farmgate_high": 24645.6}, {"year": 2016, "car_uid": "5903", "car_code": "CAR590300000", "car_name": "Thompson\u2013Okanagan", "farmgate_t": 13597.5, "farmgate_low": 9529.9, "farmgate_high": 17665.2}, {"year": 2016, "car_uid": "5904", "car_code": "CAR590400000", "car_name": "Kootenay", "farmgate_t": 750.2, "farmgate_low": 524.9, "farmgate_high": 975.6}, {"year": 2016, "car_uid": "5905", "car_code": "CAR590500000", "car_name": "Cariboo", "farmgate_t": 269.4, "farmgate_low": 188.5, "farmgate_high": 350.4}, {"year": 2016, "car_uid": "5906", "car_code": "CAR590600000", "car_name": "North Coast", "farmgate_t": 100.1, "farmgate_low": 69.9, "farmgate_high": 130.2}, {"year": 2016, "car_uid": "5907", "car_code": "CAR590700000", "car_name": "Nechako", "farmgate_t": 86.1, "farmgate_low": 60.2, "farmgate_high": 112.0}, {"year": 2016, "car_uid": "5908", "car_code": "CAR590800000", "car_name": "Peace River", "farmgate_t": 94.7, "farmgate_low": 66.3, "farmgate_high": 123.1}, {"year": 2017, "car_uid": "5901", "car_code": "CAR590100000", "car_name": "Vancouver Island\u2013Coast", "farmgate_t": 1628.2, "farmgate_low": 1137.9, "farmgate_high": 2118.5}, {"year": 2017, "car_uid": "5902", "car_code": "CAR590200000", "car_name": "Lower Mainland\u2013Southwest", "farmgate_t": 8555.5, "farmgate_low": 5974.6, "farmgate_high": 11136.3}, {"year": 2017, "car_uid": "5903", "car_code": "CAR590300000", "car_name": "Thompson\u2013Okanagan", "farmgate_t": 4097.6, "farmgate_low": 2873.1, "farmgate_high": 5322.0}, {"year": 2017, "car_uid": "5904", "car_code": "CAR590400000", "car_name": "Kootenay", "farmgate_t": 445.7, "farmgate_low": 311.9, "farmgate_high": 579.6}, {"year": 2017, "car_uid": "5905", "car_code": "CAR590500000", "car_name": "Cariboo", "farmgate_t": 249.3, "farmgate_low": 174.5, "farmgate_high": 324.2}, {"year": 2017, "car_uid": "5906", "car_code": "CAR590600000", "car_name": "North Coast", "farmgate_t": 98.2, "farmgate_low": 68.6, "farmgate_high": 127.8}, {"year": 2017, "car_uid": "5907", "car_code": "CAR590700000", "car_name": "Nechako", "farmgate_t": 82.3, "farmgate_low": 57.6, "farmgate_high": 107.1}, {"year": 2017, "car_uid": "5908", "car_code": "CAR590800000", "car_name": "Peace River", "farmgate_t": 93.6, "farmgate_low": 65.6, "farmgate_high": 121.7}, {"year": 2018, "car_uid": "5901", "car_code": "CAR590100000", "car_name": "Vancouver Island\u2013Coast", "farmgate_t": 2185.5, "farmgate_low": 1527.0, "farmgate_high": 2844.0}, {"year": 2018, "car_uid": "5902", "car_code": "CAR590200000", "car_name": "Lower Mainland\u2013Southwest", "farmgate_t": 18594.7, "farmgate_low": 12950.9, "farmgate_high": 24238.6}, {"year": 2018, "car_uid": "5903", "car_code": "CAR590300000", "car_name": "Thompson\u2013Okanagan", "farmgate_t": 12116.2, "farmgate_low": 8482.1, "farmgate_high": 15750.3}, {"year": 2018, "car_uid": "5904", "car_code": "CAR590400000", "car_name": "Kootenay", "farmgate_t": 756.4, "farmgate_low": 529.0, "farmgate_high": 983.9}, {"year": 2018, "car_uid": "5905", "car_code": "CAR590500000", "car_name": "Cariboo", "farmgate_t": 268.0, "farmgate_low": 187.5, "farmgate_high": 348.6}, {"year": 2018, "car_uid": "5906", "car_code": "CAR590600000", "car_name": "North Coast", "farmgate_t": 105.7, "farmgate_low": 73.9, "farmgate_high": 137.5}, {"year": 2018, "car_uid": "5907", "car_code": "CAR590700000", "car_name": "Nechako", "farmgate_t": 91.7, "farmgate_low": 64.1, "farmgate_high": 119.3}, {"year": 2018, "car_uid": "5908", "car_code": "CAR590800000", "car_name": "Peace River", "farmgate_t": 98.2, "farmgate_low": 68.7, "farmgate_high": 127.6}, {"year": 2019, "car_uid": "5901", "car_code": "CAR590100000", "car_name": "Vancouver Island\u2013Coast", "farmgate_t": 2115.9, "farmgate_low": 1479.2, "farmgate_high": 2752.5}, {"year": 2019, "car_uid": "5902", "car_code": "CAR590200000", "car_name": "Lower Mainland\u2013Southwest", "farmgate_t": 18066.9, "farmgate_low": 12585.4, "farmgate_high": 23548.4}, {"year": 2019, "car_uid": "5903", "car_code": "CAR590300000", "car_name": "Thompson\u2013Okanagan", "farmgate_t": 13850.8, "farmgate_low": 9709.8, "farmgate_high": 17991.9}, {"year": 2019, "car_uid": "5904", "car_code": "CAR590400000", "car_name": "Kootenay", "farmgate_t": 724.4, "farmgate_low": 506.8, "farmgate_high": 942.0}, {"year": 2019, "car_uid": "5905", "car_code": "CAR590500000", "car_name": "Cariboo", "farmgate_t": 246.3, "farmgate_low": 172.3, "farmgate_high": 320.3}, {"year": 2019, "car_uid": "5906", "car_code": "CAR590600000", "car_name": "North Coast", "farmgate_t": 91.8, "farmgate_low": 64.2, "farmgate_high": 119.5}, {"year": 2019, "car_uid": "5907", "car_code": "CAR590700000", "car_name": "Nechako", "farmgate_t": 78.6, "farmgate_low": 55.0, "farmgate_high": 102.3}, {"year": 2019, "car_uid": "5908", "car_code": "CAR590800000", "car_name": "Peace River", "farmgate_t": 86.4, "farmgate_low": 60.5, "farmgate_high": 112.3}, {"year": 2020, "car_uid": "5901", "car_code": "CAR590100000", "car_name": "Vancouver Island\u2013Coast", "farmgate_t": 1971.6, "farmgate_low": 1378.3, "farmgate_high": 2564.9}, {"year": 2020, "car_uid": "5902", "car_code": "CAR590200000", "car_name": "Lower Mainland\u2013Southwest", "farmgate_t": 18166.6, "farmgate_low": 12654.2, "farmgate_high": 23679.0}, {"year": 2020, "car_uid": "5903", "car_code": "CAR590300000", "car_name": "Thompson\u2013Okanagan", "farmgate_t": 12712.2, "farmgate_low": 8912.7, "farmgate_high": 16511.7}, {"year": 2020, "car_uid": "5904", "car_code": "CAR590400000", "car_name": "Kootenay", "farmgate_t": 674.5, "farmgate_low": 471.9, "farmgate_high": 877.0}, {"year": 2020, "car_uid": "5905", "car_code": "CAR590500000", "car_name": "Cariboo", "farmgate_t": 238.5, "farmgate_low": 166.9, "farmgate_high": 310.2}, {"year": 2020, "car_uid": "5906", "car_code": "CAR590600000", "car_name": "North Coast", "farmgate_t": 89.7, "farmgate_low": 62.7, "farmgate_high": 116.7}, {"year": 2020, "car_uid": "5907", "car_code": "CAR590700000", "car_name": "Nechako", "farmgate_t": 76.3, "farmgate_low": 53.3, "farmgate_high": 99.2}, {"year": 2020, "car_uid": "5908", "car_code": "CAR590800000", "car_name": "Peace River", "farmgate_t": 84.4, "farmgate_low": 59.1, "farmgate_high": 109.7}, {"year": 2021, "car_uid": "5901", "car_code": "CAR590100000", "car_name": "Vancouver Island\u2013Coast", "farmgate_t": 1730.3, "farmgate_low": 1209.6, "farmgate_high": 2250.9}, {"year": 2021, "car_uid": "5902", "car_code": "CAR590200000", "car_name": "Lower Mainland\u2013Southwest", "farmgate_t": 17044.8, "farmgate_low": 11872.7, "farmgate_high": 22216.9}, {"year": 2021, "car_uid": "5903", "car_code": "CAR590300000", "car_name": "Thompson\u2013Okanagan", "farmgate_t": 11620.3, "farmgate_low": 8148.4, "farmgate_high": 15092.2}, {"year": 2021, "car_uid": "5904", "car_code": "CAR590400000", "car_name": "Kootenay", "farmgate_t": 602.2, "farmgate_low": 421.4, "farmgate_high": 783.1}, {"year": 2021, "car_uid": "5905", "car_code": "CAR590500000", "car_name": "Cariboo", "farmgate_t": 212.0, "farmgate_low": 148.3, "farmgate_high": 275.6}, {"year": 2021, "car_uid": "5906", "car_code": "CAR590600000", "car_name": "North Coast", "farmgate_t": 82.0, "farmgate_low": 57.3, "farmgate_high": 106.7}, {"year": 2021, "car_uid": "5907", "car_code": "CAR590700000", "car_name": "Nechako", "farmgate_t": 69.6, "farmgate_low": 48.7, "farmgate_high": 90.6}, {"year": 2021, "car_uid": "5908", "car_code": "CAR590800000", "car_name": "Peace River", "farmgate_t": 79.2, "farmgate_low": 55.5, "farmgate_high": 102.9}, {"year": 2022, "car_uid": "5901", "car_code": "CAR590100000", "car_name": "Vancouver Island\u2013Coast", "farmgate_t": 1651.3, "farmgate_low": 1154.4, "farmgate_high": 2148.3}, {"year": 2022, "car_uid": "5902", "car_code": "CAR590200000", "car_name": "Lower Mainland\u2013Southwest", "farmgate_t": 15642.0, "farmgate_low": 10892.7, "farmgate_high": 20391.4}, {"year": 2022, "car_uid": "5903", "car_code": "CAR590300000", "car_name": "Thompson\u2013Okanagan", "farmgate_t": 11345.7, "farmgate_low": 7954.9, "farmgate_high": 14736.5}, {"year": 2022, "car_uid": "5904", "car_code": "CAR590400000", "car_name": "Kootenay", "farmgate_t": 594.1, "farmgate_low": 415.7, "farmgate_high": 772.5}, {"year": 2022, "car_uid": "5905", "car_code": "CAR590500000", "car_name": "Cariboo", "farmgate_t": 194.7, "farmgate_low": 136.2, "farmgate_high": 253.2}, {"year": 2022, "car_uid": "5906", "car_code": "CAR590600000", "car_name": "North Coast", "farmgate_t": 73.8, "farmgate_low": 51.5, "farmgate_high": 96.0}, {"year": 2022, "car_uid": "5907", "car_code": "CAR590700000", "car_name": "Nechako", "farmgate_t": 63.4, "farmgate_low": 44.3, "farmgate_high": 82.5}, {"year": 2022, "car_uid": "5908", "car_code": "CAR590800000", "car_name": "Peace River", "farmgate_t": 72.8, "farmgate_low": 51.0, "farmgate_high": 94.6}, {"year": 2023, "car_uid": "5901", "car_code": "CAR590100000", "car_name": "Vancouver Island\u2013Coast", "farmgate_t": 1722.6, "farmgate_low": 1204.1, "farmgate_high": 2241.1}, {"year": 2023, "car_uid": "5902", "car_code": "CAR590200000", "car_name": "Lower Mainland\u2013Southwest", "farmgate_t": 16876.4, "farmgate_low": 11756.8, "farmgate_high": 21995.9}, {"year": 2023, "car_uid": "5903", "car_code": "CAR590300000", "car_name": "Thompson\u2013Okanagan", "farmgate_t": 10713.3, "farmgate_low": 7509.5, "farmgate_high": 13917.2}, {"year": 2023, "car_uid": "5904", "car_code": "CAR590400000", "car_name": "Kootenay", "farmgate_t": 631.6, "farmgate_low": 441.9, "farmgate_high": 821.4}, {"year": 2023, "car_uid": "5905", "car_code": "CAR590500000", "car_name": "Cariboo", "farmgate_t": 219.0, "farmgate_low": 153.2, "farmgate_high": 284.8}, {"year": 2023, "car_uid": "5906", "car_code": "CAR590600000", "car_name": "North Coast", "farmgate_t": 84.3, "farmgate_low": 58.9, "farmgate_high": 109.7}, {"year": 2023, "car_uid": "5907", "car_code": "CAR590700000", "car_name": "Nechako", "farmgate_t": 70.5, "farmgate_low": 49.3, "farmgate_high": 91.7}, {"year": 2023, "car_uid": "5908", "car_code": "CAR590800000", "car_name": "Peace River", "farmgate_t": 80.4, "farmgate_low": 56.3, "farmgate_high": 104.5}, {"year": 2024, "car_uid": "5901", "car_code": "CAR590100000", "car_name": "Vancouver Island\u2013Coast", "farmgate_t": 1709.9, "farmgate_low": 1195.1, "farmgate_high": 2224.7}, {"year": 2024, "car_uid": "5902", "car_code": "CAR590200000", "car_name": "Lower Mainland\u2013Southwest", "farmgate_t": 17440.4, "farmgate_low": 12145.0, "farmgate_high": 22735.7}, {"year": 2024, "car_uid": "5903", "car_code": "CAR590300000", "car_name": "Thompson\u2013Okanagan", "farmgate_t": 8517.3, "farmgate_low": 5969.4, "farmgate_high": 11065.1}, {"year": 2024, "car_uid": "5904", "car_code": "CAR590400000", "car_name": "Kootenay", "farmgate_t": 498.2, "farmgate_low": 348.6, "farmgate_high": 647.8}, {"year": 2024, "car_uid": "5905", "car_code": "CAR590500000", "car_name": "Cariboo", "farmgate_t": 210.0, "farmgate_low": 146.9, "farmgate_high": 273.1}, {"year": 2024, "car_uid": "5906", "car_code": "CAR590600000", "car_name": "North Coast", "farmgate_t": 76.0, "farmgate_low": 53.1, "farmgate_high": 98.9}, {"year": 2024, "car_uid": "5907", "car_code": "CAR590700000", "car_name": "Nechako", "farmgate_t": 63.6, "farmgate_low": 44.4, "farmgate_high": 82.7}, {"year": 2024, "car_uid": "5908", "car_code": "CAR590800000", "car_name": "Peace River", "farmgate_t": 73.5, "farmgate_low": 51.5, "farmgate_high": 95.5}, {"year": 2025, "car_uid": "5901", "car_code": "CAR590100000", "car_name": "Vancouver Island\u2013Coast", "farmgate_t": 1807.2, "farmgate_low": 1263.9, "farmgate_high": 2350.5}, {"year": 2025, "car_uid": "5902", "car_code": "CAR590200000", "car_name": "Lower Mainland\u2013Southwest", "farmgate_t": 18061.9, "farmgate_low": 12582.3, "farmgate_high": 23541.5}, {"year": 2025, "car_uid": "5903", "car_code": "CAR590300000", "car_name": "Thompson\u2013Okanagan", "farmgate_t": 10651.5, "farmgate_low": 7468.0, "farmgate_high": 13835.0}, {"year": 2025, "car_uid": "5904", "car_code": "CAR590400000", "car_name": "Kootenay", "farmgate_t": 676.1, "farmgate_low": 473.0, "farmgate_high": 879.1}, {"year": 2025, "car_uid": "5905", "car_code": "CAR590500000", "car_name": "Cariboo", "farmgate_t": 229.7, "farmgate_low": 160.7, "farmgate_high": 298.6}, {"year": 2025, "car_uid": "5906", "car_code": "CAR590600000", "car_name": "North Coast", "farmgate_t": 78.5, "farmgate_low": 54.9, "farmgate_high": 102.2}, {"year": 2025, "car_uid": "5907", "car_code": "CAR590700000", "car_name": "Nechako", "farmgate_t": 65.0, "farmgate_low": 45.5, "farmgate_high": 84.6}, {"year": 2025, "car_uid": "5908", "car_code": "CAR590800000", "car_name": "Peace River", "farmgate_t": 76.5, "farmgate_low": 53.6, "farmgate_high": 99.3}]
+[
+  {
+    "year": 2010,
+    "car_uid": "5901",
+    "car_code": "CAR590100000",
+    "car_name": "Vancouver Island\u2013Coast",
+    "farmgate_t": 1998.2,
+    "farmgate_low": 1397.2,
+    "farmgate_high": 2599.2
+  },
+  {
+    "year": 2010,
+    "car_uid": "5902",
+    "car_code": "CAR590200000",
+    "car_name": "Lower Mainland\u2013Southwest",
+    "farmgate_t": 6337.2,
+    "farmgate_low": 4427.0,
+    "farmgate_high": 8247.5
+  },
+  {
+    "year": 2010,
+    "car_uid": "5903",
+    "car_code": "CAR590300000",
+    "car_name": "Thompson\u2013Okanagan",
+    "farmgate_t": 4296.3,
+    "farmgate_low": 3010.7,
+    "farmgate_high": 5581.9
+  },
+  {
+    "year": 2010,
+    "car_uid": "5904",
+    "car_code": "CAR590400000",
+    "car_name": "Kootenay",
+    "farmgate_t": 839.7,
+    "farmgate_low": 587.7,
+    "farmgate_high": 1091.7
+  },
+  {
+    "year": 2010,
+    "car_uid": "5905",
+    "car_code": "CAR590500000",
+    "car_name": "Cariboo",
+    "farmgate_t": 680.2,
+    "farmgate_low": 476.0,
+    "farmgate_high": 884.4
+  },
+  {
+    "year": 2010,
+    "car_uid": "5906",
+    "car_code": "CAR590600000",
+    "car_name": "North Coast",
+    "farmgate_t": 599.1,
+    "farmgate_low": 419.2,
+    "farmgate_high": 779.0
+  },
+  {
+    "year": 2010,
+    "car_uid": "5907",
+    "car_code": "CAR590700000",
+    "car_name": "Nechako",
+    "farmgate_t": 600.8,
+    "farmgate_low": 420.4,
+    "farmgate_high": 781.2
+  },
+  {
+    "year": 2010,
+    "car_uid": "5908",
+    "car_code": "CAR590800000",
+    "car_name": "Peace River",
+    "farmgate_t": 603.7,
+    "farmgate_low": 422.5,
+    "farmgate_high": 784.8
+  },
+  {
+    "year": 2011,
+    "car_uid": "5901",
+    "car_code": "CAR590100000",
+    "car_name": "Vancouver Island\u2013Coast",
+    "farmgate_t": 3009.5,
+    "farmgate_low": 2104.1,
+    "farmgate_high": 3914.9
+  },
+  {
+    "year": 2011,
+    "car_uid": "5902",
+    "car_code": "CAR590200000",
+    "car_name": "Lower Mainland\u2013Southwest",
+    "farmgate_t": 15017.7,
+    "farmgate_low": 10468.5,
+    "farmgate_high": 19567.0
+  },
+  {
+    "year": 2011,
+    "car_uid": "5903",
+    "car_code": "CAR590300000",
+    "car_name": "Thompson\u2013Okanagan",
+    "farmgate_t": 12837.5,
+    "farmgate_low": 8994.0,
+    "farmgate_high": 16681.0
+  },
+  {
+    "year": 2011,
+    "car_uid": "5904",
+    "car_code": "CAR590400000",
+    "car_name": "Kootenay",
+    "farmgate_t": 1158.0,
+    "farmgate_low": 810.3,
+    "farmgate_high": 1505.7
+  },
+  {
+    "year": 2011,
+    "car_uid": "5905",
+    "car_code": "CAR590500000",
+    "car_name": "Cariboo",
+    "farmgate_t": 752.6,
+    "farmgate_low": 526.6,
+    "farmgate_high": 978.5
+  },
+  {
+    "year": 2011,
+    "car_uid": "5906",
+    "car_code": "CAR590600000",
+    "car_name": "North Coast",
+    "farmgate_t": 631.3,
+    "farmgate_low": 441.8,
+    "farmgate_high": 820.9
+  },
+  {
+    "year": 2011,
+    "car_uid": "5907",
+    "car_code": "CAR590700000",
+    "car_name": "Nechako",
+    "farmgate_t": 636.9,
+    "farmgate_low": 445.6,
+    "farmgate_high": 828.1
+  },
+  {
+    "year": 2011,
+    "car_uid": "5908",
+    "car_code": "CAR590800000",
+    "car_name": "Peace River",
+    "farmgate_t": 634.4,
+    "farmgate_low": 444.0,
+    "farmgate_high": 824.8
+  },
+  {
+    "year": 2012,
+    "car_uid": "5901",
+    "car_code": "CAR590100000",
+    "car_name": "Vancouver Island\u2013Coast",
+    "farmgate_t": 3040.1,
+    "farmgate_low": 2125.6,
+    "farmgate_high": 3954.7
+  },
+  {
+    "year": 2012,
+    "car_uid": "5902",
+    "car_code": "CAR590200000",
+    "car_name": "Lower Mainland\u2013Southwest",
+    "farmgate_t": 16388.9,
+    "farmgate_low": 11421.6,
+    "farmgate_high": 21356.2
+  },
+  {
+    "year": 2012,
+    "car_uid": "5903",
+    "car_code": "CAR590300000",
+    "car_name": "Thompson\u2013Okanagan",
+    "farmgate_t": 13670.4,
+    "farmgate_low": 9578.6,
+    "farmgate_high": 17762.1
+  },
+  {
+    "year": 2012,
+    "car_uid": "5904",
+    "car_code": "CAR590400000",
+    "car_name": "Kootenay",
+    "farmgate_t": 1251.3,
+    "farmgate_low": 875.6,
+    "farmgate_high": 1627.0
+  },
+  {
+    "year": 2012,
+    "car_uid": "5905",
+    "car_code": "CAR590500000",
+    "car_name": "Cariboo",
+    "farmgate_t": 794.6,
+    "farmgate_low": 556.0,
+    "farmgate_high": 1033.1
+  },
+  {
+    "year": 2012,
+    "car_uid": "5906",
+    "car_code": "CAR590600000",
+    "car_name": "North Coast",
+    "farmgate_t": 666.6,
+    "farmgate_low": 466.5,
+    "farmgate_high": 866.8
+  },
+  {
+    "year": 2012,
+    "car_uid": "5907",
+    "car_code": "CAR590700000",
+    "car_name": "Nechako",
+    "farmgate_t": 668.2,
+    "farmgate_low": 467.6,
+    "farmgate_high": 868.9
+  },
+  {
+    "year": 2012,
+    "car_uid": "5908",
+    "car_code": "CAR590800000",
+    "car_name": "Peace River",
+    "farmgate_t": 669.9,
+    "farmgate_low": 468.9,
+    "farmgate_high": 871.0
+  },
+  {
+    "year": 2013,
+    "car_uid": "5901",
+    "car_code": "CAR590100000",
+    "car_name": "Vancouver Island\u2013Coast",
+    "farmgate_t": 3029.9,
+    "farmgate_low": 2118.7,
+    "farmgate_high": 3941.0
+  },
+  {
+    "year": 2013,
+    "car_uid": "5902",
+    "car_code": "CAR590200000",
+    "car_name": "Lower Mainland\u2013Southwest",
+    "farmgate_t": 16214.7,
+    "farmgate_low": 11300.7,
+    "farmgate_high": 21128.6
+  },
+  {
+    "year": 2013,
+    "car_uid": "5903",
+    "car_code": "CAR590300000",
+    "car_name": "Thompson\u2013Okanagan",
+    "farmgate_t": 12631.8,
+    "farmgate_low": 8853.2,
+    "farmgate_high": 16410.4
+  },
+  {
+    "year": 2013,
+    "car_uid": "5904",
+    "car_code": "CAR590400000",
+    "car_name": "Kootenay",
+    "farmgate_t": 1262.7,
+    "farmgate_low": 883.7,
+    "farmgate_high": 1641.8
+  },
+  {
+    "year": 2013,
+    "car_uid": "5905",
+    "car_code": "CAR590500000",
+    "car_name": "Cariboo",
+    "farmgate_t": 856.8,
+    "farmgate_low": 599.6,
+    "farmgate_high": 1114.0
+  },
+  {
+    "year": 2013,
+    "car_uid": "5906",
+    "car_code": "CAR590600000",
+    "car_name": "North Coast",
+    "farmgate_t": 711.0,
+    "farmgate_low": 497.5,
+    "farmgate_high": 924.5
+  },
+  {
+    "year": 2013,
+    "car_uid": "5907",
+    "car_code": "CAR590700000",
+    "car_name": "Nechako",
+    "farmgate_t": 708.5,
+    "farmgate_low": 495.7,
+    "farmgate_high": 921.2
+  },
+  {
+    "year": 2013,
+    "car_uid": "5908",
+    "car_code": "CAR590800000",
+    "car_name": "Peace River",
+    "farmgate_t": 714.0,
+    "farmgate_low": 499.7,
+    "farmgate_high": 928.2
+  },
+  {
+    "year": 2014,
+    "car_uid": "5901",
+    "car_code": "CAR590100000",
+    "car_name": "Vancouver Island\u2013Coast",
+    "farmgate_t": 3067.3,
+    "farmgate_low": 2144.7,
+    "farmgate_high": 3990.0
+  },
+  {
+    "year": 2014,
+    "car_uid": "5902",
+    "car_code": "CAR590200000",
+    "car_name": "Lower Mainland\u2013Southwest",
+    "farmgate_t": 17060.0,
+    "farmgate_low": 11885.3,
+    "farmgate_high": 22234.7
+  },
+  {
+    "year": 2014,
+    "car_uid": "5903",
+    "car_code": "CAR590300000",
+    "car_name": "Thompson\u2013Okanagan",
+    "farmgate_t": 13882.0,
+    "farmgate_low": 9727.8,
+    "farmgate_high": 18036.2
+  },
+  {
+    "year": 2014,
+    "car_uid": "5904",
+    "car_code": "CAR590400000",
+    "car_name": "Kootenay",
+    "farmgate_t": 1329.7,
+    "farmgate_low": 930.5,
+    "farmgate_high": 1729.0
+  },
+  {
+    "year": 2014,
+    "car_uid": "5905",
+    "car_code": "CAR590500000",
+    "car_name": "Cariboo",
+    "farmgate_t": 880.8,
+    "farmgate_low": 616.4,
+    "farmgate_high": 1145.2
+  },
+  {
+    "year": 2014,
+    "car_uid": "5906",
+    "car_code": "CAR590600000",
+    "car_name": "North Coast",
+    "farmgate_t": 733.3,
+    "farmgate_low": 513.1,
+    "farmgate_high": 953.5
+  },
+  {
+    "year": 2014,
+    "car_uid": "5907",
+    "car_code": "CAR590700000",
+    "car_name": "Nechako",
+    "farmgate_t": 727.1,
+    "farmgate_low": 508.8,
+    "farmgate_high": 945.4
+  },
+  {
+    "year": 2014,
+    "car_uid": "5908",
+    "car_code": "CAR590800000",
+    "car_name": "Peace River",
+    "farmgate_t": 733.5,
+    "farmgate_low": 513.4,
+    "farmgate_high": 953.7
+  },
+  {
+    "year": 2015,
+    "car_uid": "5901",
+    "car_code": "CAR590100000",
+    "car_name": "Vancouver Island\u2013Coast",
+    "farmgate_t": 2897.0,
+    "farmgate_low": 2025.8,
+    "farmgate_high": 3768.1
+  },
+  {
+    "year": 2015,
+    "car_uid": "5902",
+    "car_code": "CAR590200000",
+    "car_name": "Lower Mainland\u2013Southwest",
+    "farmgate_t": 17800.5,
+    "farmgate_low": 12400.3,
+    "farmgate_high": 23200.6
+  },
+  {
+    "year": 2015,
+    "car_uid": "5903",
+    "car_code": "CAR590300000",
+    "car_name": "Thompson\u2013Okanagan",
+    "farmgate_t": 13476.7,
+    "farmgate_low": 9444.6,
+    "farmgate_high": 17508.8
+  },
+  {
+    "year": 2015,
+    "car_uid": "5904",
+    "car_code": "CAR590400000",
+    "car_name": "Kootenay",
+    "farmgate_t": 1319.7,
+    "farmgate_low": 923.5,
+    "farmgate_high": 1715.9
+  },
+  {
+    "year": 2015,
+    "car_uid": "5905",
+    "car_code": "CAR590500000",
+    "car_name": "Cariboo",
+    "farmgate_t": 870.6,
+    "farmgate_low": 609.3,
+    "farmgate_high": 1132.0
+  },
+  {
+    "year": 2015,
+    "car_uid": "5906",
+    "car_code": "CAR590600000",
+    "car_name": "North Coast",
+    "farmgate_t": 720.6,
+    "farmgate_low": 504.2,
+    "farmgate_high": 937.0
+  },
+  {
+    "year": 2015,
+    "car_uid": "5907",
+    "car_code": "CAR590700000",
+    "car_name": "Nechako",
+    "farmgate_t": 711.4,
+    "farmgate_low": 497.8,
+    "farmgate_high": 924.9
+  },
+  {
+    "year": 2015,
+    "car_uid": "5908",
+    "car_code": "CAR590800000",
+    "car_name": "Peace River",
+    "farmgate_t": 718.9,
+    "farmgate_low": 503.1,
+    "farmgate_high": 934.6
+  },
+  {
+    "year": 2016,
+    "car_uid": "5901",
+    "car_code": "CAR590100000",
+    "car_name": "Vancouver Island\u2013Coast",
+    "farmgate_t": 3056.8,
+    "farmgate_low": 2137.4,
+    "farmgate_high": 3976.2
+  },
+  {
+    "year": 2016,
+    "car_uid": "5902",
+    "car_code": "CAR590200000",
+    "car_name": "Lower Mainland\u2013Southwest",
+    "farmgate_t": 19573.8,
+    "farmgate_low": 13638.3,
+    "farmgate_high": 25509.4
+  },
+  {
+    "year": 2016,
+    "car_uid": "5903",
+    "car_code": "CAR590300000",
+    "car_name": "Thompson\u2013Okanagan",
+    "farmgate_t": 14261.9,
+    "farmgate_low": 9994.9,
+    "farmgate_high": 18529.0
+  },
+  {
+    "year": 2016,
+    "car_uid": "5904",
+    "car_code": "CAR590400000",
+    "car_name": "Kootenay",
+    "farmgate_t": 1414.6,
+    "farmgate_low": 989.9,
+    "farmgate_high": 1839.4
+  },
+  {
+    "year": 2016,
+    "car_uid": "5905",
+    "car_code": "CAR590500000",
+    "car_name": "Cariboo",
+    "farmgate_t": 933.8,
+    "farmgate_low": 653.5,
+    "farmgate_high": 1214.2
+  },
+  {
+    "year": 2016,
+    "car_uid": "5906",
+    "car_code": "CAR590600000",
+    "car_name": "North Coast",
+    "farmgate_t": 764.5,
+    "farmgate_low": 534.9,
+    "farmgate_high": 994.0
+  },
+  {
+    "year": 2016,
+    "car_uid": "5907",
+    "car_code": "CAR590700000",
+    "car_name": "Nechako",
+    "farmgate_t": 750.5,
+    "farmgate_low": 525.2,
+    "farmgate_high": 975.8
+  },
+  {
+    "year": 2016,
+    "car_uid": "5908",
+    "car_code": "CAR590800000",
+    "car_name": "Peace River",
+    "farmgate_t": 759.1,
+    "farmgate_low": 531.3,
+    "farmgate_high": 986.9
+  },
+  {
+    "year": 2017,
+    "car_uid": "5901",
+    "car_code": "CAR590100000",
+    "car_name": "Vancouver Island\u2013Coast",
+    "farmgate_t": 2868.9,
+    "farmgate_low": 2005.1,
+    "farmgate_high": 3732.6
+  },
+  {
+    "year": 2017,
+    "car_uid": "5902",
+    "car_code": "CAR590200000",
+    "car_name": "Lower Mainland\u2013Southwest",
+    "farmgate_t": 18572.0,
+    "farmgate_low": 12936.2,
+    "farmgate_high": 24207.9
+  },
+  {
+    "year": 2017,
+    "car_uid": "5903",
+    "car_code": "CAR590300000",
+    "car_name": "Thompson\u2013Okanagan",
+    "farmgate_t": 12463.0,
+    "farmgate_low": 8725.6,
+    "farmgate_high": 16200.4
+  },
+  {
+    "year": 2017,
+    "car_uid": "5904",
+    "car_code": "CAR590400000",
+    "car_name": "Kootenay",
+    "farmgate_t": 1367.4,
+    "farmgate_low": 956.6,
+    "farmgate_high": 1778.2
+  },
+  {
+    "year": 2017,
+    "car_uid": "5905",
+    "car_code": "CAR590500000",
+    "car_name": "Cariboo",
+    "farmgate_t": 904.3,
+    "farmgate_low": 632.8,
+    "farmgate_high": 1175.8
+  },
+  {
+    "year": 2017,
+    "car_uid": "5906",
+    "car_code": "CAR590600000",
+    "car_name": "North Coast",
+    "farmgate_t": 742.8,
+    "farmgate_low": 519.8,
+    "farmgate_high": 965.9
+  },
+  {
+    "year": 2017,
+    "car_uid": "5907",
+    "car_code": "CAR590700000",
+    "car_name": "Nechako",
+    "farmgate_t": 729.2,
+    "farmgate_low": 510.3,
+    "farmgate_high": 948.2
+  },
+  {
+    "year": 2017,
+    "car_uid": "5908",
+    "car_code": "CAR590800000",
+    "car_name": "Peace River",
+    "farmgate_t": 736.4,
+    "farmgate_low": 515.4,
+    "farmgate_high": 957.4
+  },
+  {
+    "year": 2018,
+    "car_uid": "5901",
+    "car_code": "CAR590100000",
+    "car_name": "Vancouver Island\u2013Coast",
+    "farmgate_t": 2844.8,
+    "farmgate_low": 1988.4,
+    "farmgate_high": 3701.2
+  },
+  {
+    "year": 2018,
+    "car_uid": "5902",
+    "car_code": "CAR590200000",
+    "car_name": "Lower Mainland\u2013Southwest",
+    "farmgate_t": 19254.0,
+    "farmgate_low": 13412.2,
+    "farmgate_high": 25095.8
+  },
+  {
+    "year": 2018,
+    "car_uid": "5903",
+    "car_code": "CAR590300000",
+    "car_name": "Thompson\u2013Okanagan",
+    "farmgate_t": 12775.5,
+    "farmgate_low": 8943.5,
+    "farmgate_high": 16607.4
+  },
+  {
+    "year": 2018,
+    "car_uid": "5904",
+    "car_code": "CAR590400000",
+    "car_name": "Kootenay",
+    "farmgate_t": 1415.7,
+    "farmgate_low": 990.3,
+    "farmgate_high": 1841.1
+  },
+  {
+    "year": 2018,
+    "car_uid": "5905",
+    "car_code": "CAR590500000",
+    "car_name": "Cariboo",
+    "farmgate_t": 927.3,
+    "farmgate_low": 648.9,
+    "farmgate_high": 1205.8
+  },
+  {
+    "year": 2018,
+    "car_uid": "5906",
+    "car_code": "CAR590600000",
+    "car_name": "North Coast",
+    "farmgate_t": 765.0,
+    "farmgate_low": 535.2,
+    "farmgate_high": 994.7
+  },
+  {
+    "year": 2018,
+    "car_uid": "5907",
+    "car_code": "CAR590700000",
+    "car_name": "Nechako",
+    "farmgate_t": 751.0,
+    "farmgate_low": 525.5,
+    "farmgate_high": 976.5
+  },
+  {
+    "year": 2018,
+    "car_uid": "5908",
+    "car_code": "CAR590800000",
+    "car_name": "Peace River",
+    "farmgate_t": 757.4,
+    "farmgate_low": 530.1,
+    "farmgate_high": 984.8
+  },
+  {
+    "year": 2019,
+    "car_uid": "5901",
+    "car_code": "CAR590100000",
+    "car_name": "Vancouver Island\u2013Coast",
+    "farmgate_t": 2832.2,
+    "farmgate_low": 1980.6,
+    "farmgate_high": 3683.8
+  },
+  {
+    "year": 2019,
+    "car_uid": "5902",
+    "car_code": "CAR590200000",
+    "car_name": "Lower Mainland\u2013Southwest",
+    "farmgate_t": 18783.2,
+    "farmgate_low": 13086.8,
+    "farmgate_high": 24479.6
+  },
+  {
+    "year": 2019,
+    "car_uid": "5903",
+    "car_code": "CAR590300000",
+    "car_name": "Thompson\u2013Okanagan",
+    "farmgate_t": 14567.2,
+    "farmgate_low": 10211.1,
+    "farmgate_high": 18923.2
+  },
+  {
+    "year": 2019,
+    "car_uid": "5904",
+    "car_code": "CAR590400000",
+    "car_name": "Kootenay",
+    "farmgate_t": 1440.7,
+    "farmgate_low": 1008.2,
+    "farmgate_high": 1873.2
+  },
+  {
+    "year": 2019,
+    "car_uid": "5905",
+    "car_code": "CAR590500000",
+    "car_name": "Cariboo",
+    "farmgate_t": 962.6,
+    "farmgate_low": 673.7,
+    "farmgate_high": 1251.6
+  },
+  {
+    "year": 2019,
+    "car_uid": "5906",
+    "car_code": "CAR590600000",
+    "car_name": "North Coast",
+    "farmgate_t": 808.1,
+    "farmgate_low": 565.5,
+    "farmgate_high": 1050.8
+  },
+  {
+    "year": 2019,
+    "car_uid": "5907",
+    "car_code": "CAR590700000",
+    "car_name": "Nechako",
+    "farmgate_t": 794.9,
+    "farmgate_low": 556.3,
+    "farmgate_high": 1033.6
+  },
+  {
+    "year": 2019,
+    "car_uid": "5908",
+    "car_code": "CAR590800000",
+    "car_name": "Peace River",
+    "farmgate_t": 802.8,
+    "farmgate_low": 561.9,
+    "farmgate_high": 1043.6
+  },
+  {
+    "year": 2020,
+    "car_uid": "5901",
+    "car_code": "CAR590100000",
+    "car_name": "Vancouver Island\u2013Coast",
+    "farmgate_t": 2690.7,
+    "farmgate_low": 1881.6,
+    "farmgate_high": 3499.8
+  },
+  {
+    "year": 2020,
+    "car_uid": "5902",
+    "car_code": "CAR590200000",
+    "car_name": "Lower Mainland\u2013Southwest",
+    "farmgate_t": 18885.7,
+    "farmgate_low": 13157.4,
+    "farmgate_high": 24614.0
+  },
+  {
+    "year": 2020,
+    "car_uid": "5903",
+    "car_code": "CAR590300000",
+    "car_name": "Thompson\u2013Okanagan",
+    "farmgate_t": 13431.3,
+    "farmgate_low": 9415.9,
+    "farmgate_high": 17446.7
+  },
+  {
+    "year": 2020,
+    "car_uid": "5904",
+    "car_code": "CAR590400000",
+    "car_name": "Kootenay",
+    "farmgate_t": 1393.6,
+    "farmgate_low": 975.2,
+    "farmgate_high": 1811.9
+  },
+  {
+    "year": 2020,
+    "car_uid": "5905",
+    "car_code": "CAR590500000",
+    "car_name": "Cariboo",
+    "farmgate_t": 957.6,
+    "farmgate_low": 670.2,
+    "farmgate_high": 1245.1
+  },
+  {
+    "year": 2020,
+    "car_uid": "5906",
+    "car_code": "CAR590600000",
+    "car_name": "North Coast",
+    "farmgate_t": 808.8,
+    "farmgate_low": 565.9,
+    "farmgate_high": 1051.7
+  },
+  {
+    "year": 2020,
+    "car_uid": "5907",
+    "car_code": "CAR590700000",
+    "car_name": "Nechako",
+    "farmgate_t": 795.4,
+    "farmgate_low": 556.6,
+    "farmgate_high": 1034.2
+  },
+  {
+    "year": 2020,
+    "car_uid": "5908",
+    "car_code": "CAR590800000",
+    "car_name": "Peace River",
+    "farmgate_t": 803.5,
+    "farmgate_low": 562.4,
+    "farmgate_high": 1044.6
+  },
+  {
+    "year": 2021,
+    "car_uid": "5901",
+    "car_code": "CAR590100000",
+    "car_name": "Vancouver Island\u2013Coast",
+    "farmgate_t": 2429.7,
+    "farmgate_low": 1699.2,
+    "farmgate_high": 3160.2
+  },
+  {
+    "year": 2021,
+    "car_uid": "5902",
+    "car_code": "CAR590200000",
+    "car_name": "Lower Mainland\u2013Southwest",
+    "farmgate_t": 17744.2,
+    "farmgate_low": 12362.3,
+    "farmgate_high": 23126.2
+  },
+  {
+    "year": 2021,
+    "car_uid": "5903",
+    "car_code": "CAR590300000",
+    "car_name": "Thompson\u2013Okanagan",
+    "farmgate_t": 12319.7,
+    "farmgate_low": 8637.9,
+    "farmgate_high": 16001.5
+  },
+  {
+    "year": 2021,
+    "car_uid": "5904",
+    "car_code": "CAR590400000",
+    "car_name": "Kootenay",
+    "farmgate_t": 1301.6,
+    "farmgate_low": 910.9,
+    "farmgate_high": 1692.3
+  },
+  {
+    "year": 2021,
+    "car_uid": "5905",
+    "car_code": "CAR590500000",
+    "car_name": "Cariboo",
+    "farmgate_t": 911.3,
+    "farmgate_low": 637.8,
+    "farmgate_high": 1184.9
+  },
+  {
+    "year": 2021,
+    "car_uid": "5906",
+    "car_code": "CAR590600000",
+    "car_name": "North Coast",
+    "farmgate_t": 781.4,
+    "farmgate_low": 546.8,
+    "farmgate_high": 1016.0
+  },
+  {
+    "year": 2021,
+    "car_uid": "5907",
+    "car_code": "CAR590700000",
+    "car_name": "Nechako",
+    "farmgate_t": 769.0,
+    "farmgate_low": 538.2,
+    "farmgate_high": 999.9
+  },
+  {
+    "year": 2021,
+    "car_uid": "5908",
+    "car_code": "CAR590800000",
+    "car_name": "Peace River",
+    "farmgate_t": 778.6,
+    "farmgate_low": 545.0,
+    "farmgate_high": 1012.2
+  },
+  {
+    "year": 2022,
+    "car_uid": "5901",
+    "car_code": "CAR590100000",
+    "car_name": "Vancouver Island\u2013Coast",
+    "farmgate_t": 2354.0,
+    "farmgate_low": 1646.2,
+    "farmgate_high": 3061.8
+  },
+  {
+    "year": 2022,
+    "car_uid": "5902",
+    "car_code": "CAR590200000",
+    "car_name": "Lower Mainland\u2013Southwest",
+    "farmgate_t": 16344.7,
+    "farmgate_low": 11384.5,
+    "farmgate_high": 21304.9
+  },
+  {
+    "year": 2022,
+    "car_uid": "5903",
+    "car_code": "CAR590300000",
+    "car_name": "Thompson\u2013Okanagan",
+    "farmgate_t": 12048.4,
+    "farmgate_low": 8446.7,
+    "farmgate_high": 15650.1
+  },
+  {
+    "year": 2022,
+    "car_uid": "5904",
+    "car_code": "CAR590400000",
+    "car_name": "Kootenay",
+    "farmgate_t": 1296.8,
+    "farmgate_low": 907.5,
+    "farmgate_high": 1686.1
+  },
+  {
+    "year": 2022,
+    "car_uid": "5905",
+    "car_code": "CAR590500000",
+    "car_name": "Cariboo",
+    "farmgate_t": 897.4,
+    "farmgate_low": 628.0,
+    "farmgate_high": 1166.7
+  },
+  {
+    "year": 2022,
+    "car_uid": "5906",
+    "car_code": "CAR590600000",
+    "car_name": "North Coast",
+    "farmgate_t": 776.4,
+    "farmgate_low": 543.3,
+    "farmgate_high": 1009.5
+  },
+  {
+    "year": 2022,
+    "car_uid": "5907",
+    "car_code": "CAR590700000",
+    "car_name": "Nechako",
+    "farmgate_t": 766.1,
+    "farmgate_low": 536.1,
+    "farmgate_high": 996.0
+  },
+  {
+    "year": 2022,
+    "car_uid": "5908",
+    "car_code": "CAR590800000",
+    "car_name": "Peace River",
+    "farmgate_t": 775.5,
+    "farmgate_low": 542.8,
+    "farmgate_high": 1008.2
+  },
+  {
+    "year": 2023,
+    "car_uid": "5901",
+    "car_code": "CAR590100000",
+    "car_name": "Vancouver Island\u2013Coast",
+    "farmgate_t": 2484.4,
+    "farmgate_low": 1737.2,
+    "farmgate_high": 3231.6
+  },
+  {
+    "year": 2023,
+    "car_uid": "5902",
+    "car_code": "CAR590200000",
+    "car_name": "Lower Mainland\u2013Southwest",
+    "farmgate_t": 17638.2,
+    "farmgate_low": 12290.0,
+    "farmgate_high": 22986.4
+  },
+  {
+    "year": 2023,
+    "car_uid": "5903",
+    "car_code": "CAR590300000",
+    "car_name": "Thompson\u2013Okanagan",
+    "farmgate_t": 11475.2,
+    "farmgate_low": 8042.7,
+    "farmgate_high": 14907.7
+  },
+  {
+    "year": 2023,
+    "car_uid": "5904",
+    "car_code": "CAR590400000",
+    "car_name": "Kootenay",
+    "farmgate_t": 1393.4,
+    "farmgate_low": 975.0,
+    "farmgate_high": 1811.8
+  },
+  {
+    "year": 2023,
+    "car_uid": "5905",
+    "car_code": "CAR590500000",
+    "car_name": "Cariboo",
+    "farmgate_t": 980.8,
+    "farmgate_low": 686.4,
+    "farmgate_high": 1275.3
+  },
+  {
+    "year": 2023,
+    "car_uid": "5906",
+    "car_code": "CAR590600000",
+    "car_name": "North Coast",
+    "farmgate_t": 846.1,
+    "farmgate_low": 592.1,
+    "farmgate_high": 1100.2
+  },
+  {
+    "year": 2023,
+    "car_uid": "5907",
+    "car_code": "CAR590700000",
+    "car_name": "Nechako",
+    "farmgate_t": 832.3,
+    "farmgate_low": 582.4,
+    "farmgate_high": 1082.1
+  },
+  {
+    "year": 2023,
+    "car_uid": "5908",
+    "car_code": "CAR590800000",
+    "car_name": "Peace River",
+    "farmgate_t": 842.2,
+    "farmgate_low": 589.5,
+    "farmgate_high": 1095.0
+  },
+  {
+    "year": 2024,
+    "car_uid": "5901",
+    "car_code": "CAR590100000",
+    "car_name": "Vancouver Island\u2013Coast",
+    "farmgate_t": 2507.1,
+    "farmgate_low": 1753.0,
+    "farmgate_high": 3261.1
+  },
+  {
+    "year": 2024,
+    "car_uid": "5902",
+    "car_code": "CAR590200000",
+    "car_name": "Lower Mainland\u2013Southwest",
+    "farmgate_t": 18237.5,
+    "farmgate_low": 12702.9,
+    "farmgate_high": 23772.2
+  },
+  {
+    "year": 2024,
+    "car_uid": "5903",
+    "car_code": "CAR590300000",
+    "car_name": "Thompson\u2013Okanagan",
+    "farmgate_t": 9314.4,
+    "farmgate_low": 6527.3,
+    "farmgate_high": 12101.5
+  },
+  {
+    "year": 2024,
+    "car_uid": "5904",
+    "car_code": "CAR590400000",
+    "car_name": "Kootenay",
+    "farmgate_t": 1295.4,
+    "farmgate_low": 906.5,
+    "farmgate_high": 1684.3
+  },
+  {
+    "year": 2024,
+    "car_uid": "5905",
+    "car_code": "CAR590500000",
+    "car_name": "Cariboo",
+    "farmgate_t": 1007.2,
+    "farmgate_low": 704.8,
+    "farmgate_high": 1309.6
+  },
+  {
+    "year": 2024,
+    "car_uid": "5906",
+    "car_code": "CAR590600000",
+    "car_name": "North Coast",
+    "farmgate_t": 873.2,
+    "farmgate_low": 611.0,
+    "farmgate_high": 1135.4
+  },
+  {
+    "year": 2024,
+    "car_uid": "5907",
+    "car_code": "CAR590700000",
+    "car_name": "Nechako",
+    "farmgate_t": 860.7,
+    "farmgate_low": 602.3,
+    "farmgate_high": 1119.1
+  },
+  {
+    "year": 2024,
+    "car_uid": "5908",
+    "car_code": "CAR590800000",
+    "car_name": "Peace River",
+    "farmgate_t": 870.7,
+    "farmgate_low": 609.4,
+    "farmgate_high": 1132.0
+  },
+  {
+    "year": 2025,
+    "car_uid": "5901",
+    "car_code": "CAR590100000",
+    "car_name": "Vancouver Island\u2013Coast",
+    "farmgate_t": 2107.7,
+    "farmgate_low": 1474.0,
+    "farmgate_high": 2741.3
+  },
+  {
+    "year": 2025,
+    "car_uid": "5902",
+    "car_code": "CAR590200000",
+    "car_name": "Lower Mainland\u2013Southwest",
+    "farmgate_t": 18362.4,
+    "farmgate_low": 12792.4,
+    "farmgate_high": 23932.4
+  },
+  {
+    "year": 2025,
+    "car_uid": "5903",
+    "car_code": "CAR590300000",
+    "car_name": "Thompson\u2013Okanagan",
+    "farmgate_t": 10952.0,
+    "farmgate_low": 7678.1,
+    "farmgate_high": 14225.8
+  },
+  {
+    "year": 2025,
+    "car_uid": "5904",
+    "car_code": "CAR590400000",
+    "car_name": "Kootenay",
+    "farmgate_t": 976.6,
+    "farmgate_low": 683.2,
+    "farmgate_high": 1270.0
+  },
+  {
+    "year": 2025,
+    "car_uid": "5905",
+    "car_code": "CAR590500000",
+    "car_name": "Cariboo",
+    "farmgate_t": 530.2,
+    "farmgate_low": 370.9,
+    "farmgate_high": 689.5
+  },
+  {
+    "year": 2025,
+    "car_uid": "5906",
+    "car_code": "CAR590600000",
+    "car_name": "North Coast",
+    "farmgate_t": 379.1,
+    "farmgate_low": 265.0,
+    "farmgate_high": 493.1
+  },
+  {
+    "year": 2025,
+    "car_uid": "5907",
+    "car_code": "CAR590700000",
+    "car_name": "Nechako",
+    "farmgate_t": 365.6,
+    "farmgate_low": 255.6,
+    "farmgate_high": 475.5
+  },
+  {
+    "year": 2025,
+    "car_uid": "5908",
+    "car_code": "CAR590800000",
+    "car_name": "Peace River",
+    "farmgate_t": 377.0,
+    "farmgate_low": 263.7,
+    "farmgate_high": 490.2
+  }
+]
