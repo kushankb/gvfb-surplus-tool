@@ -174,7 +174,7 @@ export default function FTCView({ procured, byItem, years }) {
           </div>
         </div>
         <ResponsiveContainer width="100%" height={Math.max(240, captureData.length * 34)}>
-          <BarChart key={compYear} data={captureData} layout="vertical" margin={{ top: 0, right: 55, left: 140, bottom: 0 }}>
+          <BarChart key={compYear} data={captureData} layout="vertical" margin={{ top: 0, right: 130, left: 140, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" horizontal={false} />
             <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={v => `${v}%`} />
             <YAxis type="category" dataKey="item" tick={{ fontSize: 11 }} width={135} interval={0} />
@@ -182,12 +182,15 @@ export default function FTCView({ procured, byItem, years }) {
               contentStyle={{ fontSize: 12, border: '1px solid var(--border)', borderRadius: 8, boxShadow: 'var(--shadow)' }} />
             <Bar dataKey="capture_pct" name="Capture rate" fill="#174A67" radius={[0, 3, 3, 0]}
               isAnimationActive={false}
-              label={({ x, y, width, height, value }) => (
-                <text x={x + width + 5} y={y + height / 2} dominantBaseline="middle"
-                  fontSize={10} fill="var(--text-muted)" fontWeight="500">
-                  {value}%
-                </text>
-              )}
+              label={({ x, y, width, height, value, index }) => {
+                const procured = captureData[index]?.procured_t
+                return (
+                  <text x={x + width + 6} y={y + height / 2} dominantBaseline="middle"
+                    fontSize={10} fill="var(--text-muted)" fontWeight="500">
+                    {value}% · {fmt(procured)}
+                  </text>
+                )
+              }}
             />
           </BarChart>
         </ResponsiveContainer>
