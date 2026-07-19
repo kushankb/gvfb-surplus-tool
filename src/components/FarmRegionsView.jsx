@@ -5,22 +5,21 @@ const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov
 
 // Distinct colors used only in the ranked bar chart (not the choropleth map)
 const CAR_COLORS = {
-  '5901': '#0f4c81',
-  '5902': '#1d6fa4',
-  '5903': '#3d8fc4',
-  '5904': '#7ab3d4',
-  '5905': '#fbb321',
-  '5906': '#f37d23',
-  '5907': '#c45c0a',
-  '5908': '#8a3f07',
+  '5901': '#174A67',
+  '5902': '#1E6A9A',
+  '5903': '#2E7FA8',
+  '5904': '#4D9BBF',
+  '5905': '#E98A3A',
+  '5906': '#D4742A',
+  '5907': '#C4652A',
+  '5908': '#AA4A18',
 }
 
-// Choropleth: GVFB blue hue, intensity driven by surplus value
-// Interpolates from light blue (#dce8f5) → GVFB dark blue (#0f4c81)
+// Choropleth: GVFB blue, light (#D8E8F0) → dark (#174A67)
 function choroColor(intensity) {
-  const r = Math.round(220 + (15  - 220) * intensity)
-  const g = Math.round(232 + (76  - 232) * intensity)
-  const b = Math.round(245 + (129 - 245) * intensity)
+  const r = Math.round(216 + (23  - 216) * intensity)
+  const g = Math.round(232 + (74  - 232) * intensity)
+  const b = Math.round(240 + (103 - 240) * intensity)
   return `rgb(${r},${g},${b})`
 }
 
@@ -115,7 +114,7 @@ function RegionTooltip({ uid, info, totalFG }) {
     }}>
       <div style={{ width: 12, height: 36, borderRadius: 3, background: CAR_COLORS[uid] || '#94a3b8', flexShrink: 0 }} />
       <div style={{ flex: 1 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: '#0f4c81' }}>{CAR_NAMES[uid] || info.car_name}</div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: '#174A67' }}>{CAR_NAMES[uid] || info.car_name}</div>
         <div style={{ fontSize: 22, fontWeight: 700, letterSpacing: '-0.5px', color: '#111827', margin: '2px 0' }}>
           {fmt(info.farmgate_t)}
         </div>
@@ -187,7 +186,7 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
     <div>
       {/* Page header */}
       <div style={{ marginBottom: 20 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 4 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 4, letterSpacing: '-0.3px' }}>
           Upstream Surplus by Region &amp; Season — {year}
         </h2>
         <p style={{ fontSize: 13, color: 'var(--text-secondary)' }}>
@@ -225,7 +224,7 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
               </defs>
 
               {/* Ocean background */}
-              <rect width={W} height={H} fill="#c8dce8" rx={6} />
+              <rect width={W} height={H} fill="#C8DCE8" rx={6} />
 
               {/* Region polygons — single green choropleth */}
               {geojson.features.map(f => {
@@ -308,13 +307,13 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
 
           {/* Monthly seasonality — compact */}
           <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '16px 18px 12px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)' }}>
-            <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 2 }}>Monthly Seasonality — {year}</div>
+            <div style={{ fontSize: 15, fontWeight: 600, marginBottom: 2 }}>Monthly Seasonality — {year}</div>
             <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 10 }}>
               Upstream surplus by month · peak month highlighted
             </div>
             <ResponsiveContainer width="100%" height={160}>
               <BarChart data={monthAgg} margin={{ top: 2, right: 4, left: -12, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" />
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
                 <XAxis dataKey="label" tick={{ fontSize: 9 }} />
                 <YAxis
                   tick={{ fontSize: 9 }}
@@ -324,7 +323,7 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
                 <Tooltip content={<MonthTip />} />
                 <Bar dataKey="farmgate_t" radius={[3, 3, 0, 0]} isAnimationActive={false}>
                   {monthAgg.map((d, i) => (
-                    <Cell key={i} fill={d.label === peakMonth?.label ? '#1d6fa4' : 'rgba(29,111,164,.35)'} />
+                    <Cell key={i} fill={d.label === peakMonth?.label ? '#174A67' : 'rgba(23,74,103,.28)'} />
                   ))}
                 </Bar>
               </BarChart>
@@ -333,13 +332,13 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
 
           {/* Regional rankings */}
           <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '16px 18px 12px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)', flex: 1 }}>
-            <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 2 }}>Ranked by Region — {year}</div>
+            <div style={{ fontSize: 15, fontWeight: 600, marginBottom: 2 }}>Ranked by Region — {year}</div>
             <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 10 }}>
               Upstream surplus · hover to highlight on map
             </div>
             <ResponsiveContainer width="100%" height={200}>
               <BarChart data={carTotals} layout="vertical" margin={{ top: 0, right: 10, left: 4, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" horizontal={false} />
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" horizontal={false} />
                 <XAxis type="number" tick={{ fontSize: 9 }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} />
                 <YAxis type="category" dataKey="car_name" tick={{ fontSize: 9 }} width={130}
                   tickFormatter={n => n.replace('Lower Mainland – ', 'LM – ').replace('Vancouver Island – ', 'VI – ').replace('Thompson – ', 'T – ')} />

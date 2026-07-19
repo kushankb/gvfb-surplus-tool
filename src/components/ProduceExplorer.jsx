@@ -5,10 +5,10 @@ import {
 } from 'recharts'
 
 const YEAR_PALETTE = [
-  '#1d6fa4','#f37d23','#0f4c81','#fbb321',
-  '#3d8fc4','#c45c0a','#6a9fc0','#f9c55a',
-  '#2a5e8a','#e8920a','#5b8fb8','#d4720f',
-  '#1a4f73','#fcc642','#0d3d62','#fa8e35',
+  '#174A67','#E98A3A','#2E7FA8','#C4652A',
+  '#4D9BBF','#AA4A18','#8FBFD6','#E0A060',
+  '#1E6A9A','#D4742A','#0d3852','#F0B070',
+  '#3D8FB8','#C07040','#5AAED0','#B05820',
 ]
 const yearColor = (yr) => YEAR_PALETTE[(yr - 2010) % YEAR_PALETTE.length]
 
@@ -16,14 +16,14 @@ const KEY_MAP   = { farmgate: 'farmgate_t', retail: 'retail_t', total: 'total_t'
 const LABEL_MAP = { farmgate: 'Upstream Surplus', retail: 'Downstream Surplus', total: 'Total Recoverable' }
 
 const CAT_COLOR = {
-  'Fruits':           '#f37d23',
-  'Tree Fruit':       '#c45c0a',
-  'Vegetables':       '#1d6fa4',
-  'Greenhouse Veg':   '#3d8fc4',
-  'Other Perishable': '#0f4c81',
-  'Other Storable':   '#6a9fc0',
+  'Fruits':           '#E98A3A',
+  'Tree Fruit':       '#C4652A',
+  'Vegetables':       '#174A67',
+  'Greenhouse Veg':   '#2E7FA8',
+  'Other Perishable': '#4D9BBF',
+  'Other Storable':   '#8FBFD6',
 }
-const catColor = (cat) => CAT_COLOR[cat] || '#1d6fa4'
+const catColor = (cat) => CAT_COLOR[cat] || '#174A67'
 
 const T_TO_LBS = 2204.62
 function fmt(v) {
@@ -77,7 +77,7 @@ export default function ProduceExplorer({ items, allItems, year, allYears, surpl
     <div>
       <div style={{ marginBottom:20, display:'flex', alignItems:'flex-start', justifyContent:'space-between', flexWrap:'wrap', gap:12 }}>
         <div>
-          <h2 style={{ fontSize:20, fontWeight:700, marginBottom:4 }}>Produce Explorer — {year}</h2>
+          <h2 style={{ fontSize:22, fontWeight:700, marginBottom:4, letterSpacing:'-0.3px' }}>Produce Explorer — {year}</h2>
           <p style={{ fontSize:13, color:'var(--text-secondary)' }}>
             Showing <strong>{LABEL_MAP[surplusType]}</strong> across {ranked.length} produce types.
           </p>
@@ -193,8 +193,8 @@ export default function ProduceExplorer({ items, allItems, year, allYears, surpl
               <YAxis type="category" dataKey="item" tick={{ fontSize:11, fill:'var(--text-secondary)' }} width={125} />
               <Tooltip formatter={(v, n) => [fmt(v||0), n]} labelStyle={{ color:'var(--text-primary)' }} />
               <Legend wrapperStyle={{ fontSize:11 }} />
-              <Bar dataKey="farmgate_t" name="Upstream"   stackId="a" fill="#1d6fa4" opacity={0.85} radius={[0,0,0,0]} />
-              <Bar dataKey="retail_t"   name="Downstream" stackId="a" fill="#f37d23" opacity={0.85} radius={[0,3,3,0]} />
+              <Bar dataKey="farmgate_t" name="Upstream"   stackId="a" fill="#174A67" opacity={0.85} radius={[0,0,0,0]} />
+              <Bar dataKey="retail_t"   name="Downstream" stackId="a" fill="#E98A3A" opacity={0.85} radius={[0,3,3,0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>

@@ -4,7 +4,7 @@ import gvfbLogo from '../assets/gvfb-logo.png'
 export default function Header({ onAbout }) {
   return (
     <header style={{
-      background: 'linear-gradient(135deg, #0f4c81 0%, #1d6fa4 60%, #1a8a6b 100%)',
+      background: 'linear-gradient(135deg, #0d3852 0%, #174A67 55%, #1E6A9A 100%)',
       padding: '12px 24px', display: 'flex', alignItems: 'center',
       justifyContent: 'space-between', boxShadow: '0 2px 8px rgba(0,0,0,0.18)',
       position: 'sticky', top: 0, zIndex: 100,

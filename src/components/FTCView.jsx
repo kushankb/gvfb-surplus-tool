@@ -26,7 +26,7 @@ function pct(a, b) {
   return Math.round((a / b) * 100)
 }
 
-function KPI({ label, value, sub, color = '#1d6fa4' }) {
+function KPI({ label, value, sub, color = '#174A67' }) {
   return (
     <div style={{
       background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '18px 20px',
@@ -47,9 +47,9 @@ const CompareTooltip = ({ active, payload, label }) => {
   return (
     <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 8, padding: '10px 14px', boxShadow: 'var(--shadow)', fontSize: 12 }}>
       <div style={{ fontWeight: 600, marginBottom: 6 }}>{label}</div>
-      <div style={{ color: '#1d6fa4', marginBottom: 2 }}>GVFB procured: <strong>{fmt(procured)}</strong></div>
-      <div style={{ color: '#94a3b8', marginBottom: 4 }}>Est. upstream surplus: <strong>{fmt(surplus)}</strong></div>
-      {rate && <div style={{ color: '#059669', fontSize: 11 }}>Upstream capture rate: <strong>{rate}%</strong></div>}
+      <div style={{ color: '#174A67', marginBottom: 2 }}>GVFB procured: <strong>{fmt(procured)}</strong></div>
+      <div style={{ color: 'var(--text-muted)', marginBottom: 4 }}>Est. upstream surplus: <strong>{fmt(surplus)}</strong></div>
+      {rate && <div style={{ color: '#E98A3A', fontSize: 11 }}>Upstream capture rate: <strong>{rate}%</strong></div>}
     </div>
   )
 }
@@ -129,7 +129,7 @@ export default function FTCView({ procured, byItem, years }) {
     <div>
       {/* Header */}
       <div style={{ marginBottom: 20 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 4 }}>GVFB Farm Gate Procurement</h2>
+        <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 4, color: 'var(--text-primary)', letterSpacing: '-0.3px' }}>GVFB Farm Gate Procurement</h2>
         <p style={{ fontSize: 13, color: 'var(--text-secondary)' }}>
           What GVFB has actually collected from BC farms through the farm gate procurement program vs the estimated available surplus.
           Data covers Feb 2024 – Mar 2026.
@@ -138,20 +138,20 @@ export default function FTCView({ procured, byItem, years }) {
 
       {/* KPI row */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: 14, marginBottom: 20 }}>
-        <KPI label="Farm Gate Collected — 2024" value={fmt(t2024)} color="#1d6fa4"
+        <KPI label="Farm Gate Collected — 2024" value={fmt(t2024)} color="#174A67"
           sub={`covers ${fmtPeople(t2024)} annual produce needs`} />
-        <KPI label="Farm Gate Collected — 2025" value={fmt(t2025)} color="#1d6fa4"
+        <KPI label="Farm Gate Collected — 2025" value={fmt(t2025)} color="#174A67"
           sub={yoy ? `${yoy > 0 ? '+' : ''}${yoy}% vs 2024` : 'full-year total'} />
-        <KPI label="Total 2024 + 2025" value={fmt(totalAll)} color="#059669"
+        <KPI label="Total 2024 + 2025" value={fmt(totalAll)} color="#E98A3A"
           sub={`covers ${fmtPeople(totalAll)} annual produce needs`} />
-        <KPI label="2025 Capture Rate" value={captureRate2025 ? `${captureRate2025}%` : '—'} color="#7c3aed"
+        <KPI label="2025 Capture Rate" value={captureRate2025 ? `${captureRate2025}%` : '—'} color="#174A67"
           sub="of estimated BC upstream surplus" />
       </div>
 
       {/* Explanation banner */}
       <div style={{
-        background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 10,
-        padding: '12px 18px', marginBottom: 20, fontSize: 13, color: '#166534', lineHeight: 1.7,
+        background: 'rgba(23,74,103,.05)', border: '1px solid rgba(23,74,103,.18)', borderRadius: 10,
+        padding: '12px 18px', marginBottom: 20, fontSize: 13, color: '#174A67', lineHeight: 1.7,
       }}>
         <strong>How to read this:</strong> The grey bars show the estimated total BC upstream surplus for each crop
         (produce rejected before reaching stores). The blue bars show what GVFB farm gate program actually collected.
@@ -181,13 +181,13 @@ export default function FTCView({ procured, byItem, years }) {
 
         <ResponsiveContainer width="100%" height={Math.max(320, compareData.length * 32)}>
           <BarChart data={compareData} layout="vertical" margin={{ top: 0, right: 60, left: 175, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" horizontal={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" horizontal={false} />
             <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} />
             <YAxis type="category" dataKey="item" tick={{ fontSize: 11 }} width={170} interval={0} />
             <Tooltip content={<CompareTooltip />} />
             <Legend wrapperStyle={{ fontSize: 11 }} />
-            <Bar dataKey="farmgate_t"  name="Estimated surplus" fill="#cbd5e1" radius={[0, 0, 0, 0]} />
-            <Bar dataKey="procured_t"  name="GVFB collected"    fill="#1d6fa4" radius={[0, 3, 3, 0]} opacity={0.9} />
+            <Bar dataKey="farmgate_t"  name="Estimated surplus" fill="#DDE3E5" radius={[0, 0, 0, 0]} />
+            <Bar dataKey="procured_t"  name="GVFB collected"    fill="#174A67" radius={[0, 3, 3, 0]} opacity={0.9} />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -198,11 +198,11 @@ export default function FTCView({ procured, byItem, years }) {
         <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 16 }}>Pounds collected per month across all produce types</div>
         <ResponsiveContainer width="100%" height={200}>
           <LineChart data={monthlyData} margin={{ top: 4, right: 20, left: -8, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" />
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
             <XAxis dataKey="label" tick={{ fontSize: 9 }} interval={2} />
             <YAxis tick={{ fontSize: 10 }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} />
             <Tooltip formatter={v => [fmt(v), 'Collected']} />
-            <Line type="monotone" dataKey="procured_t" stroke="#1d6fa4" strokeWidth={2} dot={{ r: 3 }} name="Collected (t)" />
+            <Line type="monotone" dataKey="procured_t" stroke="#174A67" strokeWidth={2} dot={{ r: 3, fill: '#174A67' }} name="Collected (t)" />
           </LineChart>
         </ResponsiveContainer>
       </div>

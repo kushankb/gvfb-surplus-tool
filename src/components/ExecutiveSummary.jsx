@@ -161,7 +161,7 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
       {/* Charts */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
         <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '20px 20px 12px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)' }}>
-          <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 2 }}>Surplus Trend 2010–2025</div>
+          <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 2 }}>Surplus Trend 2010–2025</div>
           <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 4 }}>
             Upstream and downstream recovery (lbs) · flags shown in dropdown
           </div>
@@ -177,35 +177,35 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
             <AreaChart data={trendData} margin={{ top: 4, right: 8, left: -10, bottom: 0 }}>
               <defs>
                 <linearGradient id="gradFG" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%"  stopColor="#1d6fa4" stopOpacity={0.30}/>
-                  <stop offset="95%" stopColor="#1d6fa4" stopOpacity={0}/>
+                  <stop offset="5%"  stopColor="#174A67" stopOpacity={0.28}/>
+                  <stop offset="95%" stopColor="#174A67" stopOpacity={0}/>
                 </linearGradient>
                 <linearGradient id="gradRT" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%"  stopColor="#fbb321" stopOpacity={0.35}/>
-                  <stop offset="95%" stopColor="#fbb321" stopOpacity={0}/>
+                  <stop offset="5%"  stopColor="#E98A3A" stopOpacity={0.30}/>
+                  <stop offset="95%" stopColor="#E98A3A" stopOpacity={0}/>
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
               <XAxis dataKey="year" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} />
               <Tooltip content={<CustomTooltip />} />
               {/* Shade extrapolated/preliminary region */}
-              <ReferenceArea x1={2023} x2={2025} fill="#f59e0b" fillOpacity={0.06} />
+              <ReferenceArea x1={2023} x2={2025} fill="#E98A3A" fillOpacity={0.06} />
               <ReferenceLine x={2022} stroke="#9ca3af" strokeDasharray="3 2" strokeWidth={1}
                 label={{ value: 'last fully\nobserved', position: 'insideTopLeft', fontSize: 9, fill: '#9ca3af' }} />
               <ReferenceLine x={year} stroke="var(--accent)" strokeDasharray="4 2" strokeWidth={1.5} />
-              <Area type="monotone" dataKey="Upstream"   stroke="#1d6fa4" strokeWidth={2} fill="url(#gradFG)" name="Upstream" />
-              <Area type="monotone" dataKey="Downstream" stroke="#fbb321" strokeWidth={2.5} fill="url(#gradRT)" name="Downstream" />
+              <Area type="monotone" dataKey="Upstream"   stroke="#174A67" strokeWidth={2} fill="url(#gradFG)" name="Upstream" />
+              <Area type="monotone" dataKey="Downstream" stroke="#E98A3A" strokeWidth={2} fill="url(#gradRT)" name="Downstream" />
             </AreaChart>
           </ResponsiveContainer>
         </div>
 
         <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '20px 20px 12px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)' }}>
-          <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>Top Surplus Items — {year}</div>
+          <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 4 }}>Top Surplus Items — {year}</div>
           <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 16 }}>Total recoverable by produce (lbs)</div>
           <ResponsiveContainer width="100%" height={280}>
             <BarChart data={topItems} layout="vertical" margin={{ top: 4, right: 16, left: 0, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" horizontal={false} />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" horizontal={false} />
               <XAxis type="number" tick={{ fontSize: 10 }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} />
               <YAxis type="category" dataKey="item" tick={{ fontSize: 10 }} width={85} interval={0} />
               <Tooltip formatter={(v) => [fmt(v), 'Surplus']} />
@@ -226,7 +226,7 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
                   )
                 }}>
                 {topItems.map((entry, i) => (
-                  <Cell key={i} fill={CAT_COLOR[entry.category] || '#2D6A4F'} opacity={0.87} />
+                  <Cell key={i} fill={CAT_COLOR[entry.category] || '#174A67'} opacity={0.87} />
                 ))}
               </Bar>
             </BarChart>
