@@ -15,15 +15,13 @@ const yearColor = (yr) => YEAR_PALETTE[(yr - 2010) % YEAR_PALETTE.length]
 const KEY_MAP   = { farmgate: 'farmgate_t', retail: 'retail_t', total: 'total_t' }
 const LABEL_MAP = { farmgate: 'Upstream Surplus', retail: 'Downstream Surplus', total: 'Total Recoverable' }
 
+const SIMPLE_CAT = (cat) => ['Fruits', 'Tree Fruit'].includes(cat) ? 'Fruits' : 'Vegetables'
+
 const CAT_COLOR = {
-  'Fruits':           '#E98A3A',
-  'Tree Fruit':       '#C4652A',
-  'Vegetables':       '#174A67',
-  'Greenhouse Veg':   '#2E7FA8',
-  'Other Perishable': '#4D9BBF',
-  'Other Storable':   '#8FBFD6',
+  'Fruits':     '#E98A3A',
+  'Vegetables': '#174A67',
 }
-const catColor = (cat) => CAT_COLOR[cat] || '#174A67'
+const catColor = (cat) => CAT_COLOR[SIMPLE_CAT(cat)] || '#174A67'
 
 const T_TO_LBS = 2204.62
 function fmt(v) {
@@ -59,11 +57,9 @@ export default function ProduceExplorer({ items, allItems, year, allYears, surpl
   const toggleItem = (item) =>
     setSelectedItems(prev => prev.includes(item) ? prev.filter(i => i !== item) : [...prev.slice(-4), item])
 
-  // 6-category totals
-  const fruitsTotal = items.filter(d => ['Fruits','Tree Fruit'].includes(d.category)).reduce((s,d) => s+(d[key]||0), 0)
-  const vegsTotal   = items.filter(d => ['Vegetables','Greenhouse Veg'].includes(d.category)).reduce((s,d) => s+(d[key]||0), 0)
-  const otherTotal  = items.filter(d => ['Other Perishable','Other Storable'].includes(d.category)).reduce((s,d) => s+(d[key]||0), 0)
-  const grandTotal  = fruitsTotal + vegsTotal + otherTotal
+  const fruitsTotal = items.filter(d => SIMPLE_CAT(d.category) === 'Fruits').reduce((s,d) => s+(d[key]||0), 0)
+  const vegsTotal   = items.filter(d => SIMPLE_CAT(d.category) === 'Vegetables').reduce((s,d) => s+(d[key]||0), 0)
+  const grandTotal  = fruitsTotal + vegsTotal
 
   const btnStyle = (active, color = 'var(--upstream)') => ({
     padding:'5px 14px', borderRadius:20, fontSize:12, fontWeight:500, cursor:'pointer',
@@ -92,12 +88,11 @@ export default function ProduceExplorer({ items, allItems, year, allYears, surpl
       </div>
 
       {/* Category split cards */}
-      <div style={{ display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:12, marginBottom:20 }}>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:12, marginBottom:20 }}>
         {[
-          { label:'Fruits & Tree', val:fruitsTotal, color:'var(--cat-fruit)' },
-          { label:'Vegetables',    val:vegsTotal,   color:'var(--cat-veg)' },
-          { label:'Other',         val:otherTotal,  color:'var(--cat-perishable)' },
-          { label:'Total',         val:grandTotal,  color:'var(--harvest)' },
+          { label:'Fruits',     val:fruitsTotal, color:'var(--cat-fruit)' },
+          { label:'Vegetables', val:vegsTotal,   color:'var(--cat-veg)' },
+          { label:'Total',      val:grandTotal,  color:'var(--harvest)' },
         ].map(({ label, val, color }) => {
           const pct = grandTotal ? val / grandTotal * 100 : 0
           return (
