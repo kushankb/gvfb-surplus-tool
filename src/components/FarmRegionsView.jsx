@@ -137,7 +137,8 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
   const carTotals = useMemo(() => {
     const agg = {}
     carData.forEach(d => {
-      const uid = d.car_uid || d.car_code
+      // byCAR.json uses car_code like 'CAR590100000'; GeoJSON CARUID is '5901'
+      const uid = d.car_uid || (d.car_code ? d.car_code.replace('CAR', '').slice(0, 4) : null)
       if (!agg[uid]) agg[uid] = { uid, car_name: CAR_NAMES[uid] || d.car_name, farmgate_t: 0 }
       agg[uid].farmgate_t += d.farmgate_t || 0
     })
@@ -223,8 +224,8 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
                 </linearGradient>
               </defs>
 
-              {/* Ocean background */}
-              <rect width={W} height={H} fill="#C8DCE8" rx={6} />
+              {/* Map background */}
+              <rect width={W} height={H} fill="#ffffff" rx={6} />
 
               {/* Region polygons — single green choropleth */}
               {geojson.features.map(f => {

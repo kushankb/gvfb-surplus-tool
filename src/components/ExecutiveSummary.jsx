@@ -106,17 +106,6 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
         </div>
       </div>
 
-      {/* Data quality flag */}
-      {flagStyle && (
-        <div style={{
-          background: flagStyle.bg, borderRadius: 8, padding: '10px 14px',
-          border: `1px solid ${flagStyle.border}`, fontSize: 12, color: flagStyle.text,
-          marginBottom: 16,
-        }}>
-          <strong>{flagStyle.icon} {year} data quality:</strong>{' '}{yearSummary.flag_note}
-        </div>
-      )}
-
       {/* Stacked bar chart — top produce by upstream + downstream */}
       <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '24px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)', marginBottom: 16 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
@@ -162,31 +151,6 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
           </BarChart>
         </ResponsiveContainer>
       </div>
-
-      {/* GVFB FTC callout */}
-      {(ftcTotals[2024] || ftcTotals[2025]) && (
-        <div style={{
-          background: 'linear-gradient(135deg, rgba(23,74,103,.07), rgba(233,138,58,.08))',
-          border: '1px solid rgba(23,74,103,.20)', borderRadius: 10, padding: '14px 20px', marginBottom: 12,
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12,
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <span style={{ fontSize: 22 }}>🚜</span>
-            <div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: '#174A67' }}>GVFB Farm-to-Community Collections</div>
-              <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 2 }}>
-                {ftcTotals[2024] && <span><strong>{Math.round(ftcTotals[2024]).toLocaleString()} t</strong> collected in 2024</span>}
-                {ftcTotals[2024] && ftcTotals[2025] && <span style={{ color: 'var(--text-muted)' }}> · </span>}
-                {ftcTotals[2025] && <span><strong>{Math.round(ftcTotals[2025]).toLocaleString()} t</strong> in 2025</span>}
-                {' '}through the farm gate procurement program.
-              </div>
-            </div>
-          </div>
-          <div style={{ fontSize: 11, color: '#174A67', fontWeight: 500, whiteSpace: 'nowrap' }}>
-            See <em>Farm Gate Procured</em> tab →
-          </div>
-        </div>
-      )}
 
       <div style={{ background: 'var(--surface2)', borderRadius: 8, padding: '9px 14px', border: '1px solid var(--border)', fontSize: 11, color: 'var(--text-muted)' }}>
         Upstream: cascade loss model (21.7% effective) × StatsCan production · Downstream: cascade (8.2% effective) × provincial mass balance (CIMT + FAOSTAT) · ±30% component sensitivity · Click <em>About this tool</em> for full methodology.

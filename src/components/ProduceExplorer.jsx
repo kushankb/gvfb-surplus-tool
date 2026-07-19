@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
-  ResponsiveContainer, Cell, LineChart, Line, Legend
+  ResponsiveContainer, LineChart, Line, Legend
 } from 'recharts'
 
 const YEAR_PALETTE = [
@@ -33,7 +33,7 @@ function fmt(v) {
 }
 
 export default function ProduceExplorer({ items, allItems, year, allYears, surplusType }) {
-  const [view, setView] = useState('bar')
+  const [view, setView] = useState('compare')
   const [selectedItems, setSelectedItems] = useState([])
 
   const key = KEY_MAP[surplusType] || 'total_t'
@@ -79,7 +79,7 @@ export default function ProduceExplorer({ items, allItems, year, allYears, surpl
           </p>
         </div>
         <div style={{ display:'flex', gap:6 }}>
-          {[['bar','Ranked'],['trend','Trend'],['compare','Up vs Down']].map(([v, label]) => (
+          {[['trend','Trend'],['compare','Up vs Down']].map(([v, label]) => (
             <button key={v} onClick={() => setView(v)} style={btnStyle(view === v)}>
               {label}
             </button>
@@ -111,33 +111,6 @@ export default function ProduceExplorer({ items, allItems, year, allYears, surpl
           )
         })}
       </div>
-
-      {view === 'bar' && (
-        <div style={{ background:'var(--surface)', borderRadius:'var(--radius-lg)', padding:'20px 20px 12px', border:'1px solid var(--border)', boxShadow:'var(--shadow-sm)' }}>
-          <div style={{ fontSize:14, fontWeight:600, marginBottom:6 }}>Ranked by {LABEL_MAP[surplusType]}</div>
-          {/* Category legend */}
-          <div style={{ display:'flex', gap:10, flexWrap:'wrap', marginBottom:14 }}>
-            {Object.entries(CAT_COLOR).map(([cat, color]) => (
-              <span key={cat} style={{ fontSize:10.5, color:'var(--text-muted)', display:'flex', alignItems:'center', gap:4 }}>
-                <span style={{ width:9, height:9, borderRadius:2, background:color, display:'inline-block' }} />{cat}
-              </span>
-            ))}
-          </div>
-          <ResponsiveContainer width="100%" height={Math.max(260, ranked.length * 28)}>
-            <BarChart data={ranked} layout="vertical" margin={{ top:0, right:60, left:130, bottom:0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="var(--border-light)" horizontal={false} />
-              <XAxis type="number" tick={{ fontSize:11, fill:'var(--text-muted)' }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} />
-              <YAxis type="category" dataKey="item" tick={{ fontSize:11, fill:'var(--text-secondary)' }} width={125} />
-              <Tooltip formatter={(v) => [fmt(v), LABEL_MAP[surplusType]]} labelStyle={{ color:'var(--text-primary)' }} />
-              <Bar dataKey={key} name={LABEL_MAP[surplusType]} radius={[0,3,3,0]}>
-                {ranked.map((entry, i) => (
-                  <Cell key={i} fill={catColor(entry.category)} opacity={0.85} />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      )}
 
       {view === 'trend' && (
         <div style={{ background:'var(--surface)', borderRadius:'var(--radius-lg)', padding:'20px 20px 12px', border:'1px solid var(--border)', boxShadow:'var(--shadow-sm)' }}>
