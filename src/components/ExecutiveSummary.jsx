@@ -4,6 +4,15 @@ import {
 } from 'recharts'
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react'
 
+const CAT_COLOR = {
+  'Fruits':           'var(--cat-fruit)',
+  'Tree Fruit':       'var(--cat-tree)',
+  'Vegetables':       'var(--cat-veg)',
+  'Greenhouse Veg':   'var(--cat-gh)',
+  'Other Perishable': 'var(--cat-perishable)',
+  'Other Storable':   'var(--cat-storable)',
+}
+
 // ── Canada's Food Guide produce benchmark ─────────────────────────────────────
 // Source: Canada's Food Guide (Health Canada, 2007): adults 19–50 yr, 7–8 servings/day
 // 1 serving of vegetable or fruit ≈ 125 mL (½ cup) ≈ 80 g fresh weight
@@ -37,7 +46,7 @@ const FLAG_STYLES = {
 
 function KPICard({ label, value, sub, color, trend, trendVal }) {
   const TIcon = trend === 'up' ? TrendingUp : trend === 'down' ? TrendingDown : Minus
-  const tColor = trend === 'up' ? 'var(--accent2)' : trend === 'down' ? 'var(--danger)' : 'var(--text-muted)'
+  const tColor = trend === 'up' ? 'var(--upstream)' : trend === 'down' ? 'var(--danger)' : 'var(--text-muted)'
   return (
     <div style={{
       background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '20px 22px',
@@ -81,8 +90,8 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
 
   const trendData = allYears.map(d => ({
     year: d.year,
-    'Farm-Gate': Math.round(d.farmgate_t),
-    'Retail':    Math.round(d.retail_t),
+    'Upstream':   Math.round(d.farmgate_t),
+    'Downstream': Math.round(d.retail_t),
     flag: d.flag,
   }))
 
@@ -103,11 +112,11 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
           trend={yoyTrend} trendVal={yoyPct ? `${yoyPct > 0 ? '+' : ''}${yoyPct}% YoY` : null}
         />
         <KPICard
-          label="Farm-Gate Surplus" value={fmt(yearSummary.farmgate_t)} color="var(--accent2)"
+          label="Upstream Surplus" value={fmt(yearSummary.farmgate_t)} color="var(--upstream)"
           sub={`covers ${fmtPeople(yearSummary.farmgate_t)} annual needs`}
         />
         <KPICard
-          label="Retail Surplus" value={fmt(yearSummary.retail_t)} color="var(--accent3)"
+          label="Downstream Surplus" value={fmt(yearSummary.retail_t)} color="var(--downstream)"
           sub={`${yearSummary.retail_t && yearSummary.total_t ? Math.round(yearSummary.retail_t/yearSummary.total_t*100) : '—'}% of total`}
         />
         <div style={{
@@ -132,7 +141,7 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
             }} />
           </div>
           <div style={{ fontSize: 10, color: 'var(--text-muted)', marginTop: 4 }}>
-            Farm-gate: {fmtPeople(yearSummary.farmgate_t)} · Retail: {fmtPeople(yearSummary.retail_t)}
+            Upstream: {fmtPeople(yearSummary.farmgate_t)} · Downstream: {fmtPeople(yearSummary.retail_t)}
           </div>
         </div>
       </div>
@@ -154,7 +163,7 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
         <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '20px 20px 12px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)' }}>
           <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 2 }}>Surplus Trend 2010–2025</div>
           <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 4 }}>
-            Farm-gate and retail recovery (lbs) · flags shown in dropdown
+            Upstream and downstream recovery (lbs) · flags shown in dropdown
           </div>
           {/* Flag legend inline */}
           <div style={{ display: 'flex', gap: 10, fontSize: 10, color: 'var(--text-muted)', marginBottom: 10, flexWrap: 'wrap' }}>
@@ -168,12 +177,12 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
             <AreaChart data={trendData} margin={{ top: 4, right: 8, left: -10, bottom: 0 }}>
               <defs>
                 <linearGradient id="gradFG" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%"  stopColor="#059669" stopOpacity={0.3}/>
-                  <stop offset="95%" stopColor="#059669" stopOpacity={0}/>
+                  <stop offset="5%"  stopColor="#2D6A4F" stopOpacity={0.28}/>
+                  <stop offset="95%" stopColor="#2D6A4F" stopOpacity={0}/>
                 </linearGradient>
                 <linearGradient id="gradRT" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%"  stopColor="#f59e0b" stopOpacity={0.3}/>
-                  <stop offset="95%" stopColor="#f59e0b" stopOpacity={0}/>
+                  <stop offset="5%"  stopColor="#1B4F8A" stopOpacity={0.28}/>
+                  <stop offset="95%" stopColor="#1B4F8A" stopOpacity={0}/>
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" />
@@ -185,8 +194,8 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
               <ReferenceLine x={2022} stroke="#9ca3af" strokeDasharray="3 2" strokeWidth={1}
                 label={{ value: 'last fully\nobserved', position: 'insideTopLeft', fontSize: 9, fill: '#9ca3af' }} />
               <ReferenceLine x={year} stroke="var(--accent)" strokeDasharray="4 2" strokeWidth={1.5} />
-              <Area type="monotone" dataKey="Farm-Gate" stroke="#059669" strokeWidth={2} fill="url(#gradFG)" name="Farm-Gate" />
-              <Area type="monotone" dataKey="Retail"    stroke="#f59e0b" strokeWidth={2} fill="url(#gradRT)" name="Retail" />
+              <Area type="monotone" dataKey="Upstream"   stroke="#2D6A4F" strokeWidth={2} fill="url(#gradFG)" name="Upstream" />
+              <Area type="monotone" dataKey="Downstream" stroke="#1B4F8A" strokeWidth={2} fill="url(#gradRT)" name="Downstream" />
             </AreaChart>
           </ResponsiveContainer>
         </div>
@@ -217,16 +226,16 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
                   )
                 }}>
                 {topItems.map((entry, i) => (
-                  <Cell key={i} fill={entry.category === 'Fruits' ? '#f59e0b' : '#059669'} opacity={0.85} />
+                  <Cell key={i} fill={CAT_COLOR[entry.category] || '#2D6A4F'} opacity={0.87} />
                 ))}
               </Bar>
             </BarChart>
           </ResponsiveContainer>
-          <div style={{ display: 'flex', gap: 12, marginTop: 10, justifyContent: 'flex-end' }}>
-            {['Fruits','Vegetables'].map((c, i) => (
-              <span key={c} style={{ fontSize: 11, color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: 4 }}>
-                <span style={{ width: 10, height: 10, borderRadius: 2, background: i ? '#059669' : '#f59e0b', display:'inline-block' }}/>
-                {c}
+          <div style={{ display: 'flex', gap: 10, marginTop: 10, flexWrap: 'wrap' }}>
+            {Object.entries(CAT_COLOR).map(([cat, color]) => (
+              <span key={cat} style={{ fontSize: 10.5, color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: 4 }}>
+                <span style={{ width: 9, height: 9, borderRadius: 2, background: color, display:'inline-block' }}/>
+                {cat}
               </span>
             ))}
           </div>
@@ -259,7 +268,7 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
       )}
 
       <div style={{ background: 'var(--surface2)', borderRadius: 8, padding: '9px 14px', border: '1px solid var(--border)', fontSize: 11, color: 'var(--text-muted)' }}>
-        Farm-gate: Second Harvest (2024) loss rates × StatsCan production · Retail: provincial mass balance (CIMT + FAOSTAT) · Shaded area = extrapolated / preliminary · ±30% uncertainty · Click <em>About this tool</em> for full methodology.
+        Upstream: cascade loss model (21.7% effective) × StatsCan production · Downstream: cascade (8.2% effective) × provincial mass balance (CIMT + FAOSTAT) · Shaded area = extrapolated / preliminary · ±30% component sensitivity · Click <em>About this tool</em> for full methodology.
       </div>
     </div>
   )

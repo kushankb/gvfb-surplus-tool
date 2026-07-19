@@ -73,36 +73,35 @@ export default function AboutModal({ onClose }) {
           It covers <strong>26 fruits and vegetables</strong> grown or consumed in BC, from 2010 to 2025.
         </Section>
 
-        <Section icon="🚜" title="What is farm-gate surplus?">
+        <Section icon="🚜" title="What is upstream surplus?">
           This is food that was <em>successfully harvested on BC farms</em> but rejected before
           entering the grocery supply chain — usually because of cosmetic imperfections (odd shape,
-          blemishes, wrong size) or overproduction with no buyer.
+          blemishes, wrong size) or overproduction with no buyer. It combines production losses and
+          postharvest handling losses into a single cascade estimate.
           <br /><br />
           This is the most actionable type of surplus for the GVFB: farmers can donate or
           sell it directly, and the GVFB's <em>Farm to Community</em> program already procures
           roughly half its produce this way.
         </Section>
 
-        <Section icon="🛒" title="What is retail surplus?">
-          This is food that enters the supply chain but is discarded at the <em>retail stage</em> —
-          approaching best-before dates, overstocking, or appearance standards at the store level.
+        <Section icon="🛒" title="What is downstream surplus?">
+          This is food that enters the supply chain but is discarded during <em>distribution and
+          at the retail stage</em> — approaching best-before dates, overstocking, or appearance
+          standards at the store level.
           <br /><br />
           It represents a broader system-wide picture but is harder to access directly through
           farm procurement programs.
         </Section>
 
         <Section icon="📐" title="How are the numbers estimated?">
-          <strong>Farm-gate surplus</strong> = how much BC farms harvested × the fraction typically
-          rejected at the farm, based on{' '}
-          <Tip tip="Second Harvest's 2024 national food waste study, which surveyed farms across Canada to measure how much produce is lost at the farm gate for each crop type.">
-            Second Harvest's 2024 food waste study
-          </Tip>.
-          For example, about 7% of blueberries and 5% of tomatoes are rejected at the farm level.
+          <strong>Upstream surplus</strong> uses a cascade model: 14.2% production loss + 8.7%
+          postharvest loss = 21.7% effective rate applied to StatsCan harvested quantities.
           <br /><br />
-          <strong>Retail surplus</strong> = BC's total food supply (local production + imports −
-          exports, adjusted for interprovincial flows) × retail loss rates from the same study.
+          <strong>Downstream surplus</strong> uses a second cascade: 2.5% distribution + 5.8%
+          retail = 8.2% effective rate, applied to BC's provincial mass balance (CIMT trade data +
+          FAOSTAT consumption accounts).
           <br /><br />
-          All figures carry a <Tip tip="Loss rates come from national surveys and may not perfectly match every BC farm or year. The actual surplus could be somewhat higher or lower.">±30% uncertainty</Tip>.
+          All figures carry a <Tip tip="Sensitivity bounds are computed by applying ±30% to each component loss rate before cascading — not to the final effective rate. The actual surplus could be somewhat higher or lower.">±30% component sensitivity</Tip>.
         </Section>
 
         <Section icon="👤" title="What does 'people fed' mean?">

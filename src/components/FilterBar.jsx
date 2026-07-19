@@ -8,8 +8,8 @@ const TABS = [
 ]
 
 const SURPLUS_TYPES = [
-  { id: 'farmgate', label: 'Farm-Gate' },
-  { id: 'retail',   label: 'Retail' },
+  { id: 'farmgate', label: 'Upstream' },
+  { id: 'retail',   label: 'Downstream' },
   { id: 'total',    label: 'Total Recoverable' },
 ]
 
@@ -20,14 +20,18 @@ export default function FilterBar({
   year, setYear, item, setItem, surplusType, setSurplusType,
   years, items, activeTab, setActiveTab
 }) {
-  const chip = (active) => ({
-    padding: '6px 14px', borderRadius: 20, fontSize: 13, fontWeight: 500,
-    border: '1px solid', cursor: 'pointer', transition: 'all .15s',
-    background: active ? 'var(--accent)' : 'var(--surface)',
-    color: active ? '#fff' : 'var(--text-secondary)',
-    borderColor: active ? 'var(--accent)' : 'var(--border)',
-    boxShadow: active ? '0 1px 4px rgba(29,111,164,.25)' : 'none',
-  })
+  const chip = (active, id) => {
+    const color = id === 'farmgate' ? 'var(--upstream)' : id === 'retail' ? 'var(--downstream)' : 'var(--harvest)'
+    const shadow = id === 'farmgate' ? 'rgba(45,106,79,.25)' : id === 'retail' ? 'rgba(27,79,138,.25)' : 'rgba(192,120,35,.25)'
+    return {
+      padding: '6px 14px', borderRadius: 20, fontSize: 13, fontWeight: 500,
+      border: '1px solid', cursor: 'pointer', transition: 'all .15s',
+      background: active ? color : 'var(--surface)',
+      color: active ? '#fff' : 'var(--text-secondary)',
+      borderColor: active ? color : 'var(--border)',
+      boxShadow: active ? `0 1px 4px ${shadow}` : 'none',
+    }
+  }
 
   const sel = {
     padding: '7px 12px', border: '1px solid var(--border)', borderRadius: 8,
@@ -64,9 +68,9 @@ export default function FilterBar({
           {TABS.map(t => (
             <button key={t.id} onClick={() => setActiveTab(t.id)} style={{
               padding: '18px 16px', fontSize: 13, fontWeight: activeTab === t.id ? 600 : 400,
-              color: activeTab === t.id ? 'var(--accent)' : 'var(--text-secondary)',
+              color: activeTab === t.id ? 'var(--upstream)' : 'var(--text-secondary)',
               background: 'none', border: 'none',
-              borderBottom: `2px solid ${activeTab === t.id ? 'var(--accent)' : 'transparent'}`,
+              borderBottom: `2px solid ${activeTab === t.id ? 'var(--upstream)' : 'transparent'}`,
               transition: 'all .15s', whiteSpace: 'nowrap',
             }}>{t.label}</button>
           ))}
@@ -90,7 +94,7 @@ export default function FilterBar({
           {activeTab !== 'regions' && (
             <div style={{ display: 'flex', gap: 4, marginLeft: 4 }}>
               {SURPLUS_TYPES.map(st => (
-                <button key={st.id} onClick={() => setSurplusType(st.id)} style={chip(surplusType === st.id)}>
+                <button key={st.id} onClick={() => setSurplusType(st.id)} style={chip(surplusType === st.id, st.id)}>
                   {st.label}
                 </button>
               ))}

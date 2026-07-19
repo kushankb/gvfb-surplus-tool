@@ -90,7 +90,7 @@ export default function SeasonalView({ monthly, allMonthly, year, item, allYears
       <div style={{ marginBottom: 20 }}>
         <h2 style={{ fontSize:20, fontWeight:700, marginBottom:4 }}>Seasonal Patterns</h2>
         <p style={{ fontSize:13, color:'var(--text-secondary)' }}>
-          Monthly farm-gate surplus estimates for {year}{item !== 'All' ? ` · ${item}` : ' · All produce'}.
+          Monthly upstream surplus estimates for {year}{item !== 'All' ? ` · ${item}` : ' · All produce'}.
           {peak && <> Peak harvest window: <strong>{MONTHS[peak.month-1]}</strong> ({peak.farmgate_t.toFixed(0)} t).</>}
         </p>
       </div>
@@ -112,7 +112,7 @@ export default function SeasonalView({ monthly, allMonthly, year, item, allYears
       <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:16, marginBottom:16 }}>
         {/* Monthly bar with uncertainty bands */}
         <div style={{ background:'var(--surface)', borderRadius:'var(--radius-lg)', padding:'20px 20px 12px', border:'1px solid var(--border)', boxShadow:'var(--shadow-sm)' }}>
-          <div style={{ fontSize:14, fontWeight:600, marginBottom:4 }}>Monthly Farm-Gate Surplus — {year}</div>
+          <div style={{ fontSize:14, fontWeight:600, marginBottom:4 }}>Monthly Upstream Surplus — {year}</div>
           <div style={{ fontSize:12, color:'var(--text-muted)', marginBottom:16 }}>
             Central estimate (tonnes) · error bars show ±30% sensitivity
           </div>
@@ -122,7 +122,7 @@ export default function SeasonalView({ monthly, allMonthly, year, item, allYears
               <XAxis dataKey="month" tickFormatter={m => MONTHS[m-1].slice(0,3)} tick={{ fontSize:11 }} />
               <YAxis tick={{ fontSize:11 }} />
               <Tooltip content={<CustomTooltip showFlag={isMaff} />} />
-              <Bar dataKey="farmgate_t" name="Farm-Gate" radius={[3,3,0,0]}>
+              <Bar dataKey="farmgate_t" name="Upstream" radius={[3,3,0,0]}>
                 {monthAgg.map((entry,i) => (
                   <Cell key={i} fill={entry.month === peak?.month ? '#059669' : '#6ee7b7'} />
                 ))}
@@ -206,7 +206,7 @@ export default function SeasonalView({ monthly, allMonthly, year, item, allYears
           })}
         </div>
         <div style={{ fontSize:11, color:'var(--text-muted)', marginTop:12 }}>
-          Colour intensity reflects share of annual farm-gate surplus in each month. Hover cells for exact values.
+          Colour intensity reflects share of annual upstream surplus in each month. Hover cells for exact values.
         </div>
       </div>
     </div>

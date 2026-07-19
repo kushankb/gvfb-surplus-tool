@@ -48,8 +48,8 @@ const CompareTooltip = ({ active, payload, label }) => {
     <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 8, padding: '10px 14px', boxShadow: 'var(--shadow)', fontSize: 12 }}>
       <div style={{ fontWeight: 600, marginBottom: 6 }}>{label}</div>
       <div style={{ color: '#1d6fa4', marginBottom: 2 }}>GVFB procured: <strong>{fmt(procured)}</strong></div>
-      <div style={{ color: '#94a3b8', marginBottom: 4 }}>Estimated surplus: <strong>{fmt(surplus)}</strong></div>
-      {rate && <div style={{ color: '#059669', fontSize: 11 }}>Capture rate: <strong>{rate}%</strong></div>}
+      <div style={{ color: '#94a3b8', marginBottom: 4 }}>Est. upstream surplus: <strong>{fmt(surplus)}</strong></div>
+      {rate && <div style={{ color: '#059669', fontSize: 11 }}>Upstream capture rate: <strong>{rate}%</strong></div>}
     </div>
   )
 }
@@ -145,7 +145,7 @@ export default function FTCView({ procured, byItem, years }) {
         <KPI label="Total 2024 + 2025" value={fmt(totalAll)} color="#059669"
           sub={`covers ${fmtPeople(totalAll)} annual produce needs`} />
         <KPI label="2025 Capture Rate" value={captureRate2025 ? `${captureRate2025}%` : '—'} color="#7c3aed"
-          sub="of estimated BC farm-gate surplus" />
+          sub="of estimated BC upstream surplus" />
       </div>
 
       {/* Explanation banner */}
@@ -153,7 +153,7 @@ export default function FTCView({ procured, byItem, years }) {
         background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 10,
         padding: '12px 18px', marginBottom: 20, fontSize: 13, color: '#166534', lineHeight: 1.7,
       }}>
-        <strong>How to read this:</strong> The grey bars show the estimated total BC farm-gate surplus for each crop
+        <strong>How to read this:</strong> The grey bars show the estimated total BC upstream surplus for each crop
         (produce rejected before reaching stores). The blue bars show what GVFB farm gate program actually collected.
         The gap represents surplus that was not recovered — either unavailable to GVFB, discarded, or used elsewhere.
       </div>
@@ -162,8 +162,8 @@ export default function FTCView({ procured, byItem, years }) {
       <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '20px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)', marginBottom: 16 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
           <div>
-            <div style={{ fontSize: 14, fontWeight: 600 }}>GVFB Procurement vs Estimated Farm-Gate Surplus</div>
-            <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 2 }}>Pounds · hover bars for capture rate</div>
+            <div style={{ fontSize: 14, fontWeight: 600 }}>GVFB Procurement vs Estimated Upstream Surplus</div>
+            <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 2 }}>Pounds · hover bars for upstream capture rate</div>
           </div>
           {/* Year toggle */}
           <div style={{ display: 'flex', gap: 6 }}>

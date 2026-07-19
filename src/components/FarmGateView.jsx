@@ -142,7 +142,7 @@ export default function FarmGateView({ carData, allCAR, monthly, allMonthly, yea
     return (
       <div style={{ background:'#fff', border:'1px solid var(--border)', borderRadius:8, padding:'8px 12px', boxShadow:'var(--shadow)', fontSize:12 }}>
         <div style={{ fontWeight:600, marginBottom:3 }}>{label}</div>
-        <div style={{ color:'#059669' }}>Farm-gate: <strong>{payload[0]?.value?.toFixed(0)} t</strong></div>
+        <div style={{ color:'#059669' }}>Upstream: <strong>{payload[0]?.value?.toFixed(0)} t</strong></div>
         {label === peakMonth?.label && <div style={{ fontSize:11, color:'#d97706', marginTop:3 }}>🌟 Peak harvest month</div>}
       </div>
     )
@@ -151,9 +151,9 @@ export default function FarmGateView({ carData, allCAR, monthly, allMonthly, yea
   return (
     <div>
       <div style={{ marginBottom: 20 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 4 }}>Farm-Gate Surplus — {year}</h2>
+        <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 4 }}>Upstream Surplus — {year}</h2>
         <p style={{ fontSize: 13, color: 'var(--text-secondary)' }}>
-          Where and when BC farm-gate surplus is generated.
+          Where and when BC upstream surplus is generated.
           {item !== 'All' ? <> Filtered to <strong>{item}</strong>.</> : ' All 26 produce types.'}
           {' '}Peak harvest month: <strong>{peakMonth?.label}</strong> ({peakMonth?.farmgate_t.toFixed(0)} t).
         </p>
@@ -260,7 +260,7 @@ export default function FarmGateView({ carData, allCAR, monthly, allMonthly, yea
 
           {/* Monthly seasonal bars */}
           <div style={{ background:'var(--surface)', borderRadius:'var(--radius-lg)', padding:'16px 18px 10px', border:'1px solid var(--border)', boxShadow:'var(--shadow-sm)' }}>
-            <div style={{ fontSize:13, fontWeight:600, marginBottom:2 }}>Monthly Farm-Gate Surplus — {year}</div>
+            <div style={{ fontSize:13, fontWeight:600, marginBottom:2 }}>Monthly Upstream Surplus — {year}</div>
             <div style={{ fontSize:11, color:'var(--text-muted)', marginBottom:12 }}>
               Tonnes · peak month highlighted · hover for details
             </div>
@@ -296,7 +296,7 @@ export default function FarmGateView({ carData, allCAR, monthly, allMonthly, yea
                 <YAxis type="category" dataKey="car_name" tick={{ fontSize:10 }} width={140}
                   tickFormatter={n => n.replace('Lower Mainland–','LM–').replace('Vancouver Island–','VI–').replace('Thompson–','T–')} />
                 <Tooltip
-                  formatter={v => [`${Math.round(v).toLocaleString()} t`, 'Farm-Gate Surplus']}
+                  formatter={v => [`${Math.round(v).toLocaleString()} t`, 'Upstream Surplus']}
                   labelFormatter={n => CAR_FULL_NAMES[carTotals.find(d=>d.car_name===n)?.uid] || n}
                 />
                 <Bar dataKey="farmgate_t" radius={[0,3,3,0]} isAnimationActive={false}
@@ -316,7 +316,7 @@ export default function FarmGateView({ carData, allCAR, monthly, allMonthly, yea
       </div>
 
       <div style={{ background:'var(--surface2)', borderRadius:8, padding:'10px 16px', border:'1px solid var(--border)', fontSize:12, color:'var(--text-secondary)' }}>
-        <strong>Farm-gate only.</strong> Seasonal distribution uses GVFB Farm-to-Community donation data (2024–2025 average)
+        <strong>Upstream only.</strong> Seasonal distribution uses GVFB Farm-to-Community donation data (2024–2025 average)
         for key field crops; BC Ministry of Agriculture harvest calendars for fruits and remaining vegetables.
         Regional downscaling uses Census of Agriculture area shares (2011/2016/2021).
       </div>

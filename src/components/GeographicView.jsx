@@ -116,7 +116,7 @@ export default function GeographicView({ carData, allCAR, year, surplusType }) {
       <div style={{ marginBottom: 20 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 4 }}>Geographic Distribution — {year}</h2>
         <p style={{ fontSize: 13, color: 'var(--text-secondary)' }}>
-          Farm-gate surplus across BC's 8 Census Agricultural Regions · Source: Statistics Canada Census of Agriculture boundary file (2021)
+          Upstream surplus across BC's 8 Census Agricultural Regions · Source: Statistics Canada Census of Agriculture boundary file (2021)
         </p>
       </div>
 
@@ -126,7 +126,7 @@ export default function GeographicView({ carData, allCAR, year, surplusType }) {
         <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '20px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)' }}>
           <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>BC Agricultural Regions Map</div>
           <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 12 }}>
-            Colour intensity = farm-gate surplus · Hover for region details
+            Colour intensity = upstream surplus · Hover for region details
           </div>
 
           {!geojson ? (
@@ -247,7 +247,7 @@ export default function GeographicView({ carData, allCAR, year, surplusType }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
           {/* Ranked bars */}
           <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '20px 20px 12px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)', flex: 1 }}>
-            <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>Ranked by Farm-Gate Surplus</div>
+            <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>Ranked by Upstream Surplus</div>
             <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 14 }}>{year} · tonnes</div>
             <ResponsiveContainer width="100%" height={230}>
               <BarChart data={carTotals} layout="vertical" margin={{ top: 0, right: 50, left: 4, bottom: 0 }}>
@@ -255,7 +255,7 @@ export default function GeographicView({ carData, allCAR, year, surplusType }) {
                 <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={v => `${Math.round(v/1000)}k`} />
                 <YAxis type="category" dataKey="car_name" tick={{ fontSize: 10 }} width={148}
                   tickFormatter={n => n.replace('Lower Mainland–', 'LM–').replace('Vancouver Island–', 'VI–').replace('Thompson–', 'T–')} />
-                <Tooltip formatter={v => [`${Math.round(v).toLocaleString()} t`, 'Farm-Gate']} />
+                <Tooltip formatter={v => [`${Math.round(v).toLocaleString()} t`, 'Upstream']} />
                 <Bar dataKey="farmgate_t" radius={[0, 3, 3, 0]}
                   onMouseEnter={d => setHovered(d.uid)}
                   onMouseLeave={() => setHovered(null)}>

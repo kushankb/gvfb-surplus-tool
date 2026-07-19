@@ -121,7 +121,7 @@ function RegionTooltip({ uid, info, totalFG }) {
           {fmt(info.farmgate_t)}
         </div>
         <div style={{ fontSize: 12, color: '#6b7280' }}>
-          {totalFG > 0 ? (info.farmgate_t / totalFG * 100).toFixed(0) : 0}% of provincial farm-gate surplus
+          {totalFG > 0 ? (info.farmgate_t / totalFG * 100).toFixed(0) : 0}% of provincial upstream surplus
         </div>
       </div>
     </div>
@@ -178,7 +178,7 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
     return (
       <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 8, padding: '8px 12px', boxShadow: 'var(--shadow)', fontSize: 12 }}>
         <div style={{ fontWeight: 600, marginBottom: 3 }}>{label}</div>
-        <div style={{ color: '#059669' }}>Farm-gate: <strong>{fmt(payload[0]?.value || 0)}</strong></div>
+        <div style={{ color: '#059669' }}>Upstream: <strong>{fmt(payload[0]?.value || 0)}</strong></div>
         {label === peakMonth?.label && <div style={{ fontSize: 11, color: '#d97706', marginTop: 3 }}>🌟 Peak harvest month</div>}
       </div>
     )
@@ -189,10 +189,10 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
       {/* Page header */}
       <div style={{ marginBottom: 20 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 4 }}>
-          Farm-Gate Surplus by Region &amp; Season — {year}
+          Upstream Surplus by Region &amp; Season — {year}
         </h2>
         <p style={{ fontSize: 13, color: 'var(--text-secondary)' }}>
-          Where and when BC farm-gate surplus is generated.{' '}
+          Where and when BC upstream surplus is generated.{' '}
           {item !== 'All' ? <><strong>{item}</strong> selected.</> : 'All 40 produce types.'}
           {peakMonth && <> Peak harvest: <strong>{peakMonth.label}</strong> ({fmt(peakMonth.farmgate_t)}).</>}
         </p>
@@ -290,7 +290,7 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
                       {minLabel}
                     </text>
                     <text x={legX + legW / 2} y={legY - 3} fontSize={8} fill="#475569" textAnchor="middle">
-                      Farm-gate surplus
+                      Upstream surplus
                     </text>
                     <text x={legX + legW} y={legY + legH + 9} fontSize={8} fill="#475569" textAnchor="end">
                       {maxLabel}
@@ -311,7 +311,7 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
           <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '16px 18px 12px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)' }}>
             <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 2 }}>Monthly Seasonality — {year}</div>
             <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 10 }}>
-              Farm-gate surplus by month · peak month in green
+              Upstream surplus by month · peak month in green
             </div>
             <ResponsiveContainer width="100%" height={160}>
               <BarChart data={monthAgg} margin={{ top: 2, right: 4, left: -12, bottom: 0 }}>
@@ -336,7 +336,7 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
           <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '16px 18px 12px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)', flex: 1 }}>
             <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 2 }}>Ranked by Region — {year}</div>
             <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 10 }}>
-              Farm-gate surplus · hover to highlight on map
+              Upstream surplus · hover to highlight on map
             </div>
             <ResponsiveContainer width="100%" height={200}>
               <BarChart data={carTotals} layout="vertical" margin={{ top: 0, right: 10, left: 4, bottom: 0 }}>
@@ -345,7 +345,7 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
                 <YAxis type="category" dataKey="car_name" tick={{ fontSize: 9 }} width={130}
                   tickFormatter={n => n.replace('Lower Mainland – ', 'LM – ').replace('Vancouver Island – ', 'VI – ').replace('Thompson – ', 'T – ')} />
                 <Tooltip
-                  formatter={v => [fmt(v), 'Farm-gate surplus']}
+                  formatter={v => [fmt(v), 'Upstream surplus']}
                   labelFormatter={n => n}
                 />
                 <Bar dataKey="farmgate_t" radius={[0, 4, 4, 0]} isAnimationActive={false}
@@ -367,7 +367,7 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
 
       {/* Source note */}
       <div style={{ marginTop: 12, background: 'var(--surface2)', borderRadius: 8, padding: '9px 14px', border: '1px solid var(--border)', fontSize: 11, color: 'var(--text-muted)' }}>
-        <strong>Farm-gate only.</strong> Regional shares from Statistics Canada Census of Agriculture (2011/2016/2021). Loss rates from Second Harvest (2024). Seasonal patterns from GVFB Farm-to-Community data and BC Ministry of Agriculture harvest calendars.
+        <strong>Upstream only.</strong> Regional shares from Statistics Canada Census of Agriculture (2011/2016/2021). Loss rates from Second Harvest (2024). Seasonal patterns from GVFB Farm-to-Community data and BC Ministry of Agriculture harvest calendars.
       </div>
     </div>
   )

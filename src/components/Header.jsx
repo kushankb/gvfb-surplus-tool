@@ -22,7 +22,7 @@ export default function Header({ onAbout }) {
             BC Produce Surplus Tool
           </div>
           <div style={{ color: 'rgba(255,255,255,0.65)', fontSize: 11, marginTop: 1 }}>
-            Farm-gate &amp; Retail Surplus Estimates · British Columbia · 2010–2025
+            Upstream &amp; Downstream Surplus Estimates · British Columbia · 2010–2025
           </div>
         </div>
       </div>

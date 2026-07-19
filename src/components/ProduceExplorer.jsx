@@ -4,9 +4,25 @@ import {
   ResponsiveContainer, Cell, LineChart, Line, Legend
 } from 'recharts'
 
-const YEAR_COLORS = { 2018:'#6366f1',2019:'#3b82f6',2020:'#06b6d4',2021:'#059669',2022:'#f59e0b' }
-const KEY_MAP = { farmgate: 'farmgate_t', retail: 'retail_t', total: 'total_t' }
-const LABEL_MAP = { farmgate: 'Farm-Gate Surplus', retail: 'Retail Surplus', total: 'Total Recoverable' }
+const YEAR_PALETTE = [
+  '#1B4F8A','#2D6A4F','#C07823','#7C3AED','#DB2777',
+  '#059669','#6366f1','#0891b2','#84cc16','#f97316',
+  '#ef4444','#ec4899','#9333ea','#14b8a6','#3b82f6','#a3e635',
+]
+const yearColor = (yr) => YEAR_PALETTE[(yr - 2010) % YEAR_PALETTE.length]
+
+const KEY_MAP   = { farmgate: 'farmgate_t', retail: 'retail_t', total: 'total_t' }
+const LABEL_MAP = { farmgate: 'Upstream Surplus', retail: 'Downstream Surplus', total: 'Total Recoverable' }
+
+const CAT_COLOR = {
+  'Fruits':           '#C07823',
+  'Tree Fruit':       '#8A4B1B',
+  'Vegetables':       '#2D6A4F',
+  'Greenhouse Veg':   '#3D8B6A',
+  'Other Perishable': '#1B6B8A',
+  'Other Storable':   '#5A6B8A',
+}
+const catColor = (cat) => CAT_COLOR[cat] || '#2D6A4F'
 
 const T_TO_LBS = 2204.62
 function fmt(v) {
@@ -18,18 +34,15 @@ function fmt(v) {
 }
 
 export default function ProduceExplorer({ items, allItems, year, allYears, surplusType }) {
-  const [sortBy, setSortBy] = useState('total_t')
-  const [view, setView] = useState('bar')   // 'bar' | 'trend' | 'compare'
+  const [view, setView] = useState('bar')
   const [selectedItems, setSelectedItems] = useState([])
 
   const key = KEY_MAP[surplusType] || 'total_t'
 
-  // Ranked items for bar chart
   const ranked = [...items]
     .filter(d => d[key] != null)
     .sort((a, b) => (b[key]||0) - (a[key]||0))
 
-  // Trend data for selected items
   const allItemNames = [...new Set(allItems.map(d => d.item))].sort()
   const selectedForTrend = selectedItems.length ? selectedItems : ranked.slice(0, 5).map(d => d.item)
 
@@ -42,25 +55,21 @@ export default function ProduceExplorer({ items, allItems, year, allYears, surpl
     return row
   })
 
-  const toggleItem = (item) => {
-    setSelectedItems(prev =>
-      prev.includes(item) ? prev.filter(i => i !== item) : [...prev.slice(-4), item]
-    )
-  }
+  const toggleItem = (item) =>
+    setSelectedItems(prev => prev.includes(item) ? prev.filter(i => i !== item) : [...prev.slice(-4), item])
 
-  // Category totals
-  const fruits = items.filter(d => d.category === 'Fruits' && d[key] != null)
-  const vegs   = items.filter(d => d.category === 'Vegetables' && d[key] != null)
-  const fruitsTotal = fruits.reduce((s,d) => s + (d[key]||0), 0)
-  const vegsTotal   = vegs.reduce((s,d) => s + (d[key]||0), 0)
-  const grandTotal  = fruitsTotal + vegsTotal
+  // 6-category totals
+  const fruitsTotal = items.filter(d => ['Fruits','Tree Fruit'].includes(d.category)).reduce((s,d) => s+(d[key]||0), 0)
+  const vegsTotal   = items.filter(d => ['Vegetables','Greenhouse Veg'].includes(d.category)).reduce((s,d) => s+(d[key]||0), 0)
+  const otherTotal  = items.filter(d => ['Other Perishable','Other Storable'].includes(d.category)).reduce((s,d) => s+(d[key]||0), 0)
+  const grandTotal  = fruitsTotal + vegsTotal + otherTotal
 
-  const btnStyle = (active) => ({
+  const btnStyle = (active, color = 'var(--upstream)') => ({
     padding:'5px 14px', borderRadius:20, fontSize:12, fontWeight:500, cursor:'pointer',
     border:'1px solid', transition:'all .15s',
-    background: active ? 'var(--accent)' : 'transparent',
+    background: active ? color : 'transparent',
     color: active ? '#fff' : 'var(--text-secondary)',
-    borderColor: active ? 'var(--accent)' : 'var(--border)',
+    borderColor: active ? color : 'var(--border)',
   })
 
   return (
@@ -73,47 +82,60 @@ export default function ProduceExplorer({ items, allItems, year, allYears, surpl
           </p>
         </div>
         <div style={{ display:'flex', gap:6 }}>
-          {['bar','trend','compare'].map(v => (
+          {[['bar','Ranked'],['trend','Trend'],['compare','Up vs Down']].map(([v, label]) => (
             <button key={v} onClick={() => setView(v)} style={btnStyle(view === v)}>
-              {v === 'bar' ? '📊 Ranked' : v === 'trend' ? '📈 Trend' : '⚖️ Compare'}
+              {label}
             </button>
           ))}
         </div>
       </div>
 
       {/* Category split cards */}
-      <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr 1fr', gap:12, marginBottom:20 }}>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:12, marginBottom:20 }}>
         {[
-          { label:'🍎 Fruits', val:fruitsTotal, pct:grandTotal ? fruitsTotal/grandTotal*100 : 0, color:'#f59e0b' },
-          { label:'🥦 Vegetables', val:vegsTotal, pct:grandTotal ? vegsTotal/grandTotal*100 : 0, color:'#059669' },
-          { label:'Total', val:grandTotal, pct:100, color:'var(--accent)' },
-        ].map(({ label, val, pct, color }) => (
-          <div key={label} style={{
-            background:'var(--surface)', borderRadius:'var(--radius)', padding:'16px 18px',
-            border:'1px solid var(--border)', boxShadow:'var(--shadow-sm)',
-          }}>
-            <div style={{ fontSize:12, color:'var(--text-secondary)', fontWeight:500 }}>{label}</div>
-            <div style={{ fontSize:26, fontWeight:700, margin:'4px 0', color, letterSpacing:'-0.5px' }}>{fmt(val)}</div>
-            <div style={{ height:4, background:'var(--surface2)', borderRadius:2, marginTop:8 }}>
-              <div style={{ height:4, width:`${pct}%`, background:color, borderRadius:2, opacity:0.8 }} />
+          { label:'Fruits & Tree', val:fruitsTotal, color:'var(--cat-fruit)' },
+          { label:'Vegetables',    val:vegsTotal,   color:'var(--cat-veg)' },
+          { label:'Other',         val:otherTotal,  color:'var(--cat-perishable)' },
+          { label:'Total',         val:grandTotal,  color:'var(--harvest)' },
+        ].map(({ label, val, color }) => {
+          const pct = grandTotal ? val / grandTotal * 100 : 0
+          return (
+            <div key={label} style={{
+              background:'var(--surface)', borderRadius:'var(--radius)', padding:'14px 16px',
+              border:'1px solid var(--border)', boxShadow:'var(--shadow-sm)',
+              borderLeft:`3px solid ${color}`,
+            }}>
+              <div style={{ fontSize:11, color:'var(--text-muted)', fontWeight:600, textTransform:'uppercase', letterSpacing:'0.06em', marginBottom:4 }}>{label}</div>
+              <div style={{ fontSize:22, fontWeight:700, color:'var(--text-primary)', letterSpacing:'-0.3px', fontVariantNumeric:'tabular-nums' }}>{fmt(val)}</div>
+              <div style={{ height:3, background:'var(--surface2)', borderRadius:2, marginTop:8 }}>
+                <div style={{ height:3, width:`${pct}%`, background:color, borderRadius:2, opacity:0.7 }} />
+              </div>
+              <div style={{ fontSize:11, color:'var(--text-muted)', marginTop:4 }}>{pct.toFixed(0)}% of total</div>
             </div>
-            <div style={{ fontSize:11, color:'var(--text-muted)', marginTop:4 }}>{pct.toFixed(0)}% of total</div>
-          </div>
-        ))}
+          )
+        })}
       </div>
 
       {view === 'bar' && (
         <div style={{ background:'var(--surface)', borderRadius:'var(--radius-lg)', padding:'20px 20px 12px', border:'1px solid var(--border)', boxShadow:'var(--shadow-sm)' }}>
-          <div style={{ fontSize:14, fontWeight:600, marginBottom:16 }}>Ranked by {LABEL_MAP[surplusType]}</div>
+          <div style={{ fontSize:14, fontWeight:600, marginBottom:6 }}>Ranked by {LABEL_MAP[surplusType]}</div>
+          {/* Category legend */}
+          <div style={{ display:'flex', gap:10, flexWrap:'wrap', marginBottom:14 }}>
+            {Object.entries(CAT_COLOR).map(([cat, color]) => (
+              <span key={cat} style={{ fontSize:10.5, color:'var(--text-muted)', display:'flex', alignItems:'center', gap:4 }}>
+                <span style={{ width:9, height:9, borderRadius:2, background:color, display:'inline-block' }} />{cat}
+              </span>
+            ))}
+          </div>
           <ResponsiveContainer width="100%" height={Math.max(260, ranked.length * 28)}>
             <BarChart data={ranked} layout="vertical" margin={{ top:0, right:60, left:130, bottom:0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" horizontal={false} />
-              <XAxis type="number" tick={{ fontSize:11 }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} />
-              <YAxis type="category" dataKey="item" tick={{ fontSize:11 }} width={125} />
-              <Tooltip formatter={(v) => [fmt(v), LABEL_MAP[surplusType]]} />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--border-light)" horizontal={false} />
+              <XAxis type="number" tick={{ fontSize:11, fill:'var(--text-muted)' }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} />
+              <YAxis type="category" dataKey="item" tick={{ fontSize:11, fill:'var(--text-secondary)' }} width={125} />
+              <Tooltip formatter={(v) => [fmt(v), LABEL_MAP[surplusType]]} labelStyle={{ color:'var(--text-primary)' }} />
               <Bar dataKey={key} name={LABEL_MAP[surplusType]} radius={[0,3,3,0]}>
                 {ranked.map((entry, i) => (
-                  <Cell key={i} fill={entry.category === 'Fruits' ? '#f59e0b' : '#059669'} opacity={0.8} />
+                  <Cell key={i} fill={catColor(entry.category)} opacity={0.85} />
                 ))}
               </Bar>
             </BarChart>
@@ -124,30 +146,29 @@ export default function ProduceExplorer({ items, allItems, year, allYears, surpl
       {view === 'trend' && (
         <div style={{ background:'var(--surface)', borderRadius:'var(--radius-lg)', padding:'20px 20px 12px', border:'1px solid var(--border)', boxShadow:'var(--shadow-sm)' }}>
           <div style={{ fontSize:14, fontWeight:600, marginBottom:8 }}>Trend Over Time</div>
-          <div style={{ fontSize:12, color:'var(--text-muted)', marginBottom:12 }}>
-            Click items below to add/remove from chart (max 5)
-          </div>
+          <div style={{ fontSize:12, color:'var(--text-muted)', marginBottom:12 }}>Click items to add/remove from chart (max 5)</div>
           <div style={{ display:'flex', gap:6, flexWrap:'wrap', marginBottom:16 }}>
             {allItemNames.map(it => (
               <button key={it} onClick={() => toggleItem(it)} style={{
                 padding:'3px 10px', borderRadius:20, fontSize:11, cursor:'pointer',
                 border:'1px solid', fontWeight:500, transition:'all .15s',
-                background: selectedForTrend.includes(it) ? 'var(--accent)' : 'transparent',
+                background: selectedForTrend.includes(it) ? 'var(--upstream)' : 'transparent',
                 color: selectedForTrend.includes(it) ? '#fff' : 'var(--text-secondary)',
-                borderColor: selectedForTrend.includes(it) ? 'var(--accent)' : 'var(--border)',
+                borderColor: selectedForTrend.includes(it) ? 'var(--upstream)' : 'var(--border)',
               }}>{it}</button>
             ))}
           </div>
           <ResponsiveContainer width="100%" height={260}>
             <LineChart data={trendData} margin={{ top:4, right:8, left:-10, bottom:0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" />
-              <XAxis dataKey="year" tick={{ fontSize:11 }} />
-              <YAxis tick={{ fontSize:11 }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} />
-              <Tooltip formatter={(v) => v != null ? [fmt(v)] : ['—']} />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--border-light)" />
+              <XAxis dataKey="year" tick={{ fontSize:11, fill:'var(--text-muted)' }}
+                interval={1} tickFormatter={y => y % 2 === 0 ? y : ''} />
+              <YAxis tick={{ fontSize:11, fill:'var(--text-muted)' }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} width={38} />
+              <Tooltip formatter={(v) => v != null ? [fmt(v)] : ['—']} labelStyle={{ color:'var(--text-primary)' }} />
               <Legend wrapperStyle={{ fontSize:11 }} />
               {selectedForTrend.map((item, i) => (
                 <Line key={item} type="monotone" dataKey={item} strokeWidth={2}
-                  stroke={Object.values(YEAR_COLORS)[i % 5]} dot={{ r:3 }} connectNulls />
+                  stroke={yearColor(2010 + i)} dot={{ r:3 }} connectNulls />
               ))}
             </LineChart>
           </ResponsiveContainer>
@@ -156,16 +177,23 @@ export default function ProduceExplorer({ items, allItems, year, allYears, surpl
 
       {view === 'compare' && (
         <div style={{ background:'var(--surface)', borderRadius:'var(--radius-lg)', padding:'20px', border:'1px solid var(--border)', boxShadow:'var(--shadow-sm)' }}>
-          <div style={{ fontSize:14, fontWeight:600, marginBottom:16 }}>Farm-Gate vs Retail Breakdown</div>
+          <div style={{ fontSize:14, fontWeight:600, marginBottom:10 }}>Upstream vs Downstream Breakdown</div>
+          <div style={{ display:'flex', gap:14, marginBottom:14 }}>
+            {[['Upstream','var(--upstream)'],['Downstream','var(--downstream)']].map(([name,c]) => (
+              <span key={name} style={{ display:'flex', alignItems:'center', gap:5, fontSize:12, color:'var(--text-secondary)' }}>
+                <span style={{ width:12, height:12, borderRadius:2, background:c, display:'inline-block' }} />{name}
+              </span>
+            ))}
+          </div>
           <ResponsiveContainer width="100%" height={Math.max(260, ranked.length * 28)}>
             <BarChart data={ranked} layout="vertical" margin={{ top:0, right:60, left:130, bottom:0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" horizontal={false} />
-              <XAxis type="number" tick={{ fontSize:11 }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} />
-              <YAxis type="category" dataKey="item" tick={{ fontSize:11 }} width={125} />
-              <Tooltip formatter={(v, n) => [fmt(v||0), n]} />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--border-light)" horizontal={false} />
+              <XAxis type="number" tick={{ fontSize:11, fill:'var(--text-muted)' }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} />
+              <YAxis type="category" dataKey="item" tick={{ fontSize:11, fill:'var(--text-secondary)' }} width={125} />
+              <Tooltip formatter={(v, n) => [fmt(v||0), n]} labelStyle={{ color:'var(--text-primary)' }} />
               <Legend wrapperStyle={{ fontSize:11 }} />
-              <Bar dataKey="farmgate_t" name="Farm-Gate" stackId="a" fill="#1d6fa4" opacity={0.85} radius={[0,0,0,0]} />
-              <Bar dataKey="retail_t" name="Retail" stackId="a" fill="#7c3aed" opacity={0.85} radius={[0,3,3,0]} />
+              <Bar dataKey="farmgate_t" name="Upstream"   stackId="a" fill="#2D6A4F" opacity={0.85} radius={[0,0,0,0]} />
+              <Bar dataKey="retail_t"   name="Downstream" stackId="a" fill="#1B4F8A" opacity={0.85} radius={[0,3,3,0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
