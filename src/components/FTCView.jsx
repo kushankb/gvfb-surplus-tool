@@ -1,10 +1,13 @@
 import { useState, useMemo } from 'react'
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
-  ResponsiveContainer, LineChart, Line
+  ResponsiveContainer, LineChart, Line, Cell
 } from 'recharts'
 
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+const SIMPLE_CAT = (cat) => ['Fruits', 'Tree Fruit'].includes(cat) ? 'Fruits' : 'Vegetables'
+const CAT_COLOR = { Fruits: '#E98A3A', Vegetables: '#174A67' }
+const catColor = (cat) => CAT_COLOR[SIMPLE_CAT(cat)] || '#174A67'
 const CFG_KG_PER_YEAR = 204.4
 const T_TO_LBS = 2204.62
 
@@ -89,6 +92,13 @@ export default function FTCView({ procured, byItem, years }) {
     return map
   }, [byItem, compYear])
 
+  // Category lookup for the selected year
+  const categoryByItem = useMemo(() => {
+    const map = {}
+    byItem.filter(d => d.year === compYear).forEach(d => { map[d.item] = d.category })
+    return map
+  }, [byItem, compYear])
+
   // Items that appear in either source
   const compareData = useMemo(() => {
     const allItems = new Set([...Object.keys(procuredByItem), ...Object.keys(surplusByItem)])
@@ -98,9 +108,10 @@ export default function FTCView({ procured, byItem, years }) {
         procured_t:   Math.round((procuredByItem[item] || 0) * 10) / 10,
         farmgate_t:   Math.round((surplusByItem[item]  || 0) * 10) / 10,
         capture_pct:  surplusByItem[item] ? +((procuredByItem[item] || 0) / surplusByItem[item] * 100).toFixed(1) : null,
+        category:     categoryByItem[item] || null,
       }))
       .filter(d => d.farmgate_t > 0 || d.procured_t > 0)
-  }, [procuredByItem, surplusByItem])
+  }, [procuredByItem, surplusByItem, categoryByItem])
 
   // Capture rate: only items GVFB procures with a surplus estimate, sorted high to low
   const captureData = useMemo(() =>
@@ -160,6 +171,13 @@ export default function FTCView({ procured, byItem, years }) {
             <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2 }}>
               % of estimated BC upstream surplus collected by GVFB · sorted highest to lowest · crops with no surplus estimate excluded
             </div>
+            <div style={{ display: 'flex', gap: 14, marginTop: 8 }}>
+              {[['Fruits', '#E98A3A'], ['Vegetables', '#174A67']].map(([name, c]) => (
+                <span key={name} style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 11, color: 'var(--text-secondary)' }}>
+                  <span style={{ width: 11, height: 11, borderRadius: 2, background: c, display: 'inline-block' }} />{name}
+                </span>
+              ))}
+            </div>
           </div>
           <div style={{ display: 'flex', gap: 6, flexShrink: 0 }}>
             {[2024, 2025].map(yr => (
@@ -191,7 +209,11 @@ export default function FTCView({ procured, byItem, years }) {
                   </text>
                 )
               }}
-            />
+            >
+              {captureData.map((d, i) => (
+                <Cell key={i} fill={catColor(d.category)} />
+              ))}
+            </Bar>
           </BarChart>
         </ResponsiveContainer>
       </div>
