@@ -40,15 +40,7 @@
   --font: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0f1712; --surface: #1a2320; --surface2: #1f2b27;
-    --border: #2d3d38; --border-light: #253330;
-    --text-primary: #f0f4f2; --text-secondary: #9ab5aa; --text-muted: #6b8880;
-    --upstream-light: #1a3328; --downstream-light: #162038; --harvest-light: #2c1e0a;
-    --accent-light: #162038;
-  }
-}
+
 :root[data-theme="dark"] {
   --bg: #0f1712; --surface: #1a2320; --surface2: #1f2b27;
   --border: #2d3d38; --border-light: #253330;
