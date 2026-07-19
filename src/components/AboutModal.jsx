@@ -70,7 +70,14 @@ export default function AboutModal({ onClose }) {
           estimates how much of that surplus <em>could</em> be recovered — and puts it in human terms:
           how many people could eat for a year if that food were redirected.
           <br /><br />
-          It covers <strong>26 fruits and vegetables</strong> grown or consumed in BC, from 2010 to 2025.
+          It covers <strong>40 fruits and vegetables</strong> consumed in BC, from 2010 to 2025 — including
+          BC-grown crops, interprovincial shipments arriving in BC, and international imports circulating
+          in BC's supply chain.
+          <br /><br />
+          <strong>All estimates are British Columbia–specific.</strong> Upstream surplus is based on BC
+          StatsCan production data. Downstream surplus uses a BC provincial mass balance that accounts
+          for what BC actually imports and exports. Produce that passes through BC's supply chain but
+          is grown elsewhere still counts as BC retail waste if it is discarded here.
         </Section>
 
         <Section icon="🚜" title="What is upstream surplus?">
@@ -95,13 +102,30 @@ export default function AboutModal({ onClose }) {
 
         <Section icon="📐" title="How are the numbers estimated?">
           <strong>Upstream surplus</strong> uses a cascade model: 14.2% production loss + 8.7%
-          postharvest loss = 21.7% effective rate applied to StatsCan harvested quantities.
+          postharvest loss = <strong>21.7% effective rate</strong> applied to BC StatsCan harvested quantities.
+          Loss rates are derived from Second Harvest (2024) by produce subcategory.
           <br /><br />
           <strong>Downstream surplus</strong> uses a second cascade: 2.5% distribution + 5.8%
-          retail = 8.2% effective rate, applied to BC's provincial mass balance (CIMT trade data +
-          FAOSTAT consumption accounts).
+          retail = <strong>8.2% effective rate</strong>, applied to BC's provincial retail supply.
+          Retail supply is computed via a full mass balance:
+          <br />
+          <em>BC production − farm-gate surplus + international imports into BC + interprovincial inflows − exports out of BC − interprovincial outflows</em>
+          <br /><br />
+          Interprovincial flows are not directly observed — they are estimated using
+          Inverse Distance Weighting (IDW), allocating surplus from supply provinces to deficit
+          provinces proportional to road proximity.
           <br /><br />
           All figures carry a <Tip tip="Sensitivity bounds are computed by applying ±30% to each component loss rate before cascading — not to the final effective rate. The actual surplus could be somewhat higher or lower.">±30% component sensitivity</Tip>.
+        </Section>
+
+        <Section icon="🗂️" title="How are produce types grouped?">
+          The dashboard displays produce in two broad categories — <strong>Fruits</strong> and
+          <strong>Vegetables</strong> — combining related subcategories for clarity:
+          <ul style={{ paddingLeft: 16, margin: '6px 0 0', lineHeight: 2 }}>
+            <li><strong>Fruits</strong> — includes tree fruits (apples, pears, cherries, peaches, plums) and all other fruits</li>
+            <li><strong>Vegetables</strong> — includes field vegetables, greenhouse vegetables (tomatoes, peppers, cucumbers), and perishable/storable items (potatoes, onions, squash)</li>
+          </ul>
+          The underlying pipeline retains finer subcategory distinctions for loss-rate derivation.
         </Section>
 
         <Section icon="👤" title="What does 'people fed' mean?">
@@ -116,7 +140,7 @@ export default function AboutModal({ onClose }) {
           losses involved in actual food recovery.
         </Section>
 
-        <Section icon="🚜" title="What is the Farm Gate Procured tab?">
+        <Section icon="🌾" title="What is the Farm Gate Procured tab?">
           The <strong>Farm Gate Procured</strong> tab shows what GVFB has actually collected from BC farms
           through its <em>Farm-to-Community (FTC)</em> program, and compares it to the estimated
           available surplus for each crop.
@@ -144,15 +168,16 @@ export default function AboutModal({ onClose }) {
 
         <Section icon="⚠️" title="Things to keep in mind">
           <ul style={{ paddingLeft: 16, margin: 0, lineHeight: 2 }}>
-            <li>Loss rates are national averages — BC-specific rates may differ</li>
-            <li>2024–2025 production is <strong>preliminary</strong> (subject to revision)</li>
-            <li>2023–2025 consumption is <strong>extrapolated</strong> at 2023 per-capita levels</li>
-            <li>Interprovincial trade flows are modelled, not directly observed</li>
+            <li>Loss rates are <strong>national averages</strong> — BC-specific rates may differ (BC's shorter supply chains may mean lower actual losses)</li>
+            <li>2024–2025 production is <strong>preliminary</strong> (subject to revision by StatsCan)</li>
+            <li>2024–2025 consumption is <strong>extrapolated</strong> at 2023 per-capita levels (FAOSTAT covers 2010–2023 actual)</li>
+            <li>Interprovincial trade flows are <strong>modelled via IDW</strong>, not directly observed — a source of uncertainty in the downstream estimate</li>
+            <li>Downstream surplus reflects <strong>all food wasted within BC's retail system</strong>, including imported produce — not just BC-grown food</li>
           </ul>
         </Section>
 
         <div style={{ paddingTop: 16, borderTop: '1px solid #e5e7eb', fontSize: 11, color: '#9ca3af', textAlign: 'center' }}>
-          Methodology: Kushank Bajaj · UBC IRES · Canada FoodSupplyRisks project
+          Methodology: Kushank Bajaj · UBC IRES · Canada FoodSupplyRisks project · Last updated July 2026
         </div>
       </div>
     </div>
