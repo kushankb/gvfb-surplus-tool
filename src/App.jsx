@@ -51,7 +51,7 @@ export default function App() {
         years={YEARS} items={ITEMS}
         activeTab={activeTab} setActiveTab={setActiveTab}
       />
-      <main style={{ maxWidth: 1100, margin: '0 auto', padding: '32px 24px 80px' }}>
+      <main style={{ maxWidth: 1260, margin: '0 auto', padding: '32px 24px 80px' }}>
         {activeTab === 'executive' && (
           <ExecutiveSummary
             yearSummary={yearSummary} allYears={summaryData}
