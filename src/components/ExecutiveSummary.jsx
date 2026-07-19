@@ -152,9 +152,6 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
         </ResponsiveContainer>
       </div>
 
-      <div style={{ background: 'var(--surface2)', borderRadius: 8, padding: '9px 14px', border: '1px solid var(--border)', fontSize: 11, color: 'var(--text-muted)' }}>
-        Upstream: cascade loss model (21.7% effective) × StatsCan production · Downstream: cascade (8.2% effective) × provincial mass balance (CIMT + FAOSTAT) · ±30% component sensitivity · Click <em>About this tool</em> for full methodology.
-      </div>
     </div>
   )
 }
