@@ -22,7 +22,7 @@ export default function FilterBar({
 }) {
   const chip = (active, id) => {
     const color = id === 'farmgate' ? 'var(--upstream)' : id === 'retail' ? 'var(--downstream)' : 'var(--harvest)'
-    const shadow = id === 'farmgate' ? 'rgba(45,106,79,.25)' : id === 'retail' ? 'rgba(27,79,138,.25)' : 'rgba(192,120,35,.25)'
+    const shadow = id === 'farmgate' ? 'rgba(29,111,164,.25)' : id === 'retail' ? 'rgba(243,125,35,.25)' : 'rgba(251,179,33,.25)'
     return {
       padding: '6px 14px', borderRadius: 20, fontSize: 13, fontWeight: 500,
       border: '1px solid', cursor: 'pointer', transition: 'all .15s',

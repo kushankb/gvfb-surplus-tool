@@ -5,9 +5,10 @@ import {
 } from 'recharts'
 
 const YEAR_PALETTE = [
-  '#1B4F8A','#2D6A4F','#C07823','#7C3AED','#DB2777',
-  '#059669','#6366f1','#0891b2','#84cc16','#f97316',
-  '#ef4444','#ec4899','#9333ea','#14b8a6','#3b82f6','#a3e635',
+  '#1d6fa4','#f37d23','#0f4c81','#fbb321',
+  '#3d8fc4','#c45c0a','#6a9fc0','#f9c55a',
+  '#2a5e8a','#e8920a','#5b8fb8','#d4720f',
+  '#1a4f73','#fcc642','#0d3d62','#fa8e35',
 ]
 const yearColor = (yr) => YEAR_PALETTE[(yr - 2010) % YEAR_PALETTE.length]
 
@@ -15,14 +16,14 @@ const KEY_MAP   = { farmgate: 'farmgate_t', retail: 'retail_t', total: 'total_t'
 const LABEL_MAP = { farmgate: 'Upstream Surplus', retail: 'Downstream Surplus', total: 'Total Recoverable' }
 
 const CAT_COLOR = {
-  'Fruits':           '#C07823',
-  'Tree Fruit':       '#8A4B1B',
-  'Vegetables':       '#2D6A4F',
-  'Greenhouse Veg':   '#3D8B6A',
-  'Other Perishable': '#1B6B8A',
-  'Other Storable':   '#5A6B8A',
+  'Fruits':           '#f37d23',
+  'Tree Fruit':       '#c45c0a',
+  'Vegetables':       '#1d6fa4',
+  'Greenhouse Veg':   '#3d8fc4',
+  'Other Perishable': '#0f4c81',
+  'Other Storable':   '#6a9fc0',
 }
-const catColor = (cat) => CAT_COLOR[cat] || '#2D6A4F'
+const catColor = (cat) => CAT_COLOR[cat] || '#1d6fa4'
 
 const T_TO_LBS = 2204.62
 function fmt(v) {
@@ -192,8 +193,8 @@ export default function ProduceExplorer({ items, allItems, year, allYears, surpl
               <YAxis type="category" dataKey="item" tick={{ fontSize:11, fill:'var(--text-secondary)' }} width={125} />
               <Tooltip formatter={(v, n) => [fmt(v||0), n]} labelStyle={{ color:'var(--text-primary)' }} />
               <Legend wrapperStyle={{ fontSize:11 }} />
-              <Bar dataKey="farmgate_t" name="Upstream"   stackId="a" fill="#2D6A4F" opacity={0.85} radius={[0,0,0,0]} />
-              <Bar dataKey="retail_t"   name="Downstream" stackId="a" fill="#1B4F8A" opacity={0.85} radius={[0,3,3,0]} />
+              <Bar dataKey="farmgate_t" name="Upstream"   stackId="a" fill="#1d6fa4" opacity={0.85} radius={[0,0,0,0]} />
+              <Bar dataKey="retail_t"   name="Downstream" stackId="a" fill="#f37d23" opacity={0.85} radius={[0,3,3,0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>

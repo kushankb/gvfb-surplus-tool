@@ -5,23 +5,22 @@ const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov
 
 // Distinct colors used only in the ranked bar chart (not the choropleth map)
 const CAR_COLORS = {
-  '5901': '#2166ac',
-  '5902': '#4393c3',
-  '5903': '#92c5de',
-  '5904': '#c6dbef',
-  '5905': '#fddbc7',
-  '5906': '#f4a582',
-  '5907': '#d6604d',
-  '5908': '#b2182b',
+  '5901': '#0f4c81',
+  '5902': '#1d6fa4',
+  '5903': '#3d8fc4',
+  '5904': '#7ab3d4',
+  '5905': '#fbb321',
+  '5906': '#f37d23',
+  '5907': '#c45c0a',
+  '5908': '#8a3f07',
 }
 
-// Choropleth: single green hue, intensity driven by surplus value
-// Returns an rgb string interpolated from light (#d1fae5) → dark (#065f46)
+// Choropleth: GVFB blue hue, intensity driven by surplus value
+// Interpolates from light blue (#dce8f5) → GVFB dark blue (#0f4c81)
 function choroColor(intensity) {
-  // light endpoint: 209,250,229  dark endpoint: 6,95,70
-  const r = Math.round(209 + (6   - 209) * intensity)
-  const g = Math.round(250 + (95  - 250) * intensity)
-  const b = Math.round(229 + (70  - 229) * intensity)
+  const r = Math.round(220 + (15  - 220) * intensity)
+  const g = Math.round(232 + (76  - 232) * intensity)
+  const b = Math.round(245 + (129 - 245) * intensity)
   return `rgb(${r},${g},${b})`
 }
 
@@ -111,8 +110,8 @@ function RegionTooltip({ uid, info, totalFG }) {
   if (!uid || !info) return null
   return (
     <div style={{
-      marginTop: 10, background: '#e8f3fb', borderRadius: 10, padding: '12px 16px',
-      border: '1px solid #bee3f8', display: 'flex', alignItems: 'center', gap: 20,
+      marginTop: 10, background: 'rgba(29,111,164,.08)', borderRadius: 10, padding: '12px 16px',
+      border: '1px solid rgba(29,111,164,.22)', display: 'flex', alignItems: 'center', gap: 20,
     }}>
       <div style={{ width: 12, height: 36, borderRadius: 3, background: CAR_COLORS[uid] || '#94a3b8', flexShrink: 0 }} />
       <div style={{ flex: 1 }}>
@@ -178,8 +177,8 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
     return (
       <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 8, padding: '8px 12px', boxShadow: 'var(--shadow)', fontSize: 12 }}>
         <div style={{ fontWeight: 600, marginBottom: 3 }}>{label}</div>
-        <div style={{ color: '#059669' }}>Upstream: <strong>{fmt(payload[0]?.value || 0)}</strong></div>
-        {label === peakMonth?.label && <div style={{ fontSize: 11, color: '#d97706', marginTop: 3 }}>🌟 Peak harvest month</div>}
+        <div style={{ color: 'var(--upstream)' }}>Upstream: <strong>{fmt(payload[0]?.value || 0)}</strong></div>
+        {label === peakMonth?.label && <div style={{ fontSize: 11, color: 'var(--downstream)', marginTop: 3 }}>🌟 Peak harvest month</div>}
       </div>
     )
   }
@@ -226,7 +225,7 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
               </defs>
 
               {/* Ocean background */}
-              <rect width={W} height={H} fill="#e0f2fe" rx={6} />
+              <rect width={W} height={H} fill="#c8dce8" rx={6} />
 
               {/* Region polygons — single green choropleth */}
               {geojson.features.map(f => {
@@ -311,7 +310,7 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
           <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '16px 18px 12px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)' }}>
             <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 2 }}>Monthly Seasonality — {year}</div>
             <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 10 }}>
-              Upstream surplus by month · peak month in green
+              Upstream surplus by month · peak month highlighted
             </div>
             <ResponsiveContainer width="100%" height={160}>
               <BarChart data={monthAgg} margin={{ top: 2, right: 4, left: -12, bottom: 0 }}>
@@ -325,7 +324,7 @@ export default function FarmRegionsView({ carData, monthly, year, item }) {
                 <Tooltip content={<MonthTip />} />
                 <Bar dataKey="farmgate_t" radius={[3, 3, 0, 0]} isAnimationActive={false}>
                   {monthAgg.map((d, i) => (
-                    <Cell key={i} fill={d.label === peakMonth?.label ? '#059669' : '#6ee7b7'} />
+                    <Cell key={i} fill={d.label === peakMonth?.label ? '#1d6fa4' : 'rgba(29,111,164,.35)'} />
                   ))}
                 </Bar>
               </BarChart>

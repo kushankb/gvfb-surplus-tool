@@ -1,37 +1,37 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  /* Surfaces */
-  --bg: #f7f9f8; --surface: #ffffff; --surface2: #f0f4f2;
-  --border: #e2e8e5; --border-light: #edf1ef;
+  /* Surfaces — white & light gray */
+  --bg: #f4f6f8; --surface: #ffffff; --surface2: #edf2f7;
+  --border: #d6e3ee; --border-light: #e8f0f7;
 
-  /* Text */
-  --text-primary: #111827; --text-secondary: #6b7280; --text-muted: #9ca3af;
+  /* Text — dark blue tones */
+  --text-primary: #0c2d48; --text-secondary: #4a6880; --text-muted: #7a9db5;
 
-  /* Semantic — Upstream (production & postharvest) */
-  --upstream: #2D6A4F; --upstream-mid: #3D8B6A; --upstream-light: #E8F5EE;
+  /* GVFB Blue — upstream */
+  --upstream: #1d6fa4; --upstream-mid: rgba(29,111,164,.60); --upstream-light: rgba(29,111,164,.10);
 
-  /* Semantic — Downstream (distribution & retail) */
-  --downstream: #1B4F8A; --downstream-mid: #2663A8; --downstream-light: #E3EDF8;
+  /* GVFB Orange — downstream */
+  --downstream: #f37d23; --downstream-mid: rgba(243,125,35,.60); --downstream-light: rgba(251,179,33,.13);
 
-  /* Semantic — Harvest accent */
-  --harvest: #C07823; --harvest-light: #FEF3E2;
+  /* Harvest accent (bright logo orange) */
+  --harvest: #fbb321; --harvest-light: rgba(251,179,33,.15);
 
-  /* Semantic — Danger */
+  /* Danger */
   --danger: #dc2626;
 
-  /* Produce category palette */
-  --cat-fruit:      #C07823;
-  --cat-tree:       #8A4B1B;
-  --cat-veg:        #2D6A4F;
-  --cat-gh:         #3D8B6A;
-  --cat-perishable: #1B6B8A;
-  --cat-storable:   #5A6B8A;
+  /* Produce category palette — blue/orange family */
+  --cat-fruit:      #f37d23;
+  --cat-tree:       #c45c0a;
+  --cat-veg:        #1d6fa4;
+  --cat-gh:         #3d8fc4;
+  --cat-perishable: #0f4c81;
+  --cat-storable:   #6a9fc0;
 
-  /* Legacy accent aliases (used by FTCView etc.) */
-  --accent: #1B4F8A; --accent-light: #E3EDF8;
-  --accent2: #2D6A4F; --accent2-light: #E8F5EE;
-  --accent3: #C07823; --accent3-light: #FEF3E2;
-  --accent4: #7c3aed; --accent4-light: #ede9fe;
+  /* Legacy accent aliases */
+  --accent: #1d6fa4; --accent-light: rgba(29,111,164,.10);
+  --accent2: #f37d23; --accent2-light: rgba(243,125,35,.12);
+  --accent3: #fbb321; --accent3-light: rgba(251,179,33,.15);
+  --accent4: #0f4c81; --accent4-light: rgba(15,76,129,.10);
 
   /* Shape & elevation */
   --radius-sm: 6px; --radius: 10px; --radius-lg: 16px;
@@ -40,20 +40,19 @@
   --font: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-
 :root[data-theme="dark"] {
-  --bg: #0f1712; --surface: #1a2320; --surface2: #1f2b27;
-  --border: #2d3d38; --border-light: #253330;
-  --text-primary: #f0f4f2; --text-secondary: #9ab5aa; --text-muted: #6b8880;
-  --upstream-light: #1a3328; --downstream-light: #162038; --harvest-light: #2c1e0a;
-  --accent-light: #162038;
+  --bg: #0d1f2d; --surface: #132338; --surface2: #1a2f44;
+  --border: #1e3a54; --border-light: #1a3048;
+  --text-primary: #e8f2fa; --text-secondary: #7aaac8; --text-muted: #4d7a9a;
+  --upstream-light: rgba(29,111,164,.18); --downstream-light: rgba(243,125,35,.18); --harvest-light: rgba(251,179,33,.15);
+  --accent-light: rgba(29,111,164,.18);
 }
 :root[data-theme="light"] {
-  --bg: #f7f9f8; --surface: #ffffff; --surface2: #f0f4f2;
-  --border: #e2e8e5; --border-light: #edf1ef;
-  --text-primary: #111827; --text-secondary: #6b7280; --text-muted: #9ca3af;
-  --upstream-light: #E8F5EE; --downstream-light: #E3EDF8; --harvest-light: #FEF3E2;
-  --accent-light: #E3EDF8;
+  --bg: #f4f6f8; --surface: #ffffff; --surface2: #edf2f7;
+  --border: #d6e3ee; --border-light: #e8f0f7;
+  --text-primary: #0c2d48; --text-secondary: #4a6880; --text-muted: #7a9db5;
+  --upstream-light: rgba(29,111,164,.10); --downstream-light: rgba(243,125,35,.12); --harvest-light: rgba(251,179,33,.15);
+  --accent-light: rgba(29,111,164,.10);
 }
 
 body { font-family: var(--font); background: var(--bg); color: var(--text-primary); line-height:1.5; -webkit-font-smoothing: antialiased; }

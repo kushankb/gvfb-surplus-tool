@@ -122,12 +122,12 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
         <div style={{
           background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '20px 22px',
           border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)',
-          borderTop: '3px solid #059669', minWidth: 0,
+          borderTop: '3px solid var(--harvest)', minWidth: 0,
         }}>
           <div style={{ fontSize: 12, color: 'var(--text-secondary)', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
             People Fed (Annual CFG)
           </div>
-          <div style={{ fontSize: 30, fontWeight: 700, color: '#059669', margin: '8px 0 2px', letterSpacing: '-1px' }}>
+          <div style={{ fontSize: 30, fontWeight: 700, color: 'var(--harvest)', margin: '8px 0 2px', letterSpacing: '-1px' }}>
             {fmtPeople(yearSummary.total_t)}
           </div>
           <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 6 }}>
@@ -135,7 +135,7 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
           </div>
           <div style={{ height: 3, background: 'var(--surface2)', borderRadius: 2 }}>
             <div style={{
-              height: 3, borderRadius: 2, background: '#059669',
+              height: 3, borderRadius: 2, background: 'var(--upstream)',
               width: `${Math.min(100, (yearSummary.farmgate_t / yearSummary.total_t) * 100)}%`,
               opacity: 0.6,
             }} />
@@ -177,12 +177,12 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
             <AreaChart data={trendData} margin={{ top: 4, right: 8, left: -10, bottom: 0 }}>
               <defs>
                 <linearGradient id="gradFG" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%"  stopColor="#2D6A4F" stopOpacity={0.28}/>
-                  <stop offset="95%" stopColor="#2D6A4F" stopOpacity={0}/>
+                  <stop offset="5%"  stopColor="#1d6fa4" stopOpacity={0.30}/>
+                  <stop offset="95%" stopColor="#1d6fa4" stopOpacity={0}/>
                 </linearGradient>
                 <linearGradient id="gradRT" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%"  stopColor="#1B4F8A" stopOpacity={0.28}/>
-                  <stop offset="95%" stopColor="#1B4F8A" stopOpacity={0}/>
+                  <stop offset="5%"  stopColor="#fbb321" stopOpacity={0.35}/>
+                  <stop offset="95%" stopColor="#fbb321" stopOpacity={0}/>
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f2f5" />
@@ -194,8 +194,8 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
               <ReferenceLine x={2022} stroke="#9ca3af" strokeDasharray="3 2" strokeWidth={1}
                 label={{ value: 'last fully\nobserved', position: 'insideTopLeft', fontSize: 9, fill: '#9ca3af' }} />
               <ReferenceLine x={year} stroke="var(--accent)" strokeDasharray="4 2" strokeWidth={1.5} />
-              <Area type="monotone" dataKey="Upstream"   stroke="#2D6A4F" strokeWidth={2} fill="url(#gradFG)" name="Upstream" />
-              <Area type="monotone" dataKey="Downstream" stroke="#1B4F8A" strokeWidth={2} fill="url(#gradRT)" name="Downstream" />
+              <Area type="monotone" dataKey="Upstream"   stroke="#1d6fa4" strokeWidth={2} fill="url(#gradFG)" name="Upstream" />
+              <Area type="monotone" dataKey="Downstream" stroke="#fbb321" strokeWidth={2.5} fill="url(#gradRT)" name="Downstream" />
             </AreaChart>
           </ResponsiveContainer>
         </div>
@@ -245,8 +245,8 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
       {/* GVFB FTC callout */}
       {(ftcTotals[2024] || ftcTotals[2025]) && (
         <div style={{
-          background: 'linear-gradient(135deg, #e8f3fb, #f0fdf4)',
-          border: '1px solid #bee3f8', borderRadius: 10, padding: '14px 20px', marginBottom: 12,
+          background: 'linear-gradient(135deg, rgba(29,111,164,.07), rgba(251,179,33,.08))',
+          border: '1px solid rgba(29,111,164,.20)', borderRadius: 10, padding: '14px 20px', marginBottom: 12,
           display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12,
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
