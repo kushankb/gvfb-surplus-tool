@@ -70,16 +70,12 @@ export default function ExecutiveSummary({ yearSummary, allYears, year, filtered
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 14, marginBottom: 18 }}>
         <KPICard
           label="Total Recoverable" value={fmt(yearSummary.total_t)} color="var(--accent)"
-          sub={`covers ${fmtPeople(yearSummary.total_t)} annual needs`}
-          trend={yoyTrend} trendVal={yoyPct ? `${yoyPct > 0 ? '+' : ''}${yoyPct}% YoY` : null}
         />
         <KPICard
           label="Upstream Surplus" value={fmt(yearSummary.farmgate_t)} color="var(--upstream)"
-          sub={`covers ${fmtPeople(yearSummary.farmgate_t)} annual needs`}
         />
         <KPICard
           label="Downstream Surplus" value={fmt(yearSummary.retail_t)} color="var(--downstream)"
-          sub={`${yearSummary.retail_t && yearSummary.total_t ? Math.round(yearSummary.retail_t / yearSummary.total_t * 100) : '—'}% of total`}
         />
         <div style={{
           background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '20px 22px',
