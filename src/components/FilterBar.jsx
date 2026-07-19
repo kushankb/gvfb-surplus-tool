@@ -91,7 +91,7 @@ export default function FilterBar({
             {items.map(i => <option key={i} value={i}>{i}</option>)}
           </select>
 
-          {activeTab !== 'regions' && (
+          {activeTab === 'produce' && (
             <div style={{ display: 'flex', gap: 4, marginLeft: 4 }}>
               {SURPLUS_TYPES.map(st => (
                 <button key={st.id} onClick={() => setSurplusType(st.id)} style={chip(surplusType === st.id, st.id)}>
