@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react'
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
-  ResponsiveContainer, Cell, Legend, LineChart, Line
+  ResponsiveContainer, LineChart, Line
 } from 'recharts'
 
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
@@ -89,19 +89,23 @@ export default function FTCView({ procured, byItem, years }) {
     return map
   }, [byItem, compYear])
 
-  // Items that appear in either source, sorted by surplus desc
+  // Items that appear in either source
   const compareData = useMemo(() => {
     const allItems = new Set([...Object.keys(procuredByItem), ...Object.keys(surplusByItem)])
     return [...allItems]
       .map(item => ({
         item,
-        procured_t:  Math.round((procuredByItem[item] || 0) * 10) / 10,
-        farmgate_t:  Math.round((surplusByItem[item]  || 0) * 10) / 10,
-        capture_pct: surplusByItem[item] ? Math.round((procuredByItem[item] || 0) / surplusByItem[item] * 100) : null,
+        procured_t:   Math.round((procuredByItem[item] || 0) * 10) / 10,
+        farmgate_t:   Math.round((surplusByItem[item]  || 0) * 10) / 10,
+        capture_pct:  surplusByItem[item] ? +((procuredByItem[item] || 0) / surplusByItem[item] * 100).toFixed(1) : null,
       }))
       .filter(d => d.farmgate_t > 0 || d.procured_t > 0)
-      .sort((a, b) => (b.farmgate_t || 0) - (a.farmgate_t || 0))
   }, [procuredByItem, surplusByItem])
+
+  // Capture rate: only items GVFB procures with a surplus estimate, sorted high to low
+  const captureData = useMemo(() =>
+    compareData.filter(d => d.capture_pct != null && d.procured_t > 0).sort((a, b) => b.capture_pct - a.capture_pct)
+  , [compareData])
 
   // ── Monthly timeline ─────────────────────────────────────────────────────
   const monthlyData = useMemo(() => {
@@ -148,25 +152,16 @@ export default function FTCView({ procured, byItem, years }) {
           sub="of estimated BC upstream surplus" />
       </div>
 
-      {/* Explanation banner */}
-      <div style={{
-        background: 'rgba(23,74,103,.05)', border: '1px solid rgba(23,74,103,.18)', borderRadius: 10,
-        padding: '12px 18px', marginBottom: 20, fontSize: 13, color: '#174A67', lineHeight: 1.7,
-      }}>
-        <strong>How to read this:</strong> The grey bars show the estimated total BC upstream surplus for each crop
-        (produce rejected before reaching stores). The blue bars show what GVFB farm gate program actually collected.
-        The gap represents surplus that was not recovered — either unavailable to GVFB, discarded, or used elsewhere.
-      </div>
-
-      {/* Comparison chart */}
+      {/* Capture rate chart */}
       <div style={{ background: 'var(--surface)', borderRadius: 'var(--radius-lg)', padding: '20px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)', marginBottom: 16 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 14 }}>
           <div>
-            <div style={{ fontSize: 14, fontWeight: 600 }}>GVFB Procurement vs Estimated Upstream Surplus</div>
-            <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 2 }}>Pounds · hover bars for upstream capture rate</div>
+            <div style={{ fontSize: 14, fontWeight: 600 }}>Upstream Surplus Captured by Crop — {compYear}</div>
+            <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2 }}>
+              % of estimated BC upstream surplus collected by GVFB · sorted highest to lowest · crops with no surplus estimate excluded
+            </div>
           </div>
-          {/* Year toggle */}
-          <div style={{ display: 'flex', gap: 6 }}>
+          <div style={{ display: 'flex', gap: 6, flexShrink: 0 }}>
             {[2024, 2025].map(yr => (
               <button key={yr} onClick={() => setCompYear(yr)} style={{
                 padding: '5px 14px', borderRadius: 20, fontSize: 12, fontWeight: 500,
@@ -178,16 +173,22 @@ export default function FTCView({ procured, byItem, years }) {
             ))}
           </div>
         </div>
-
-        <ResponsiveContainer width="100%" height={Math.max(320, compareData.length * 32)}>
-          <BarChart data={compareData} layout="vertical" margin={{ top: 0, right: 60, left: 175, bottom: 0 }}>
+        <ResponsiveContainer width="100%" height={Math.max(240, captureData.length * 34)}>
+          <BarChart key={compYear} data={captureData} layout="vertical" margin={{ top: 0, right: 55, left: 140, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" horizontal={false} />
-            <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={v => { const lbs = v * T_TO_LBS; return lbs >= 1e6 ? `${(lbs/1e6).toFixed(0)}M` : `${Math.round(lbs/1000)}k` }} />
-            <YAxis type="category" dataKey="item" tick={{ fontSize: 11 }} width={170} interval={0} />
-            <Tooltip content={<CompareTooltip />} />
-            <Legend wrapperStyle={{ fontSize: 11 }} />
-            <Bar dataKey="farmgate_t"  name="Estimated surplus" fill="#DDE3E5" radius={[0, 0, 0, 0]} />
-            <Bar dataKey="procured_t"  name="GVFB collected"    fill="#174A67" radius={[0, 3, 3, 0]} opacity={0.9} />
+            <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={v => `${v}%`} />
+            <YAxis type="category" dataKey="item" tick={{ fontSize: 11 }} width={135} interval={0} />
+            <Tooltip formatter={(v, name) => [`${v}%`, 'Capture rate']} labelStyle={{ color: 'var(--text-primary)' }}
+              contentStyle={{ fontSize: 12, border: '1px solid var(--border)', borderRadius: 8, boxShadow: 'var(--shadow)' }} />
+            <Bar dataKey="capture_pct" name="Capture rate" fill="#174A67" radius={[0, 3, 3, 0]}
+              isAnimationActive={false}
+              label={({ x, y, width, height, value }) => (
+                <text x={x + width + 5} y={y + height / 2} dominantBaseline="middle"
+                  fontSize={10} fill="var(--text-muted)" fontWeight="500">
+                  {value}%
+                </text>
+              )}
+            />
           </BarChart>
         </ResponsiveContainer>
       </div>

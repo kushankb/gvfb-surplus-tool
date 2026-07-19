@@ -103,13 +103,7 @@ export default function FilterBar({
         </div>
       </div>
 
-      <div style={{ padding: '4px 24px 5px', borderTop: '1px solid var(--border-light)', display: 'flex', gap: 16, fontSize: 11, color: 'var(--text-muted)' }}>
-        <span><strong>Year flags:</strong></span>
-        <span>◑ Incomplete/interpolated</span>
-        <span>~ Consumption extrapolated</span>
-        <span>⚠ Preliminary production</span>
-        <span style={{ fontStyle: 'italic' }}>2022 = last fully observed year</span>
-      </div>
+
     </div>
   )
 }

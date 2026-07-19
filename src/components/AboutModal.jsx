@@ -177,7 +177,7 @@ export default function AboutModal({ onClose }) {
         </Section>
 
         <div style={{ paddingTop: 16, borderTop: '1px solid #e5e7eb', fontSize: 11, color: '#9ca3af', textAlign: 'center' }}>
-          Methodology: Kushank Bajaj · UBC IRES · Canada FoodSupplyRisks project · Last updated July 2026
+          Last updated July 2026
         </div>
       </div>
     </div>
