@@ -16,7 +16,7 @@ const ITEMS = [...new Set(byItemData.map(d => d.item))].sort()
 const YEARS = [...new Set(summaryData.map(d => d.year))].sort()
 
 export default function App() {
-  const [year, setYear]               = useState(2025)
+  const [year, setYear]               = useState(2022)
   const [item, setItem]               = useState('All')
   const [surplusType, setSurplusType] = useState('total')
   const [activeTab, setActiveTab]     = useState('executive')
