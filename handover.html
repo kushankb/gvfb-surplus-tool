@@ -1,0 +1,581 @@
+<title>GVFB BC Produce Surplus Tool — Handover</title>
+<style>
+  :root {
+    --navy:    #174A67;
+    --orange:  #E98A3A;
+    --navy-dk: #0E2F42;
+    --bg:      #F6F7F9;
+    --surface: #FFFFFF;
+    --border:  #DDE3EA;
+    --text:    #1A2733;
+    --muted:   #5C6E7E;
+    --tag-bg:  #EBF2F7;
+    --tag-txt: #174A67;
+    --code-bg: #EEF2F6;
+    --link:    #174A67;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:#0D1B24; --surface:#132030; --border:#1E3044; --text:#E2EAF0;
+      --muted:#8AA4B8; --tag-bg:#1A3348; --tag-txt:#7BB8D8; --code-bg:#0F1E2C; --link:#7BB8D8;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg:#F6F7F9; --surface:#FFFFFF; --border:#DDE3EA; --text:#1A2733;
+    --muted:#5C6E7E; --tag-bg:#EBF2F7; --tag-txt:#174A67; --code-bg:#EEF2F6; --link:#174A67;
+  }
+  :root[data-theme="dark"] {
+    --bg:#0D1B24; --surface:#132030; --border:#1E3044; --text:#E2EAF0;
+    --muted:#8AA4B8; --tag-bg:#1A3348; --tag-txt:#7BB8D8; --code-bg:#0F1E2C; --link:#7BB8D8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    padding: 0 16px 80px;
+  }
+  a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+  a:hover { opacity: 0.75; }
+  .page { max-width: 820px; margin: 0 auto; }
+
+  /* Header */
+  .doc-header {
+    background: var(--navy);
+    margin: 0 -16px 48px;
+    padding: 48px 32px 40px;
+    position: relative; overflow: hidden;
+  }
+  .doc-header::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), transparent);
+  }
+  .doc-header .org {
+    font-size: 11px; font-weight: 600; letter-spacing: .12em;
+    text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 12px;
+  }
+  .doc-header h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(22px, 4vw, 30px);
+    font-weight: 700; color: #fff; line-height: 1.25;
+    text-wrap: balance; margin-bottom: 12px;
+  }
+  .doc-header .subtitle {
+    font-size: 14px; color: rgba(255,255,255,.6); max-width: 540px; line-height: 1.65;
+  }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 28px; }
+  .meta-item { font-size: 12px; color: rgba(255,255,255,.45); }
+  .meta-item strong { color: rgba(255,255,255,.85); display: block; font-size: 13px; margin-bottom: 1px; }
+
+  /* Audience badges */
+  .audience-tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; padding: 3px 9px; border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  .aud-all      { background: #E8F4E8; color: #2A6A2A; }
+  .aud-program  { background: #FEF3E2; color: #8A4A00; }
+  .aud-tech     { background: #E8EEF8; color: #1A3880; }
+  :root[data-theme="dark"] .aud-all     { background: #1A3A1A; color: #7AC87A; }
+  :root[data-theme="dark"] .aud-program { background: #2E1E00; color: #E5A840; }
+  :root[data-theme="dark"] .aud-tech    { background: #0E1E3A; color: #7AA8E8; }
+
+  /* Sections */
+  section { margin-bottom: 44px; }
+  .section-label {
+    font-family: Georgia, serif;
+    font-size: 18px; font-weight: 700;
+    color: var(--text);
+    padding-left: 16px;
+    border-left: 3px solid var(--orange);
+    margin-bottom: 20px; line-height: 1.3;
+  }
+  p { margin-bottom: 12px; }
+  p:last-child { margin-bottom: 0; }
+
+  /* Cards */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 22px; margin-bottom: 12px;
+  }
+  .card-title {
+    font-size: 12px; font-weight: 700; color: var(--navy);
+    text-transform: uppercase; letter-spacing: .07em; margin-bottom: 10px;
+  }
+  :root[data-theme="dark"] .card-title { color: var(--tag-txt); }
+
+  /* Link cards */
+  .link-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+  .link-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: 3px solid var(--navy);
+    border-radius: 10px; padding: 18px 20px;
+    text-decoration: none; display: block;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .link-card:hover { border-color: var(--orange); box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+  .link-card .lc-type { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .link-card .lc-name { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+  .link-card .lc-url  { font-size: 11px; color: var(--muted); font-family: 'Courier New', monospace; word-break: break-all; }
+
+  /* Tables */
+  .table-wrap { overflow-x: auto; margin-bottom: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th {
+    text-align: left; font-size: 11px; font-weight: 700; letter-spacing: .07em;
+    text-transform: uppercase; color: var(--muted); padding: 8px 12px;
+    border-bottom: 2px solid var(--border);
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--tag-bg); }
+
+  /* Lists */
+  .feature-list { list-style: none; padding: 0; }
+  .feature-list li {
+    padding: 11px 0 11px 20px; border-bottom: 1px solid var(--border);
+    position: relative; font-size: 14px;
+  }
+  .feature-list li:last-child { border-bottom: none; }
+  .feature-list li::before {
+    content: ''; position: absolute; left: 0; top: 20px;
+    width: 7px; height: 7px; border-radius: 50%; background: var(--orange);
+  }
+  .feature-list li strong { color: var(--text); }
+  .feature-list li .note { color: var(--muted); font-size: 13px; display: block; margin-top: 2px; }
+
+  ul.plain { padding-left: 20px; }
+  ul.plain li { margin-bottom: 8px; font-size: 14px; }
+
+  /* Code */
+  code {
+    font-family: 'Courier New', monospace; font-size: 12.5px;
+    background: var(--code-bg); color: var(--text);
+    padding: 2px 6px; border-radius: 4px;
+  }
+  pre {
+    background: var(--code-bg); border: 1px solid var(--border);
+    border-radius: 8px; padding: 16px 18px; overflow-x: auto;
+    font-family: 'Courier New', monospace; font-size: 12.5px;
+    line-height: 1.7; color: var(--text); margin-bottom: 12px;
+  }
+  .file-tree {
+    background: var(--code-bg); border: 1px solid var(--border);
+    border-radius: 8px; padding: 16px 18px;
+    font-family: 'Courier New', monospace; font-size: 12.5px;
+    line-height: 2; color: var(--text);
+    white-space: pre-wrap;
+  }
+  .file-tree .dir { color: var(--navy); font-weight: 700; }
+  :root[data-theme="dark"] .file-tree .dir { color: var(--tag-txt); }
+  .file-tree .comment { color: var(--muted); }
+
+  /* Highlight box */
+  .highlight {
+    background: var(--tag-bg); border-left: 3px solid var(--navy);
+    border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 16px;
+    font-size: 14px;
+  }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+  .doc-footer {
+    text-align: center; font-size: 12px; color: var(--muted);
+    padding-top: 28px; border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 560px) {
+    .doc-header { padding: 36px 20px 32px; }
+    .link-cards { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="doc-header">
+    <div class="org">Greater Vancouver Food Bank · BC Produce Surplus Tool</div>
+    <h1>Project Handover Document</h1>
+    <p class="subtitle">
+      A reference covering what was built, how to use it, what data it draws on,
+      and how it works under the hood — for everyone from leadership to technical staff.
+    </p>
+    <div class="meta-row">
+      <div class="meta-item"><strong>Completed</strong>July 2026</div>
+      <div class="meta-item"><strong>Data coverage</strong>BC produce · 2010–2025</div>
+      <div class="meta-item"><strong>Created by</strong>Kushank Bajaj<br>Adjunct Faculty, IRES, UBC</div>
+    </div>
+  </div>
+
+  <!-- Quick links -->
+  <section>
+    <div class="section-label">Where to Find It</div>
+    <div class="link-cards">
+      <a class="link-card" href="https://kushankbajaj.com/gvfb-surplus-tool/" target="_blank">
+        <div class="lc-type">Live Tool</div>
+        <div class="lc-name">BC Produce Surplus Tool</div>
+        <div class="lc-url">kushankbajaj.com/gvfb-surplus-tool</div>
+      </a>
+      <a class="link-card" href="https://github.com/kushankb/gvfb-surplus-tool" target="_blank">
+        <div class="lc-type">Source Code</div>
+        <div class="lc-name">GitHub Repository</div>
+        <div class="lc-url">github.com/kushankb/gvfb-surplus-tool</div>
+      </a>
+      <a class="link-card" href="https://canadafoodflows.ca/" target="_blank">
+        <div class="lc-type">Methodology Reference</div>
+        <div class="lc-name">Canada's Food Flow Tool</div>
+        <div class="lc-url">canadafoodflows.ca</div>
+      </a>
+      <div class="link-card" style="cursor:default;">
+        <div class="lc-type">Data Handover</div>
+        <div class="lc-name">Harmonized Surplus Data</div>
+        <div class="lc-url">bc_produce_surplus_harmonized.csv</div>
+        <p style="font-size:12px; color:var(--muted); margin-top:6px; line-height:1.5;">640 rows · 40 produce items × 16 years (2010–2025) · upstream &amp; downstream surplus estimates with low/high bounds. Provided separately for GVFB review in Excel.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- For everyone -->
+  <section>
+    <div class="audience-tag aud-all">For everyone</div>
+    <div class="section-label">What the Tool Does</div>
+
+    <p>
+      Every year, a significant share of BC's fresh produce never reaches anyone's plate — it is
+      rejected at the farm, overstocked at stores, or discarded before purchase. This tool
+      estimates how much of that surplus could be recovered, and puts it in human terms:
+      <strong>how many people could eat for a year</strong> if that food were redirected.
+    </p>
+    <p>
+      It covers <strong>40 fruits and vegetables</strong> consumed in British Columbia,
+      from <strong>2010 to 2025</strong>, including BC-grown crops, interprovincial
+      shipments, and international imports circulating in BC's supply chain.
+    </p>
+
+    <div class="card" style="margin-top:20px; border-left: 3px solid var(--navy);">
+      <div class="card-title">Four tabs in the dashboard</div>
+      <ul class="feature-list" style="margin-top:4px;">
+        <li>
+          <strong>Overview</strong>
+          <span class="note">Total recoverable surplus for a selected year, broken down by crop. Key figures: total weight, upstream vs downstream split, and how many people that could feed for a year.</span>
+        </li>
+        <li>
+          <strong>Regions &amp; Seasons</strong>
+          <span class="note">A map of BC's farming regions showing where surplus originates, and a seasonal chart showing monthly patterns.</span>
+        </li>
+        <li>
+          <strong>By Produce</strong>
+          <span class="note">Year-over-year trends for any individual crop — useful for tracking how a commodity's surplus has changed over time.</span>
+        </li>
+        <li>
+          <strong>Farm Gate Procured</strong>
+          <span class="note">What GVFB has actually collected from BC farms (Feb 2024 – Mar 2026) compared to the estimated available surplus. Shows the "capture rate" — how much of the potential is being reached — for each crop.</span>
+        </li>
+      </ul>
+    </div>
+
+    <p style="font-size:14px; color:var(--muted); margin-top:8px;">
+      The <strong>About this tool</strong> button in the top right of the dashboard contains
+      a full plain-English methodology explanation, including data sources and limitations.
+    </p>
+  </section>
+
+  <!-- For program staff -->
+  <section>
+    <div class="audience-tag aud-program">For program &amp; research staff</div>
+    <div class="section-label">Data &amp; Methodology</div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Data</th><th>Source</th><th>Coverage</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>BC production volumes</td>
+            <td>Statistics Canada (Tables 32-10-0456, 0364, 0365)</td>
+            <td>2010–2025 (2024–25 preliminary, subject to revision)</td>
+          </tr>
+          <tr>
+            <td>International trade</td>
+            <td>Canada International Merchandise Trade (CIMT) — provincial imports/exports</td>
+            <td>2010–2025</td>
+          </tr>
+          <tr>
+            <td>Consumption</td>
+            <td>FAOSTAT national food supply accounts for Canada</td>
+            <td>2010–2023 actual; 2024–25 extrapolated at 2023 per-capita levels</td>
+          </tr>
+          <tr>
+            <td>Loss rates</td>
+            <td>Seven studies identified by GVFB staff + three self-reports from existing GVFB farm donors</td>
+            <td>Applied uniformly across produce types (see note below)</td>
+          </tr>
+          <tr>
+            <td>Regional boundaries</td>
+            <td>Statistics Canada Census Agricultural Region file (2021)</td>
+            <td>BC only</td>
+          </tr>
+          <tr>
+            <td>Farm Gate Procured</td>
+            <td>GVFB internal FTC inbound database</td>
+            <td>February 2024 – March 2026; product names harmonised to StatsCan categories</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">How the surplus estimates are calculated</div>
+      <ul class="plain" style="margin-top:4px;">
+        <li>
+          <strong>Upstream surplus</strong> (farm-gate): applied as a two-stage cascade to BC StatsCan harvested quantities —
+          14.2% production loss is taken first, then 8.7% postharvest loss is applied to what remains
+          (not summed: the effective combined rate is ~21.7%, not 23%). "Harvested quantity" already excludes
+          field losses from weather and pests — this model captures what was successfully harvested
+          but rejected for cosmetic or marketability reasons.
+        </li>
+        <li style="margin-top:10px;">
+          <strong>Downstream surplus</strong> (retail): a 2.5% distribution + 5.8% retail loss
+          is applied to BC's provincial retail supply. Retail supply is derived from a full
+          mass balance:
+          <br><br>
+          <em>BC production − upstream surplus + international imports + interprovincial inflows − exports − interprovincial outflows</em>
+          <br><br>
+          Interprovincial flows are not directly observed — they are estimated using
+          Inverse Distance Weighting (IDW), allocating surplus from supply provinces to
+          deficit provinces by road proximity. This methodology is consistent with
+          <a href="https://canadafoodflows.ca/" target="_blank">Canada's Food Flow tool</a>.
+        </li>
+        <li style="margin-top:10px;">
+          <strong>People fed</strong>: total surplus ÷ 204 kg — Canada's Food Guide
+          benchmark of 7 servings × 80 g × 365 days per person per year.
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight">
+      <strong>Important caveat on loss rates:</strong> The same loss rates are applied
+      to all 40 produce types. We acknowledge that highly perishable produce (e.g. berries)
+      typically has higher loss rates than hardy produce (e.g. potatoes). We found too few
+      category-specific observations to justify separate rates, and Second Harvest (2024) —
+      while implied to have subcategory-level rates from extensive interviews — has declined
+      to share those figures. The estimates should be read as indicative, not precise.
+      <br><br>
+      Loss rates were reviewed and developed by <strong>Brian Lee</strong> (GVFB), drawing on seven studies and three self-reports from existing GVFB farm donors.
+    </div>
+
+    <div class="card">
+      <div class="card-title">Downscaling BC consumption from national data</div>
+      <p style="font-size:14px; margin-bottom:10px;">
+        FAOSTAT provides food supply accounts at the <strong>national (Canada) level</strong> only. To estimate BC-specific consumption, national per-capita figures are multiplied by BC's population (Statistics Canada annual estimates). This assumes BC residents consume at the national average rate — a simplification that is reasonable at the provincial scale but does not capture regional dietary differences.
+      </p>
+      <p style="font-size:14px; margin-bottom:6px; font-weight:600; color:var(--muted);">How this could be improved:</p>
+      <ul class="plain" style="margin-top:0; font-size:14px;">
+        <li>BC-specific dietary survey data (e.g. from CCHS Nutrition) could replace national per-capita averages for produce where regional patterns differ significantly.</li>
+        <li>Retail scanner data or grocery chain sales data for BC would give a more direct consumption signal, removing the need for per-capita downscaling entirely.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Deriving seasonal patterns from annual estimates</div>
+      <p style="font-size:14px; margin-bottom:10px;">
+        StatsCan production data and the surplus model both produce <strong>annual totals</strong>. To show monthly and seasonal patterns in the dashboard, annual figures are disaggregated using two seasonal signal sources:
+      </p>
+      <ul class="plain" style="margin-top:0; font-size:14px; margin-bottom:10px;">
+        <li><strong>GVFB Farm-to-Community donation data</strong> — the months in which GVFB actually receives each crop from farms, used as a proxy for the BC harvest window.</li>
+        <li><strong>BC Ministry of Agriculture harvest calendars</strong> — published typical harvest months by commodity, used to fill gaps where GVFB data is thin.</li>
+      </ul>
+      <p style="font-size:14px; margin-bottom:6px;">
+        The annual estimate for each crop is distributed across its active harvest months in proportion to the seasonal weights, giving a monthly approximation. This is an allocation, not a measurement — actual month-to-month variation within the season is not captured.
+      </p>
+      <p style="font-size:14px; margin-bottom:6px; font-weight:600; color:var(--muted);">How this could be improved:</p>
+      <ul class="plain" style="margin-top:0; font-size:14px;">
+        <li>StatsCan publishes some monthly greenhouse production data — incorporating this would give a directly observed seasonal signal for tomatoes, peppers, and cucumbers.</li>
+        <li>As the GVFB FTC dataset grows in future years, its seasonal patterns will become a more reliable signal of actual farm availability windows.</li>
+        <li>Farmer-reported harvest start/end dates, collected through GVFB's procurement relationships, could provide crop- and region-specific windows rather than provincial averages.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Downscaling provincial production to Census Agricultural Regions (CARs)</div>
+      <p style="font-size:14px; margin-bottom:10px;">
+        The <strong>Regions &amp; Seasons</strong> tab shows surplus broken down by BC's Census Agricultural Regions — sub-provincial areas defined by Statistics Canada. StatsCan production data is reported at the provincial level, so it must be disaggregated spatially to produce the CAR-level estimates shown on the map.
+      </p>
+      <p style="font-size:14px; margin-bottom:10px;">
+        This is done using <strong>Census of Agriculture area-harvested shares</strong>: for each produce type, the fraction of BC's total harvested area located within each CAR (from the 2021 Census of Agriculture) is used to allocate the provincial surplus estimate. For example, if the Fraser Valley CAR contains 60% of BC's strawberry area, it is assigned 60% of BC's estimated strawberry surplus.
+      </p>
+      <p style="font-size:14px; margin-bottom:6px; font-weight:600; color:var(--muted);">How this could be improved:</p>
+      <ul class="plain" style="margin-top:0; font-size:14px;">
+        <li><strong>Yield heterogeneity</strong> — the current method assumes uniform yields across CARs. Using CAR-level yield data where available (e.g. from the Census of Agriculture or BC Ministry of Agriculture surveys) would produce more accurate spatial estimates.</li>
+        <li><strong>More recent census data</strong> — the 2026 Census of Agriculture will update harvested area shares; incorporating it when released would improve spatial accuracy.</li>
+        <li><strong>Crop-specific regional patterns</strong> — some crops are highly concentrated in specific CARs (e.g. Okanagan tree fruit, Delta greenhouse); targeted data collection for those crops could replace the area-share proxy.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Key interpretation notes</div>
+      <ul class="plain" style="margin-top:4px;">
+        <li>2024–2025 data is <strong>preliminary</strong> — the tool flags this visually. Figures will update as StatsCan revises.</li>
+        <li>The <strong>capture rate</strong> on the Farm Gate tab (GVFB collected ÷ estimated surplus) reflects how much of the potential is being reached per crop. A low rate is expected for widely dispersed crops like blueberries — it reflects logistical access, not underperformance.</li>
+        <li>Downstream surplus includes <strong>all food wasted within BC's retail system</strong>, including produce grown elsewhere. This is the full system picture, not just BC-grown food.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- For technical staff -->
+  <section>
+    <div class="audience-tag aud-tech">For technical staff</div>
+    <div class="section-label">Architecture &amp; Maintenance</div>
+
+    <p>
+      The dashboard is a static single-page React application. There is no backend, no database,
+      and no API. All data is bundled as JSON files. Updating the tool means replacing those
+      JSON files and redeploying — no server configuration required.
+    </p>
+
+    <div class="card" style="margin-bottom:16px;">
+      <div class="card-title">Tech stack</div>
+      <div class="table-wrap" style="margin-bottom:0;">
+        <table>
+          <thead><tr><th>Layer</th><th>Library</th><th>Version</th></tr></thead>
+          <tbody>
+            <tr><td>Framework</td><td>React</td><td>19</td></tr>
+            <tr><td>Bundler</td><td>Vite</td><td>4</td></tr>
+            <tr><td>Charts</td><td>Recharts</td><td>3</td></tr>
+            <tr><td>Icons</td><td>Lucide React</td><td>latest</td></tr>
+            <tr><td>UI primitives</td><td>Radix UI (select, tabs)</td><td>latest</td></tr>
+            <tr><td>Maps</td><td>SVG + GeoJSON (no external map library)</td><td>—</td></tr>
+            <tr><td>Hosting</td><td>GitHub Pages, auto-deploy on push to <code>main</code></td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px;">
+      <div class="card-title">Run locally</div>
+      <pre>git clone https://github.com/kushankb/gvfb-surplus-tool
+cd gvfb-surplus-tool
+npm install
+npm run dev        # → http://localhost:5173</pre>
+      <p style="font-size:13px; color:var(--muted); margin-top:4px;">No environment variables or API keys required.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:16px;">
+      <div class="card-title">Key files</div>
+      <div class="file-tree">
+<span class="dir">src/</span>
+├── <span class="dir">components/</span>
+│   ├── App.jsx               <span class="comment"># Root: tab routing, global state, data imports</span>
+│   ├── Header.jsx            <span class="comment"># Top bar with GVFB logo and About button</span>
+│   ├── FilterBar.jsx         <span class="comment"># Year + produce dropdowns, tab navigation</span>
+│   ├── ExecutiveSummary.jsx  <span class="comment"># Overview tab: KPI cards + top-crops chart</span>
+│   ├── FarmRegionsView.jsx   <span class="comment"># Regions & Seasons: map + monthly chart</span>
+│   ├── ProduceExplorer.jsx   <span class="comment"># By Produce: time series + category bars</span>
+│   ├── FTCView.jsx           <span class="comment"># Farm Gate tab: capture rate chart + timeline</span>
+│   └── AboutModal.jsx        <span class="comment"># Methodology modal (plain-English for users)</span>
+└── <span class="dir">data/</span>
+    ├── summary.json          <span class="comment"># Year-level totals (total_t, farmgate_t, retail_t)</span>
+    ├── byItem.json           <span class="comment"># Item × year breakdown with category flags</span>
+    ├── monthly.json          <span class="comment"># Monthly seasonal patterns by item</span>
+    ├── byCARItem.json        <span class="comment"># By Census Agricultural Region × item</span>
+    ├── byCAR.json            <span class="comment"># CAR-level aggregates</span>
+    ├── gvfbProcured.json     <span style="color:#d97706; font-weight:600"># ⚠ SENSITIVE — GVFB internal procurement data</span>
+    └── bc_cars.geojson       <span class="comment"># BC CAR boundary polygons for the map</span></div>
+    </div>
+
+    <div class="card" style="margin-top:4px; border-left: 3px solid #d97706;">
+      <div class="card-title" style="color:#92400e;">⚠ Data sensitivity — gvfbProcured.json</div>
+      <p style="font-size:14px;">This file contains GVFB's internal farm procurement records (Feb 2024 – Mar 2026) including farm names, products, dates, and weights. It is currently bundled in the <strong>public</strong> GitHub repository. GVFB should review whether this level of detail is appropriate for public disclosure, and consider removing or anonymising this file from the public repo if not.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Updating the data</div>
+      <ol style="padding-left: 20px; font-size: 14px; line-height: 2; color: var(--text);">
+        <li>Regenerate the JSON files from the upstream Python data pipeline.</li>
+        <li>Replace the files in <code>src/data/</code>.</li>
+        <li>Push to <code>main</code> — GitHub Actions will rebuild and redeploy automatically once a live deployment is configured.</li>
+      </ol>
+      <p style="font-size:13px; color:var(--muted); margin-top:10px;">
+        Deploy workflow: <code>.github/workflows/deploy.yml</code> · Note: the tool is not currently deployed to a live URL.
+      </p>
+    </div>
+
+    <div class="card" style="margin-top:12px; border-left: 3px solid #d97706;">
+      <div class="card-title" style="color:#92400e;">Known technical issue — Recharts animation</div>
+      <p style="font-size:14px;">
+        The Farm Gate capture rate chart uses <code>isAnimationActive={false}</code> on the
+        <code>&lt;Bar&gt;</code> component. This is intentional and must not be removed.
+        Without it, Recharts 3 renders all bars as invisible when <code>&lt;Cell&gt;</code>
+        children are present for per-bar colour. This is a library bug, not a data issue.
+      </p>
+    </div>
+  </section>
+
+  <!-- IP & Licensing -->
+  <section>
+    <div class="section-label">Intellectual Property &amp; Licensing</div>
+    <p>The source code and data pipeline for this tool are owned by <strong>Kushank Bajaj</strong>. GVFB is granted use of the tool and its outputs for internal and external purposes, but does not hold ownership of the codebase.</p>
+    <p>The GitHub repository is currently public. GVFB is free to use, share, and reference the tool and its outputs. Any redistribution or reuse of the underlying code should acknowledge Kushank Bajaj.</p>
+    <div class="highlight">
+      <strong>GVFB internal procurement data (gvfbProcured.json)</strong> remains the property of GVFB. Its current inclusion in a public repository should be reviewed — see the data sensitivity note above.
+    </div>
+  </section>
+
+  <!-- Ongoing support & future work -->
+  <section>
+    <div class="section-label">Ongoing Support &amp; Future Work</div>
+    <p>This handover marks the completion of the initial version of the tool. Ongoing support is available and further development is anticipated, including possibilities for scaling this work.</p>
+
+    <div class="card" style="margin-bottom:12px;">
+      <div class="card-title">Immediate next steps</div>
+      <ul class="plain" style="margin-top:4px;">
+        <li><strong>Deploy the tool</strong> to a publicly accessible URL (to be arranged with GVFB).</li>
+        <li><strong>Review data sensitivity</strong> of <code>gvfbProcured.json</code> in the public GitHub repository.</li>
+        <li><strong>Update procurement data</strong> as new farm gate collection records become available beyond March 2026.</li>
+        <li><strong>Refresh annual data</strong> once StatsCan releases final 2024–2025 production figures.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Potential future extensions</div>
+      <ul class="plain" style="margin-top:4px;">
+        <li><strong>Crop-specific loss rates</strong> — if subcategory-level data becomes available, the model can be updated to reflect perishability differences across produce types.</li>
+        <li><strong>Expanded procurement coverage</strong> — integrate additional years of GVFB farm data as they accumulate.</li>
+        <li><strong>Donor-facing outputs</strong> — adapted visualisations for grant applications, annual reports, or fundraising materials.</li>
+        <li><strong>Regional disaggregation</strong> — connect surplus estimates more directly to specific farming regions or GVFB procurement geographies.</li>
+        <li><strong>Other provincial adaptations</strong> — the methodology is transferable to other provinces with equivalent StatsCan and trade data.</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- Contact -->
+  <section>
+    <div class="section-label">Contact</div>
+    <div class="card">
+      <p style="font-size:14px;">
+        <strong>Kushank Bajaj</strong><br>
+        Adjunct Faculty, Institute for Resources, Environment and Sustainability (IRES), University of British Columbia<br>
+        <a href="https://kushankbajaj.com" target="_blank">kushankbajaj.com</a>
+      </p>
+      <p style="font-size:14px; margin-top:10px;">
+        For questions about the methodology, data pipeline, or codebase:
+        <a href="mailto:bajajkushank@gmail.com">bajajkushank@gmail.com</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="doc-footer">
+    GVFB BC Produce Surplus Tool · Handover · July 2026
+  </div>
+
+</div>

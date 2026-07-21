@@ -33,7 +33,7 @@ function fmt(v) {
 }
 
 export default function ProduceExplorer({ items, allItems, year, allYears, surplusType }) {
-  const [view, setView] = useState('compare')
+  const [view, setView] = useState('trend')
   const [selectedItems, setSelectedItems] = useState([])
 
   const key = KEY_MAP[surplusType] || 'total_t'
@@ -57,9 +57,9 @@ export default function ProduceExplorer({ items, allItems, year, allYears, surpl
   const toggleItem = (item) =>
     setSelectedItems(prev => prev.includes(item) ? prev.filter(i => i !== item) : [...prev.slice(-4), item])
 
-  const fruitsTotal = items.filter(d => SIMPLE_CAT(d.category) === 'Fruits').reduce((s,d) => s+(d[key]||0), 0)
-  const vegsTotal   = items.filter(d => SIMPLE_CAT(d.category) === 'Vegetables').reduce((s,d) => s+(d[key]||0), 0)
-  const grandTotal  = fruitsTotal + vegsTotal
+  const upstreamTotal   = items.reduce((s,d) => s+(d.farmgate_t||0), 0)
+  const downstreamTotal = items.reduce((s,d) => s+(d.retail_t||0), 0)
+  const grandTotal      = items.reduce((s,d) => s+(d.total_t||0), 0)
 
   const btnStyle = (active, color = 'var(--upstream)') => ({
     padding:'5px 14px', borderRadius:20, fontSize:12, fontWeight:500, cursor:'pointer',
@@ -90,11 +90,11 @@ export default function ProduceExplorer({ items, allItems, year, allYears, surpl
       {/* Category split cards */}
       <div style={{ display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:12, marginBottom:20 }}>
         {[
-          { label:'Fruits',     val:fruitsTotal, color:'var(--cat-fruit)' },
-          { label:'Vegetables', val:vegsTotal,   color:'var(--cat-veg)' },
-          { label:'Total',      val:grandTotal,  color:'var(--harvest)' },
+          { label:'Upstream',   val:upstreamTotal,   color:'var(--upstream)' },
+          { label:'Downstream', val:downstreamTotal, color:'var(--downstream)' },
+          { label:'Total',      val:grandTotal,      color:'var(--harvest)' },
         ].map(({ label, val, color }) => {
-          const pct = grandTotal ? val / grandTotal * 100 : 0
+          const pct = grandTotal ? Math.min(val / grandTotal * 100, 100) : 0
           return (
             <div key={label} style={{
               background:'var(--surface)', borderRadius:'var(--radius)', padding:'14px 16px',

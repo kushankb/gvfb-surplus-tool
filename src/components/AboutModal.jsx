@@ -97,8 +97,9 @@ export default function AboutModal({ onClose }) {
         </Section>
 
         <Section icon="📐" title="How are the numbers estimated?">
-          <strong>Upstream surplus</strong> uses a cascade model: 14.2% production loss + 8.7%
-          postharvest loss applied to BC StatsCan harvested quantities.
+          <strong>Upstream surplus</strong> uses a two-stage cascade: 14.2% production loss is taken first,
+          then 8.7% postharvest loss is applied to what remains — not summed (the effective combined rate
+          is ~21.7%, not 23%).
           Loss rates are derived from literature and uses estimates from multiple studies. More information can be found here.
           <br /><br />
           <strong>Downstream surplus</strong> uses a second cascade: 2.5% distribution + 5.8%
