@@ -39,8 +39,8 @@ export default function ProduceExplorer({ items, allItems, year, allYears, surpl
   const key = KEY_MAP[surplusType] || 'total_t'
 
   const ranked = [...items]
-    .filter(d => d[key] != null)
-    .sort((a, b) => (b[key]||0) - (a[key]||0))
+    .filter(d => d.total_t != null)
+    .sort((a, b) => (b.total_t||0) - (a.total_t||0))
 
   const allItemNames = [...new Set(allItems.map(d => d.item))].sort()
   const selectedForTrend = selectedItems.length ? selectedItems : ranked.slice(0, 5).map(d => d.item)
